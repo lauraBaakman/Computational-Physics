@@ -1,0 +1,69 @@
+\RequirePackage[english]{babel}
+\RequirePackage{a4wide}
+
+% Fonts
+\RequirePackage[sc]{mathpazo}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage{lettrine}
+
+% Document layout
+\RequirePackage{paralist}
+
+% Floats
+\RequirePackage{float}
+
+%Plaatjes
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage[hang, small,labelfont=bf,up,textfont=sl,up, justification=raggedright]{caption}
+\RequirePackage{subcaption}
+\DeclareCaptionLabelFormat{opening}{(#2)}
+\captionsetup{subrefformat=opening}
+
+% Tables
+\RequirePackage{booktabs}
+
+% Custom section headers
+\RequirePackage{titlesec}
+\titleformat{\section}[block]{\large\scshape}{\thesection.}{1em}{}
+\titleformat{\subsection}[block]{\large\scshape}{\thesubsection.}{1em}{}
+\titleformat{\subsubsection}[block]{\scshape}{\thesubsubsection.}{1em}{}
+
+%Wiskunde
+\RequirePackage[low=1e-1,high=1e3]{threshold}
+\sisetup{round-mode=figures, round-precision=4, exponent-base=e, exponent-product={}}
+\RequirePackage{mathtools}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+
+% References
+\RequirePackage{varioref}
+\RequirePackage{hyperref}
+\RequirePackage[noabbrev]{cleveref}
+
+% References
+\RequirePackage[backend=bibtex]{biblatex}
+\RequirePackage{csquotes}
+\bibliography{biblio}
+
+% Pseudo code
+\RequirePackage[algoruled,vlined, shortend]{algorithm2e}
+\RequirePackage[export]{adjustbox}
+\RequirePackage{setspace}
+
+\makeatletter
+\newcommand{\nosemic}{\renewcommand{\@endalgocfline}{\relax}}% Drop semi-colon ;
+\newcommand{\dosemic}{\renewcommand{\@endalgocfline}{\algocf@endline}}% Reinstate semi-colon ;
+\newcommand{\pushline}{\Indp\Indp\Indp\Indp}% Indent
+\newcommand{\popline}{\Indm\Indm\Indm\Indm\dosemic}% Undent
+\makeatother
+
+% Math commands
+\newcommand{\normal}[2]{\ensuremath{\mathcal{N}\left(#1,\, #2\right)}}
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+
+% Other commands
+\renewcommand{\t}[1]{\texttt{#1}}

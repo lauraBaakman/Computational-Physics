@@ -1,0 +1,21 @@
+\RequirePackage{expl3,kvoptions,siunitx}
+\SetupKeyvalOptions{family=threshold,prefix=threshold@}
+\DeclareStringOption[1]{low}[0.01]
+\DeclareStringOption[1]{high}[100]
+\ProcessKeyvalOptions*
+\sisetup{scientific-notation=true}
+\ExplSyntaxOn
+    \cs_new_eq:NN \fpcmpTF \fp_compare:nTF
+\ExplSyntaxOff
+\let\OldNum\num%
+\renewcommand*{\num}[2][]{%
+    \fpcmpTF{abs(#2)<=\threshold@low}{%
+        \OldNum[scientific-notation=true,#1]{#2}%
+    }{%
+        \fpcmpTF{abs(#2)>=\threshold@high}{%
+            \OldNum[scientific-notation=true,#1]{#2}%
+        }{%
+            \OldNum[scientific-notation=false,#1]{#2}%
+        }%
+    }%
+}
