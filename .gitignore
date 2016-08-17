@@ -117,3 +117,4 @@ slprj/
 
 # sftp configuration file
 sftp-config.json
+*.fls

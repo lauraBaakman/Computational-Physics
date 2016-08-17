@@ -11,6 +11,9 @@
 % Document layout
 \RequirePackage{paralist}
 
+%Macro's
+\RequirePackage{xspace}
+
 % Floats
 \RequirePackage{float}
 
@@ -27,9 +30,9 @@
 
 % Custom section headers
 \RequirePackage{titlesec}
-\titleformat{\section}[block]{\large\scshape}{\thesection.}{1em}{}
+\titleformat{\section}[block]{\Large\scshape}{\thesection.}{1em}{}
 \titleformat{\subsection}[block]{\large\scshape}{\thesubsection.}{1em}{}
-\titleformat{\subsubsection}[block]{\scshape}{\thesubsubsection.}{1em}{}
+\titleformat{\subsubsection}[block]{\normalsize\scshape}{\thesubsubsection.}{1em}{}
 
 %Wiskunde
 \RequirePackage[low=1e-1,high=1e3]{threshold}
@@ -47,18 +50,21 @@
 % References
 \RequirePackage[backend=bibtex]{biblatex}
 \RequirePackage{csquotes}
-\bibliography{biblio}
 
 % Pseudo code
 \RequirePackage[algoruled,vlined, shortend]{algorithm2e}
 \RequirePackage[export]{adjustbox}
 \RequirePackage{setspace}
 
+% Delimitters
+% Fix delimiters
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
 \makeatletter
-\newcommand{\nosemic}{\renewcommand{\@endalgocfline}{\relax}}% Drop semi-colon ;
-\newcommand{\dosemic}{\renewcommand{\@endalgocfline}{\algocf@endline}}% Reinstate semi-colon ;
-\newcommand{\pushline}{\Indp\Indp\Indp\Indp}% Indent
-\newcommand{\popline}{\Indm\Indm\Indm\Indm\dosemic}% Undent
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
 \makeatother
 
 % Math commands
@@ -67,3 +73,6 @@
 
 % Other commands
 \renewcommand{\t}[1]{\texttt{#1}}
+
+%File Specific commands
+\newcommand{\spinset}{\ensuremath{\left\{S_1, \dotsc, S_N \right\}}\xspace}

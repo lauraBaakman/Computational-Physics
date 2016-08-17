@@ -1,10 +1,53 @@
 %!TEX root = report.tex
-\todo[inline]{Ising Model in general}
+% \todo[inline]{Ising Model in general}
+A magnet can be modeled as a large collection of electronic spins. In the Ising model spins point either up or down, i.e. $S_i = \pm 1$ for $i = 1, \dotsc, N$, where $N$ represents the number of spins \cite{strogatz2014nonlinear}.
 
-\todo[inline]{Give interpretation of specific heat, average energy and magnetization in the model.}
+One important property of the modeled magnet is its magnetization $m$, which is defined as its average spin:
+\begin{equation}
+	m = \abs{\frac{1}{N} \sum_{i = 1}^{N} S_i},
+\end{equation}
+where $N$ is the number of spins. At high temperatures the spins point in random directions, consequently the magnetization is approximately zero. As the temperature decreases the magnetization remains near zero until a critical temperature is reached, at which the material magnetizes, i.e.\ $m \gg 0$. Due to the symmetry of the spin two ferromagnetic states are possible.
 
-\subsubsection*{One-Dimensional Model}
-	\todo[inline]{1D Ising Model}
+\Cref{sss:intro:ising:1D} and \ref{sss:intro:ising:2D} introduce the one- and two-dimensional Ising model, respectively. 
 
-\subsubsection*{Two-Dimensional Model}
+% The behaviour of an organization of spins is characterized by its average energy and specific heat. The energy of one arrangement of spins, \spinset is
+% 	\begin{equation}
+% 		E = - \sum_{n = 1}^{N - 1}S_nS_{n+1}.
+% 	\end{equation}
+% The average energy $U$ at temperature $T = \beta^{-1}$ is defined as
+% 	\begin{equation}
+% 		U = \frac{
+% 			\displaystyle\sum_{\spinset} \exp\left[-\beta E\right]
+% 		}{
+% 			\displaystyle\sum_{\spinset} \exp\left[-\beta E\right]
+% 		}.
+% 	\end{equation}
+% At temperature $T$ the specific heat, $C$, is defined as
+% 	\begin{equation}
+% 		C = \beta^2
+% 		\left[ 
+% 			\frac{
+% 				\displaystyle\sum_{\spinset} E^2 \exp\left[-\beta E\right]
+% 			}{
+% 				\displaystyle\sum_{\spinset} \exp\left[-\beta E\right]
+% 			}	
+% 		\right].
+% 	\end{equation}
+
+\subsubsection{One-Dimensional Model}
+	\label{sss:intro:ising:1D}
+	\todo[inline]{Describe 1D Ising Model}
+	\todo[inline]{Energy of a configuration}
+	\todo[inline]{Average Energy}
+	\todo[inline]{Specific heat per spin}
+	\todo[inline]{Present an prove analytical solution}
+
+
+\subsubsection{Two-Dimensional Model}
+	\label{sss:intro:ising:2D}
 	\todo[inline]{2D Ising Model}
+	\todo[inline]{Energy of a configuration}
+	\todo[inline]{Average energy}
+	\todo[inline]{Average magnetization per spin}
+	\todo[inline]{Specific heat}
+	\todo[inline]{Present analytical solution}
