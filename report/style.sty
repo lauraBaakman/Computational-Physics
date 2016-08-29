@@ -13,6 +13,7 @@
 
 %Macro's
 \RequirePackage{xspace}
+\RequirePackage{shortcuts}
 
 % Floats
 \RequirePackage{float}
@@ -69,10 +70,8 @@
 
 % Math commands
 \newcommand{\normal}[2]{\ensuremath{\mathcal{N}\left(#1,\, #2\right)}}
+\newcommand*\rfrac[2]{\ensuremath{{}^{#1}\!/_{#2}}}
 \renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
 
 % Other commands
 \renewcommand{\t}[1]{\texttt{#1}}
-
-%File Specific commands
-\newcommand{\spinset}{\ensuremath{\left\{S_1, \dotsc, S_N \right\}}\xspace}

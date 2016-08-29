@@ -1,48 +1,61 @@
 %!TEX root = report.tex
 % \todo[inline]{Ising Model in general}
-A magnet can be modeled as a large collection of electronic spins. In the Ising model spins point either up or down, i.e. $S_i = \pm 1$ for $i = 1, \dotsc, N$, where $N$ represents the number of spins \cite{strogatz2014nonlinear}.
-
-One important property of the modeled magnet is its magnetization $m$, which is defined as its average spin:
+A magnet can be modeled as a large collection of electronic spins. In the Ising model spins point either up, \mbox{\spin{n} = +1}, or down, \mbox{\spin{n} = -1} \cite{strogatz2014nonlinear}. The magnetization of a magnet is defined as its average spin:
 \begin{equation}
-	m = \abs{\frac{1}{N} \sum_{i = 1}^{N} S_i},
+	m = \abs{\frac{1}{N} \sum_{i = 1}^{N} \spin{i}},
 \end{equation}
-where $N$ is the number of spins. At high temperatures the spins point in random directions, consequently the magnetization is approximately zero. As the temperature decreases the magnetization remains near zero until a critical temperature is reached, at which the material magnetizes, i.e.\ $m \gg 0$. Due to the symmetry of the spin two ferromagnetic states are possible.
+where $N$ is the number of spins. At high temperatures the spins point in random directions, consequently the magnetization is approximately zero. At a low enough temperature all spins in the two-dimensional model align themselves, this effect is called spontaneous magnetization. The temperature at which this phase transition occurs is called the critical temperature, \criticalTemperature \cite{cai20011Handout}
 
 \Cref{sss:intro:ising:1D} and \ref{sss:intro:ising:2D} introduce the one- and two-dimensional Ising model, respectively. 
 
-% The behaviour of an organization of spins is characterized by its average energy and specific heat. The energy of one arrangement of spins, \spinset is
-% 	\begin{equation}
-% 		E = - \sum_{n = 1}^{N - 1}S_nS_{n+1}.
-% 	\end{equation}
-% The average energy $U$ at temperature $T = \beta^{-1}$ is defined as
-% 	\begin{equation}
-% 		U = \frac{
-% 			\displaystyle\sum_{\spinset} \exp\left[-\beta E\right]
-% 		}{
-% 			\displaystyle\sum_{\spinset} \exp\left[-\beta E\right]
-% 		}.
-% 	\end{equation}
-% At temperature $T$ the specific heat, $C$, is defined as
-% 	\begin{equation}
-% 		C = \beta^2
-% 		\left[ 
-% 			\frac{
-% 				\displaystyle\sum_{\spinset} E^2 \exp\left[-\beta E\right]
-% 			}{
-% 				\displaystyle\sum_{\spinset} \exp\left[-\beta E\right]
-% 			}	
-% 		\right].
-% 	\end{equation}
-
 \subsubsection{One-Dimensional Model}
 	\label{sss:intro:ising:1D}
-	\todo[inline]{Describe 1D Ising Model}
-	\todo[inline]{Energy of a configuration}
-	\todo[inline]{Average Energy}
-	\todo[inline]{Specific heat per spin}
+	\textcite{ising1925beitrag} introduced a model consisting of a one-dimensional lattice op spin variables. Contrary to the two dimensional model this model does not exhibit state transitions. In the one-dimensional ferromagnetic zero field model, the model that is considered here, each spin interacts only with its nearest neighbors, i.e. \spin{n} interacts only with \spin{n-1} and \spin{n+1}.
+
+	The energy $E$ of a particular arrangement of spins, \spinset, under free end boundary conditions is
+	\begin{equation}
+		\label{eq:intro:1D:energy}
+		E(\spinset) = - \sum_{n = 1}^{N - 1}\spin{n}\spin{n+1}.
+	\end{equation}
+	Due to the use of the free end boundary condition particles the first and the last spin of the lattice, i.e. \spin{1} and \spin{N} see no neighbor on one side \cite{landau2014guide}.
+	The probability of a configuration of spins \configuration{i} at temperature $T$ is given by
+	\begin{equation}
+		\label{eq:intro:1D:configurationProbability}
+		P\left(\configuration{i}\right) = 
+		\frac{1}{\partitionfunction} \exp\left[{E(\configuration{i})}\frac{1}{T}\right],
+	\end{equation}
+	where $T = \rfrac{1}{\beta}$ and $Z$ is the partition function:
+	\begin{equation}
+		\label{eq:intro:1D:partitionFunction}
+		\partitionfunction = \sum_{\spinset} \exp\left[- E \beta \right],
+	\end{equation}
+	where $\beta = \rfrac{1}{T}$.
+	The partition function sums over all possible configurations: $Z = \exp\left[-\beta E_1\right] + \exp\left[-\beta E_2\right] + \dotsb + \exp\left[-\beta E_N\right]$. 
+
+	\todo[inline]{Analytical Solution $Z$}
+	\todo[inline]{Analytical Solution $U/N$}
+	\todo[inline]{Analytical Solution $C/N$}
+
+
+	\todo[inline]{Formules die ergens genoemd moeten worden.}
+	The free energy $U$ is given by
+	\begin{equation}
+		U = \frac{1}{\partitionfunction} \cdot \sum_{\spinset} E \cdot \exp\left[-\beta E\right].		
+	\end{equation} It can be shown that this is equivalent to \todo{referentie}
+	\begin{equation}
+		U = - \tanh \left( \beta \right) \cdot N.
+	\end{equation}
+	% 
+	The specific heat $C$ is defined as
+	\begin{equation}
+		C = \frac{\beta^2}{Z} \cdot \left[ \sum_{\spinset} E^2 \cdot \exp\left[-\beta E\right]\right] - U^2,
+	\end{equation}
+	which can also be computed as: \todo{referentie}
+	\begin{equation}
+		C = \frac{1}{N} \left( \frac{\beta}{\cosh \beta} \right)^2.
+	\end{equation}
 	\todo[inline]{Present an prove analytical solution}
-
-
+ 
 \subsubsection{Two-Dimensional Model}
 	\label{sss:intro:ising:2D}
 	\todo[inline]{2D Ising Model}
