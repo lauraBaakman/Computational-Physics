@@ -1,0 +1,73 @@
+%!TEX root = report.tex
+\subsection{Average Energy}
+	\label{a:derivations:averageEnergy}
+	\begin{align*}
+		\averageEnergy 
+			& = - \frac{\partial \ln \left[ \partitionfunction \right]}{\partial \beta}.\\
+		\comment{
+			\textit{Definition of \partitionfunction in \cref{eq:introduced1D:partitionFunctionAnalyticalSolution}}.
+		}
+		\content{
+			- \frac{\partial \ln \left[ \left(2 \cosh \beta \right)^N \right]}{\partial \beta}
+		}
+		\comment{
+			\textit{Chain rule: } 
+			\frac{\partial}{\partial \beta}\ln\left[2^N \cosh^N(\beta) \right] = \frac{\partial \ln\left[ u \right]}{\partial u} 0, \, 
+			u = 2^n \cosh^n(\beta),\,
+			\frac{\partial}{\partial u} \ln\left[ u \right] = \frac{1}{u}
+		}
+		\content{
+			- 2^{-N} \cosh^{-N}(\beta) \left( \frac{\partial}{\partial \beta} \left( 2^N \cosh^N(\beta)\right)\right)
+		}
+		\comment{
+			\textit{Factor out constants.}
+		}
+		\content{
+ 			- 2^{- N} \frac{\partial}{\partial \beta}\left(\cosh^{N}(\beta)\right) 2^{N} \cosh^{-N}(\beta)
+		}
+		\comment{
+			\textit{Simplify the expression.}
+		}
+		\content{
+			-\cosh(\beta) ^{-N} \left(\frac{\partial}{\partial \beta} \cosh^{N}(\beta)\right)
+		}
+		\comment{
+			\textit{Chain rule: } \frac{\partial}{\partial \beta} \cosh^{N}(\beta)=\frac{\partial u^N}{\partial u} 0,\, 
+			u = \cosh(\beta),\, 
+			\frac{\partial}{\partial u}\left(u^N\right) = N \cdot u^{-1 + N}
+		}
+		\content{
+			- N \cosh(\beta)^{N-1} \frac{\partial}{\partial \beta}\left( \cosh (\beta) \right) \cosh^{-N} (\beta)
+		}
+		\comment{
+			\textit{Simplify the expression.}
+		}
+		\content{
+			- N \left(\frac{\partial}{\partial \beta} \cosh(\beta) \right) \text{sech}(\beta)
+		}
+		\comment{
+			\textit{Derivative of } \cosh(\alpha) \textit{ is } \sinh(\alpha).
+		}
+		\content{
+			- \sinh(\beta) N \text{sech}(\beta)
+		}
+		\comment{
+			\textit{Simplify the expression.}
+		}
+		\content{
+		- N \tanh(\beta)
+		}
+	\end{align*}
+
+% \subsection{Specific Heat}
+% 	\label{a:derivations:specificHeat}
+% 	\begin{align*}
+% 		\specificHeat 
+% 			& = \\
+% 		\comment{
+% 			\textit{Some comment}.
+% 		}
+% 		\content{
+% 			b
+% 		}
+% 	\end{align*}
