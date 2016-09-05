@@ -10,51 +10,60 @@ where $N$ is the number of spins. At high temperatures the spins point in random
 
 \subsubsection{One-Dimensional Model}
 	\label{sss:intro:ising:1D}
-	\textcite{ising1925beitrag} introduced a model consisting of a one-dimensional lattice op spin variables. Contrary to the two dimensional model this model does not exhibit state transitions. In the one-dimensional ferromagnetic zero field model, the model that is considered here, each spin interacts only with its nearest neighbors, i.e. \spin{n} interacts only with \spin{n-1} and \spin{n+1}.
-
-	The energy $E$ of a particular arrangement of spins, \spinset, under free end boundary conditions is
+	\textcite{ising1925beitrag} introduced a model consisting of a one-dimensional lattice op spin variables. Contrary to the two dimensional model this model does not exhibit state transitions. The Hamiltonian of the one dimensional Ising model with the set spins \mbox{\configuration{i} = \spinset} is
 	\begin{equation}
-		\label{eq:intro:1D:energy}
-		E(\spinset) = - \sum_{n = 1}^{N - 1}\spin{n}\spin{n+1}.
+		\hamiltonian = - \interactionStrength \sum_{n = 1}^{N - 1}\spin{n}\spin{n+1} - \magneticMoment \sum_{n = 1}^{N} \spin{n}.
 	\end{equation}
-	Due to the use of the free end boundary condition particles the first and the last spin of the lattice, i.e. \spin{1} and \spin{N} see no neighbor on one side \cite{landau2014guide}.
-	The probability of a configuration of spins \configuration{i} at temperature $T$ is given by
+	\interactionStrength specifies the strength of the interactions between the particles. In a ferromagnetic model, \mbox{$\interactionStrength > 0$} neighboring spins prefer to be parallel. In the anti-ferromagnetic model, \mbox{$\interactionStrength < 0$} spins prefer a direction different to one of their neighbors. The constant \magneticMoment represents the external magnetic field, the spins want to align with the direction of $h$, \ie when \mbox{$h > 0$} spins prefer to be positive. 
+
+	In the following the zero-field ferromagnetic model, \ie \mbox{$\interactionStrength = 1$} and \mbox{$\magneticMoment = 0$},  is considered. The energy \energy of a configuration of spins, \mbox{$\configuration{i} = \spinset$}, in this model is given by 
+	\begin{equation}
+		\energy\left(\configuration{i}\right) = \sum_{n = 1}^{N - 1}\spin{n}\spin{n+1}.
+	\end{equation}
+	The probability of a configuration of spins \configuration{i} at temperature \temperature is given by
 	\begin{equation}
 		\label{eq:intro:1D:configurationProbability}
 		P\left(\configuration{i}\right) = 
-		\frac{1}{\partitionfunction} \exp\left[{E(\configuration{i})}\frac{1}{T}\right],
+		\frac{1}{\partitionfunction} \exp\left[{E(\configuration{i})}\frac{1}{\temperature}\right],
 	\end{equation}
-	where $T = \rfrac{1}{\beta}$ and $Z$ is the partition function:
+	where $\temperature = \rfrac{1}{\beta}$ and \partitionfunction is the partition function:
 	\begin{equation}
 		\label{eq:intro:1D:partitionFunction}
-		\partitionfunction = \sum_{\spinset} \exp\left[- E \beta \right],
+		\partitionfunction = \sum_{\spinset} \exp\left[- \energy \beta \right].
 	\end{equation}
-	where $\beta = \rfrac{1}{T}$.
-	The partition function sums over all possible configurations: $Z = \exp\left[-\beta E_1\right] + \exp\left[-\beta E_2\right] + \dotsb + \exp\left[-\beta E_N\right]$. 
 
-	\todo[inline]{Analytical Solution $Z$}
-	\todo[inline]{Analytical Solution $U/N$}
-	\todo[inline]{Analytical Solution $C/N$}
+	Both the one and two dimensional Ising model can be solved analytically. Under free end boundary conditions, \ie the boundary particles, \spin{1} and \spin{N}, only observe one neighbor \cite{landau2014guide}, the analytical solution of \cref{eq:intro:1D:partitionFunction} is
+	\begin{equation}
+		\label{eq:introduced1D:partitionFunctionAnalyticalSolution}
+		\partitionfunction = {(2 \cosh \beta)}^N.
+	\end{equation}
+	The average energy in the system can be expressed as a function of \partitionfunction \cite{Murray20011Handout}
+	\begin{equation}
+		\label{eq:intro:1D:averageEnergyOriginal}
+		\averageEnergy = \frac{1}{\partitionfunction} \cdot \sum_{n} \energy_n \cdot \exp\left[-\beta \energy_n \right].		
+	\end{equation} 
+	Observing that
+	\begin{equation}
+		\frac{\partial \partitionfunction}{\partial \beta} = \sum_{n} - \energy_n \exp\left[-\beta \energy_n \right],
+	\end{equation}
+	following the steps presented in \cref{a:derivations:averageEnergy} we find that
+	\begin{equation}
+		\averageEnergy = - \frac{\partial \ln \left[ \partitionfunction \right]}{\partial \beta} = - N \cdot \tanh (\beta).
+	\end{equation}
+	Consequently $\rfrac{U}{N} = - \tanh (\beta)$.
 
-
-	\todo[inline]{Formules die ergens genoemd moeten worden.}
-	The free energy $U$ is given by
+	The specific heat, \specificHeat, can be computed similarly to the average energy. This variable describes how the energy changes as a function of the temperature. Consequently it can be found by differentiating the internal energy with respect to the temperature \cite{warkHandout}:
+	\todo[inline]{Add derivation to the appendix.}
 	\begin{equation}
-		U = \frac{1}{\partitionfunction} \cdot \sum_{\spinset} E \cdot \exp\left[-\beta E\right].		
-	\end{equation} It can be shown that this is equivalent to \todo{referentie}
-	\begin{equation}
-		U = - \tanh \left( \beta \right) \cdot N.
+		\specificHeat 
+		= \frac{\partial \averageEnergy}{\partial \temperature} 
+		= - \frac{\beta}{\temperature} \frac{\partial \averageEnergy}{\partial \beta} 
+		= - \beta^2 \frac{\partial \averageEnergy}{\partial \beta}.
 	\end{equation}
-	% 
-	The specific heat $C$ is defined as
+	Therefore
 	\begin{equation}
-		C = \frac{\beta^2}{Z} \cdot \left[ \sum_{\spinset} E^2 \cdot \exp\left[-\beta E\right]\right] - U^2,
+		\frac{C}{N} = - \beta^2 \frac{\partial \averageEnergy}{\partial \beta}  = {\left( \frac{\beta}{\cosh \beta} \right)}^2
 	\end{equation}
-	which can also be computed as: \todo{referentie}
-	\begin{equation}
-		C = \frac{1}{N} \left( \frac{\beta}{\cosh \beta} \right)^2.
-	\end{equation}
-	\todo[inline]{Present an prove analytical solution}
  
 \subsubsection{Two-Dimensional Model}
 	\label{sss:intro:ising:2D}
