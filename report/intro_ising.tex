@@ -75,13 +75,16 @@ where $N$ is the number of spins. At high temperatures the spins point in random
 
 	% Analytical stuff
 	The two-dimensional Ising modle has been solved analytically by \textcite{onsager1944crystal}. He showed that the average magnetization per spin on a infinite 2D lattice, \ie $N = \infty$, is
-	\begin{equation*}
+	\begin{equation}
+		\label{eq:intro:ising:2d:energy}
 		\frac{\magnetization}{N^2} = \begin{cases}
 			{(1 - {\sinh}^{-4}(2\beta))}^2 & \text{if } \temperature < \criticalTemperature\\
 			0 								& \text{if } \temperature > \criticalTemperature
 		\end{cases}
-	\end{equation*}
+	\end{equation}
 	where
 	\begin{equation*}
 		\criticalTemperature = \frac{2}{\ln \left(1 + \sqrt{2}\right)}.
 	\end{equation*}
+
+	Given \cref{eq:intro:1D:partitionFunction} solving the the Ising model is relatively simple. To find which configurations of spins result in an equilibirium one only needs to try them all. Unfortunately the computational complexity of this operation is exponential in $N$. To be exact, a lattice with $N$ spins has $2^N$ possible configurations, computing \energy according to \cref{eq:intro:ising:2d:energy} for one configuration takes $2N$ steps. This leads to $2N2^N$ computation steps \cite{kenzel1997physics}. Solving the problem with the Metropolis Monte Carlo method circumvents this complexity problem. 
