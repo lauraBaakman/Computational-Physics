@@ -52,18 +52,11 @@ where $N$ is the number of spins. At high temperatures the spins point in random
 	\end{equation}
 	Consequently $\rfrac{U}{N} = - \tanh (\beta)$.
 
-	The specific heat, \specificHeat, can be computed similarly to the average energy. This variable describes how the energy changes as a function of the temperature. Consequently it can be found by differentiating the internal energy with respect to the temperature \cite{warkHandout}:
-	\todo[inline]{Add derivation to the appendix.}
+	The specific heat describes how the average energy changes as a function of the temperature. Consequently
 	\begin{equation}
-		\specificHeat 
-		= \frac{\partial \averageEnergy}{\partial \temperature} 
-		= - \frac{\beta}{\temperature} \frac{\partial \averageEnergy}{\partial \beta} 
-		= - \beta^2 \frac{\partial \averageEnergy}{\partial \beta}.
+		\specificHeat = \frac{\partial \averageEnergy}{\partial \temperature} = N {\left(\frac{\beta}{\cosh(\beta)}\right)}^{2}
 	\end{equation}
-	Therefore
-	\begin{equation}
-		\frac{C}{N} = - \beta^2 \frac{\partial \averageEnergy}{\partial \beta}  = {\left( \frac{\beta}{\cosh \beta} \right)}^2
-	\end{equation}
+	as shown in \cref{a:derivations:specificHeat} \cite{warkHandout}, consequently $\rfrac{\specificHeat}{N} = {\left(\beta / \cosh(\beta) \right)}^2$.
  
 \subsubsection{Two-Dimensional Model}
 	\label{sss:intro:ising:2D}

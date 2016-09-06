@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     56893,       1216]
-NotebookOptionsPosition[     56559,       1199]
-NotebookOutlinePosition[     56911,       1215]
-CellTagsIndexPosition[     56868,       1212]
+NotebookDataLength[     66280,       1404]
+NotebookOptionsPosition[     65553,       1374]
+NotebookOutlinePosition[     65906,       1390]
+CellTagsIndexPosition[     65863,       1387]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -36,11 +36,12 @@ Cell[BoxData[
     Method -> {
      "Formats" -> {"cell", "minput", "msound", "dataformats"}, "Server" -> 
       "http://api.wolframalpha.com/v1/"}, 
-    PodStates -> {"Input__Step-by-step solution"}}, Typeset`elements$$ = {
+    PodStates -> {"Input__Step-by-step solution", "Input__Hide steps"}}, 
+   Typeset`elements$$ = {
    "Warnings", "Assumptions", "Brand", "Pods", "PodMenus", "Unsuccessful", 
     "Sources"}, Typeset`pod1$$ = XMLElement[
    "pod", {"title" -> "Derivative", "scanner" -> "Derivative", "id" -> 
-     "Input", "position" -> "100", "error" -> "false", "numsubpods" -> "2", 
+     "Input", "position" -> "100", "error" -> "false", "numsubpods" -> "1", 
      "primary" -> "true"}, {
      XMLElement["subpod", {"title" -> ""}, {
        XMLElement["minput", {}, {"D[-Log[2^N Cosh[b]^N], b]"}], 
@@ -80,504 +81,12 @@ Cell[BoxData[
        "dataformats", {}, {
         "plaintext,minput,moutput,computabledata,formatteddata,formuladata"}]}\
 ], 
-     XMLElement["subpod", {"title" -> "Possible intermediate steps"}, {
-       XMLElement["cell", {"compressed" -> True, "string" -> False}, {
-         Cell[
-          BoxData[
-           FormBox[
-            TagBox[
-             GridBox[{{
-                TagBox[
-                 GridBox[{{
-                    StyleBox[
-                    StyleBox[
-                    TemplateBox[{"\"Possible derivation:\""}, "RowDefault"], 
-                    GrayLevel[0.5], StripOnInput -> False], {
-                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
-                    0}, StripOnInput -> False]}, {
-                    TagBox[
-                    TemplateBox[{
-                    RowBox[{
-                    TagBox[
-                    FractionBox["\[DifferentialD]", 
-                    
-                    RowBox[{"\"\[DifferentialD]\"", "\[InvisibleSpace]", 
-                    "b"}]], 
-                    $CellContext`TagBoxWrapper[
-                    "StringBoxes" -> RowBox[{"d/d", "b"}]]], 
-                    "\[InvisibleSpace]", 
-                    RowBox[{"(", 
-                    RowBox[{"-", 
-                    RowBox[{"log", "(", 
-                    RowBox[{
-                    SuperscriptBox["2", "N"], " ", 
-                    RowBox[{
-                    SuperscriptBox["cosh", "N"], "(", "b", ")"}]}], ")"}]}], 
-                    ")"}]}]}, "RowDefault"], HoldForm]}}, 
-                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                  AllowScriptLevelChange -> False, DefaultBaseStyle -> 
-                  "Column", 
-                  GridBoxItemSize -> {
-                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-                  GridBoxSpacings -> {
-                   "Columns" -> {{None}}, "Rows" -> {{0.5}}}], "Column"]}, {
-                TagBox[
-                 GridBox[{{
-                    StyleBox[
-                    StyleBox[
-                    TemplateBox[{"\"Factor out constants:\""}, "RowDefault"], 
-                    
-                    GrayLevel[0.5], StripOnInput -> False], {
-                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
-                    0}, StripOnInput -> False]}, {
-                    TagBox[
-                    TemplateBox[{
-                    TemplateBox[{"\" \[LongEqual] \"", 
-                    FormBox[
-                    RowBox[{"-", 
-                    RowBox[{"(", 
-                    FormBox[
-                    RowBox[{
-                    TagBox[
-                    FractionBox["\[DifferentialD]", 
-                    
-                    RowBox[{"\"\[DifferentialD]\"", "\[InvisibleSpace]", 
-                    "b"}]], 
-                    $CellContext`TagBoxWrapper[
-                    "StringBoxes" -> RowBox[{"d/d", "b"}]]], 
-                    "\[InvisibleSpace]", 
-                    RowBox[{"(", 
-                    RowBox[{"log", "(", 
-                    RowBox[{
-                    SuperscriptBox["2", "N"], " ", 
-                    RowBox[{
-                    SuperscriptBox["cosh", "N"], "(", "b", ")"}]}], ")"}], 
-                    ")"}]}], TraditionalForm], ")"}]}], TraditionalForm]}, 
-                    "RowDefault"]}, "RowDefault"], HoldForm]}}, 
-                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                  AllowScriptLevelChange -> False, DefaultBaseStyle -> 
-                  "Column", 
-                  GridBoxItemSize -> {
-                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
-                 "Column"]}, {
-                TagBox[
-                 GridBox[{{
-                    StyleBox[
-                    StyleBox[
-                    TemplateBox[{"\"Using the chain rule, \"", 
-                    RowBox[{
-                    RowBox[{
-                    TagBox[
-                    FractionBox["\[DifferentialD]", 
-                    
-                    RowBox[{"\"\[DifferentialD]\"", "\[InvisibleSpace]", 
-                    "b"}]], 
-                    $CellContext`TagBoxWrapper[
-                    "StringBoxes" -> RowBox[{"d/d", "b"}]]], 
-                    "\[InvisibleSpace]", 
-                    RowBox[{"(", 
-                    RowBox[{"log", "(", 
-                    RowBox[{
-                    SuperscriptBox["2", "N"], " ", 
-                    RowBox[{
-                    SuperscriptBox["cosh", "N"], "(", "b", ")"}]}], ")"}], 
-                    ")"}]}], "\[LongEqual]", 
-                    FormBox[
-                    TagBox[
-                    TagBox[
-                    TagBox[
-                    RowBox[{
-                    FractionBox[
-                    RowBox[{"\[DifferentialD]", 
-                    RowBox[{"log", "(", "u", ")"}]}], 
-                    RowBox[{"\[DifferentialD]", "u"}], MultilineFunction -> 
-                    None], " ", "0"}], HoldForm], 
-                    PolynomialForm[#, TraditionalOrder -> False]& ], 
-                    HoldForm], TraditionalForm]}], "\", where \"", 
-                    TemplateBox[{",", "\",\"", 
-                    RowBox[{"u", "\[LongEqual]", 
-                    RowBox[{
-                    SuperscriptBox["2", "N"], " ", 
-                    RowBox[{
-                    SuperscriptBox["cosh", "N"], "(", "b", ")"}]}]}]}, 
-                    "RowWithSeparators"], "\" and \"", 
-                    TagBox[
-                    TemplateBox[{",", "\",\"", 
-                    RowBox[{
-                    RowBox[{
-                    FractionBox[
-                    RowBox[{"\[DifferentialD]", "\"\""}], 
-                    RowBox[{"\[DifferentialD]", "u"}], MultilineFunction -> 
-                    None], "\[InvisibleApplication]", 
-                    RowBox[{"(", 
-                    RowBox[{"log", "(", "u", ")"}], ")"}]}], "\[LongEqual]", 
-                    FractionBox["1", "u"]}]}, "RowWithSeparators"], HoldForm],
-                     "\":\""}, "RowDefault"], 
-                    GrayLevel[0.5], StripOnInput -> False], {
-                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
-                    0}, StripOnInput -> False]}, {
-                    TagBox[
-                    TemplateBox[{
-                    TemplateBox[{"\" \[LongEqual] \"", 
-                    TemplateBox[{"\"-\"", 
-                    TagBox[
-                    GridBox[{{
-                    RowBox[{
-                    SuperscriptBox["2", 
-                    RowBox[{"-", "N"}]], " ", 
-                    RowBox[{
-                    SuperscriptBox["cosh", 
-                    RowBox[{"-", "N"}]], "(", "b", ")"}], " ", 
-                    RowBox[{"(", 
-                    FormBox[
-                    RowBox[{
-                    TagBox[
-                    FractionBox["\[DifferentialD]", 
-                    
-                    RowBox[{"\"\[DifferentialD]\"", "\[InvisibleSpace]", 
-                    "b"}]], 
-                    $CellContext`TagBoxWrapper[
-                    "StringBoxes" -> RowBox[{"d/d", "b"}]]], 
-                    "\[InvisibleSpace]", 
-                    RowBox[{"(", 
-                    RowBox[{
-                    SuperscriptBox["2", "N"], " ", 
-                    RowBox[{
-                    SuperscriptBox["cosh", "N"], "(", "b", ")"}]}], ")"}]}], 
-                    TraditionalForm], ")"}]}]}}, AutoDelete -> False, 
-                    GridBoxFrame -> {
-                    "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}}, 
-                    GridBoxItemSize -> {
-                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-                    FrameStyle -> GrayLevel[0.7], AllowScriptLevelChange -> 
-                    False], "Grid"]}, "RowDefault"]}, "RowDefault"]}, 
-                    "RowDefault"], HoldForm]}}, 
-                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                  AllowScriptLevelChange -> False, DefaultBaseStyle -> 
-                  "Column", 
-                  GridBoxItemSize -> {
-                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
-                 "Column"]}, {
-                TagBox[
-                 GridBox[{{
-                    StyleBox[
-                    StyleBox[
-                    TemplateBox[{"\"Factor out constants:\""}, "RowDefault"], 
-                    
-                    GrayLevel[0.5], StripOnInput -> False], {
-                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
-                    0}, StripOnInput -> False]}, {
-                    TagBox[
-                    TemplateBox[{
-                    TemplateBox[{"\" \[LongEqual] \"", 
-                    TemplateBox[{
-                    RowBox[{"-", 
-                    SuperscriptBox["2", 
-                    RowBox[{"-", "N"}]], " ", 
-                    RowBox[{
-                    SuperscriptBox["cosh", 
-                    RowBox[{"-", "N"}]], "(", "b", ")"}]}], "\" \"", 
-                    TagBox[
-                    GridBox[{{
-                    RowBox[{
-                    SuperscriptBox["2", "N"], " ", 
-                    RowBox[{"(", 
-                    FormBox[
-                    RowBox[{
-                    TagBox[
-                    FractionBox["\[DifferentialD]", 
-                    
-                    RowBox[{"\"\[DifferentialD]\"", "\[InvisibleSpace]", 
-                    "b"}]], 
-                    $CellContext`TagBoxWrapper[
-                    "StringBoxes" -> RowBox[{"d/d", "b"}]]], 
-                    "\[InvisibleSpace]", 
-                    RowBox[{"(", 
-                    RowBox[{
-                    SuperscriptBox["cosh", "N"], "(", "b", ")"}], ")"}]}], 
-                    TraditionalForm], ")"}]}]}}, AutoDelete -> False, 
-                    GridBoxFrame -> {
-                    "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}}, 
-                    GridBoxItemSize -> {
-                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-                    FrameStyle -> GrayLevel[0.7], AllowScriptLevelChange -> 
-                    False], "Grid"]}, "RowDefault"]}, "RowDefault"]}, 
-                    "RowDefault"], HoldForm]}}, 
-                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                  AllowScriptLevelChange -> False, DefaultBaseStyle -> 
-                  "Column", 
-                  GridBoxItemSize -> {
-                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
-                 "Column"]}, {
-                TagBox[
-                 GridBox[{{
-                    StyleBox[
-                    StyleBox[
-                    TemplateBox[{"\[NoBreak]", "\"\[NoBreak]\"", 
-                    
-                    TemplateBox[{"\"Simplify the expression\""}, 
-                    "RowDefault"], "\":\""}, "RowWithSeparators"], 
-                    GrayLevel[0.5], StripOnInput -> False], {
-                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
-                    0}, StripOnInput -> False]}, {
-                    TagBox[
-                    TemplateBox[{
-                    TemplateBox[{"\" \[LongEqual] \"", 
-                    TagBox[
-                    RowBox[{"-", 
-                    RowBox[{
-                    SuperscriptBox["cosh", 
-                    RowBox[{"-", "N"}]], "(", "b", ")"}], " ", 
-                    RowBox[{"(", 
-                    TagBox[
-                    RowBox[{
-                    TagBox[
-                    FractionBox["\[DifferentialD]", 
-                    
-                    RowBox[{"\"\[DifferentialD]\"", "\[InvisibleSpace]", 
-                    "b"}]], 
-                    $CellContext`TagBoxWrapper[
-                    "StringBoxes" -> RowBox[{"d/d", "b"}]]], 
-                    "\[InvisibleSpace]", 
-                    RowBox[{"(", 
-                    RowBox[{
-                    SuperscriptBox["cosh", "N"], "(", "b", ")"}], ")"}]}], 
-                    HoldForm], ")"}]}], HoldForm]}, "RowDefault"]}, 
-                    "RowDefault"], HoldForm]}}, 
-                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                  AllowScriptLevelChange -> False, DefaultBaseStyle -> 
-                  "Column", 
-                  GridBoxItemSize -> {
-                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
-                 "Column"]}, {
-                TagBox[
-                 GridBox[{{
-                    StyleBox[
-                    StyleBox[
-                    TemplateBox[{"\"Using the chain rule, \"", 
-                    RowBox[{
-                    RowBox[{
-                    TagBox[
-                    FractionBox["\[DifferentialD]", 
-                    
-                    RowBox[{"\"\[DifferentialD]\"", "\[InvisibleSpace]", 
-                    "b"}]], 
-                    $CellContext`TagBoxWrapper[
-                    "StringBoxes" -> RowBox[{"d/d", "b"}]]], 
-                    "\[InvisibleSpace]", 
-                    RowBox[{"(", 
-                    RowBox[{
-                    SuperscriptBox["cosh", "N"], "(", "b", ")"}], ")"}]}], 
-                    "\[LongEqual]", 
-                    FormBox[
-                    TagBox[
-                    TagBox[
-                    TagBox[
-                    RowBox[{
-                    FractionBox[
-                    RowBox[{"\[DifferentialD]", 
-                    SuperscriptBox["u", "N"]}], 
-                    RowBox[{"\[DifferentialD]", "u"}], MultilineFunction -> 
-                    None], " ", "0"}], HoldForm], 
-                    PolynomialForm[#, TraditionalOrder -> False]& ], 
-                    HoldForm], TraditionalForm]}], "\", where \"", 
-                    TemplateBox[{",", "\",\"", 
-                    RowBox[{"u", "\[LongEqual]", 
-                    RowBox[{"cosh", "(", "b", ")"}]}]}, "RowWithSeparators"], 
-                    "\" and \"", 
-                    TagBox[
-                    TemplateBox[{",", "\",\"", 
-                    RowBox[{
-                    RowBox[{
-                    FractionBox[
-                    RowBox[{"\[DifferentialD]", "\"\""}], 
-                    RowBox[{"\[DifferentialD]", "u"}], MultilineFunction -> 
-                    None], "\[InvisibleApplication]", 
-                    RowBox[{"(", 
-                    SuperscriptBox["u", "N"], ")"}]}], "\[LongEqual]", 
-                    RowBox[{"N", " ", 
-                    SuperscriptBox["u", 
-                    RowBox[{
-                    RowBox[{"-", "1"}], "+", "N"}]]}]}]}, 
-                    "RowWithSeparators"], HoldForm], "\":\""}, "RowDefault"], 
-                    
-                    GrayLevel[0.5], StripOnInput -> False], {
-                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
-                    0}, StripOnInput -> False]}, {
-                    TagBox[
-                    TemplateBox[{
-                    TemplateBox[{"\" \[LongEqual] \"", 
-                    TemplateBox[{
-                    RowBox[{"-", 
-                    RowBox[{
-                    SuperscriptBox["cosh", 
-                    RowBox[{"-", "N"}]], "(", "b", ")"}]}], "\" \"", 
-                    TagBox[
-                    GridBox[{{
-                    RowBox[{"N", " ", 
-                    RowBox[{
-                    SuperscriptBox["cosh", 
-                    RowBox[{
-                    RowBox[{"-", "1"}], "+", "N"}]], "(", "b", ")"}], " ", 
-                    RowBox[{"(", 
-                    FormBox[
-                    RowBox[{
-                    TagBox[
-                    FractionBox["\[DifferentialD]", 
-                    
-                    RowBox[{"\"\[DifferentialD]\"", "\[InvisibleSpace]", 
-                    "b"}]], 
-                    $CellContext`TagBoxWrapper[
-                    "StringBoxes" -> RowBox[{"d/d", "b"}]]], 
-                    "\[InvisibleSpace]", 
-                    RowBox[{"(", 
-                    RowBox[{"cosh", "(", "b", ")"}], ")"}]}], 
-                    TraditionalForm], ")"}]}]}}, AutoDelete -> False, 
-                    GridBoxFrame -> {
-                    "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}}, 
-                    GridBoxItemSize -> {
-                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-                    FrameStyle -> GrayLevel[0.7], AllowScriptLevelChange -> 
-                    False], "Grid"]}, "RowDefault"]}, "RowDefault"]}, 
-                    "RowDefault"], HoldForm]}}, 
-                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                  AllowScriptLevelChange -> False, DefaultBaseStyle -> 
-                  "Column", 
-                  GridBoxItemSize -> {
-                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
-                 "Column"]}, {
-                TagBox[
-                 GridBox[{{
-                    StyleBox[
-                    StyleBox[
-                    TemplateBox[{"\[NoBreak]", "\"\[NoBreak]\"", 
-                    
-                    TemplateBox[{"\"Simplify the expression\""}, 
-                    "RowDefault"], "\":\""}, "RowWithSeparators"], 
-                    GrayLevel[0.5], StripOnInput -> False], {
-                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
-                    0}, StripOnInput -> False]}, {
-                    TagBox[
-                    TemplateBox[{
-                    TemplateBox[{"\" \[LongEqual] \"", 
-                    TagBox[
-                    RowBox[{"-", "N", " ", 
-                    RowBox[{"(", 
-                    TagBox[
-                    RowBox[{
-                    TagBox[
-                    FractionBox["\[DifferentialD]", 
-                    
-                    RowBox[{"\"\[DifferentialD]\"", "\[InvisibleSpace]", 
-                    "b"}]], 
-                    $CellContext`TagBoxWrapper[
-                    "StringBoxes" -> RowBox[{"d/d", "b"}]]], 
-                    "\[InvisibleSpace]", 
-                    RowBox[{"(", 
-                    RowBox[{"cosh", "(", "b", ")"}], ")"}]}], HoldForm], 
-                    ")"}], " ", 
-                    RowBox[{"sech", "(", "b", ")"}]}], HoldForm]}, 
-                    "RowDefault"]}, "RowDefault"], HoldForm]}}, 
-                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                  AllowScriptLevelChange -> False, DefaultBaseStyle -> 
-                  "Column", 
-                  GridBoxItemSize -> {
-                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
-                 "Column"]}, {
-                TagBox[
-                 GridBox[{{
-                    StyleBox[
-                    StyleBox[
-                    TemplateBox[{"\"The derivative of \"", 
-                    FormBox[
-                    RowBox[{"cosh", "(", "b", ")"}], TraditionalForm], 
-                    "\" is \"", 
-                    FormBox[
-                    RowBox[{"sinh", "(", "b", ")"}], TraditionalForm], 
-                    "\":\""}, "RowDefault"], 
-                    GrayLevel[0.5], StripOnInput -> False], {
-                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
-                    0}, StripOnInput -> False]}, {
-                    TagBox[
-                    TemplateBox[{
-                    TemplateBox[{"\" \[LongEqual] \"", 
-                    TemplateBox[{
-                    RowBox[{"-", "N", " ", 
-                    RowBox[{"sech", "(", "b", ")"}]}], "\" \"", 
-                    TagBox[
-                    GridBox[{{
-                    RowBox[{"sinh", "(", "b", ")"}]}}, AutoDelete -> False, 
-                    GridBoxFrame -> {
-                    "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}}, 
-                    GridBoxItemSize -> {
-                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-                    FrameStyle -> GrayLevel[0.7], AllowScriptLevelChange -> 
-                    False], "Grid"]}, "RowDefault"]}, "RowDefault"]}, 
-                    "RowDefault"], HoldForm]}}, 
-                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                  AllowScriptLevelChange -> False, DefaultBaseStyle -> 
-                  "Column", 
-                  GridBoxItemSize -> {
-                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
-                 "Column"]}, {
-                TagBox[
-                 GridBox[{{
-                    StyleBox[
-                    StyleBox[
-                    TemplateBox[{"\[NoBreak]", "\"\[NoBreak]\"", 
-                    
-                    TemplateBox[{"\"Simplify the expression\""}, 
-                    "RowDefault"], "\":\""}, "RowWithSeparators"], 
-                    GrayLevel[0.5], StripOnInput -> False], {
-                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
-                    0}, StripOnInput -> False]}, {
-                    TagBox[
-                    GridBox[{{
-                    StyleBox[
-                    TemplateBox[{"\"Answer\"", "\":\""}, "RowDefault"], 
-                    FontFamily -> "Arial", FontSize -> 12, StripOnInput -> 
-                    False], "\[SpanFromLeft]"}, {"\"\"", 
-                    TagBox[
-                    TemplateBox[{
-                    TemplateBox[{"\" \[LongEqual] \"", 
-                    TagBox[
-                    RowBox[{"-", "N", " ", 
-                    RowBox[{"tanh", "(", "b", ")"}]}], HoldForm]}, 
-                    "RowDefault"]}, "RowDefault"], HoldForm]}}, 
-                    GridBoxAlignment -> {
-                    "Columns" -> {{Left}}, "Rows" -> {{Baseline}}}, 
-                    AutoDelete -> False, 
-                    GridBoxBackground -> {"Columns" -> {{
-                    RGBColor[{1., 0.984313725490196, 0.6745098039215687}]}}}, 
-                    GridBoxFrame -> {
-                    "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}}, 
-                    GridBoxItemSize -> {"Columns" -> {2.5, Automatic}}, 
-                    GridBoxSpacings -> {
-                    "Columns" -> {2, 0, 3}, "Rows" -> {1.5, 1, 2}}, 
-                    AllowScriptLevelChange -> False, FrameStyle -> 
-                    RGBColor[{0.8196078431372549, 0.788235294117647, 
-                    0.16078431372549018`}]], "Grid"]}}, 
-                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                  AllowScriptLevelChange -> False, DefaultBaseStyle -> 
-                  "Column", 
-                  GridBoxItemSize -> {
-                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
-                 "Column"]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-              AllowScriptLevelChange -> False, DefaultBaseStyle -> "Column", 
-              GridBoxDividers -> {
-               "Columns" -> {{False}}, "Rows" -> {False, {True}, False}}, 
-              GridBoxItemSize -> {
-               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-              GridBoxSpacings -> {
-               "Columns" -> {{Automatic}}, "Rows" -> {{3}}}, FrameStyle -> 
-              GrayLevel[0.7]], "Column"], TraditionalForm]], "Output", {}, 
-          CellSize -> {550, Automatic}]}], 
-       XMLElement["dataformats", {}, {"plaintext"}]}], 
      XMLElement["states", {"count" -> "1"}, {
        XMLElement[
        "state", {
-        "name" -> "Hide steps", "input" -> "Input__Hide steps"}, {}]}], 
-     XMLElement["infos", {"count" -> "5"}, {
+        "name" -> "Step-by-step solution", "input" -> 
+         "Input__Step-by-step solution"}, {}]}], 
+     XMLElement["infos", {"count" -> "3"}, {
        XMLElement[
        "info", {"text" -> "cosh(x) is the hyperbolic cosine function"}, {
          XMLElement[
@@ -645,52 +154,6 @@ Cell[BoxData[
               TemplateBox[{
                 RowBox[{"tanh", "(", "x", ")"}], "\" \"", 
                 "\"is the hyperbolic tangent function\""}, "RowDefault"], 
-              TraditionalForm]], "Output", {}]}]}], 
-       XMLElement[
-       "info", {"text" -> "sech(x) is the hyperbolic secant function"}, {
-         XMLElement[
-         "link", {
-          "url" -> "http://reference.wolfram.com/mathematica/ref/Sech.html", 
-           "text" -> "Documentation", "title" -> "Mathematica"}, {}], 
-         XMLElement[
-         "link", {
-          "url" -> "http://functions.wolfram.com/ElementaryFunctions/Sech", 
-           "text" -> "Properties", "title" -> "Wolfram Functions Site"}, {}], 
-         
-         XMLElement[
-         "link", {
-          "url" -> "http://mathworld.wolfram.com/HyperbolicSecant.html", 
-           "text" -> "Definition", "title" -> "MathWorld"}, {}], 
-         XMLElement["cell", {"compressed" -> False, "string" -> True}, {
-           Cell[
-            BoxData[
-             FormBox[
-              TemplateBox[{
-                RowBox[{"sech", "(", "x", ")"}], "\" \"", 
-                "\"is the hyperbolic secant function\""}, "RowDefault"], 
-              TraditionalForm]], "Output", {}]}]}], 
-       XMLElement[
-       "info", {"text" -> "sinh(x) is the hyperbolic sine function"}, {
-         XMLElement[
-         "link", {
-          "url" -> "http://reference.wolfram.com/mathematica/ref/Sinh.html", 
-           "text" -> "Documentation", "title" -> "Mathematica"}, {}], 
-         XMLElement[
-         "link", {
-          "url" -> "http://functions.wolfram.com/ElementaryFunctions/Sinh", 
-           "text" -> "Properties", "title" -> "Wolfram Functions Site"}, {}], 
-         
-         XMLElement[
-         "link", {
-          "url" -> "http://mathworld.wolfram.com/HyperbolicSine.html", "text" -> 
-           "Definition", "title" -> "MathWorld"}, {}], 
-         XMLElement["cell", {"compressed" -> False, "string" -> True}, {
-           Cell[
-            BoxData[
-             FormBox[
-              TemplateBox[{
-                RowBox[{"sinh", "(", "x", ")"}], "\" \"", 
-                "\"is the hyperbolic sine function\""}, "RowDefault"], 
               TraditionalForm]], "Output", {}]}]}]}]}], Typeset`pod2$$ = 
    XMLElement[
    "pod", {"title" -> "3D plot", "scanner" -> "Plot", "id" -> "3DPlot", 
@@ -1153,7 +616,7 @@ MSPa5772181ag3911b858h1000033g45df45086h0c16023287867766304824", "id" ->
         Typeset`elements$$, Typeset`q$$, Typeset`opts$$, Typeset`nonpods$$, 
         Typeset`queryinfo$$, Typeset`sessioninfo$$, Typeset`showpods$$, 
         Typeset`failedpods$$, Typeset`newq$$}]], StandardForm],
-    ImageSizeCache->{741., {930., 936.}},
+    ImageSizeCache->{893., {437., 443.}},
     TrackedSymbols:>{Typeset`showpods$$, Typeset`failedpods$$}],
    DynamicModuleValues:>{},
    Initialization:>If[
@@ -1195,10 +658,722 @@ MSPa5772181ag3911b858h1000033g45df45086h0c16023287867766304824",
   SelectWithContents->True]], "Print",
  CellMargins->{{20, 10}, {Inherited, Inherited}},
  CellChangeTimes->{3.68207611983628*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "N"}], " ", "*", " ", 
+    RowBox[{"tanh", "[", "b", "]"}]}], ",", " ", 
+   RowBox[{"{", "b", "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.682134298976157*^9, 3.6821343053236227`*^9}, {
+  3.682135634822546*^9, 3.682135659371954*^9}, {3.682135770182025*^9, 
+  3.682135789319971*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "N"}], " ", 
+  RowBox[{
+   SuperscriptBox["tanh", "\[Prime]",
+    MultilineFunction->None], "[", "b", "]"}]}]], "Output",
+ CellChangeTimes->{
+  3.6821343078391447`*^9, 3.6821356358070183`*^9, 3.6821356713638153`*^9, {
+   3.68213578092353*^9, 3.6821357901768303`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["differentiate (- N * tanh(b)) with respect to b", "WolframAlphaLong",
+ CellChangeTimes->{{3.682135830200013*^9, 3.6821358417265873`*^9}, {
+  3.682136061933469*^9, 3.682136063027279*^9}}],
+
+Cell[BoxData[
+ NamespaceBox["WolframAlphaQueryResults",
+  DynamicModuleBox[{Typeset`q$$ = 
+   "differentiate (- N * tanh(b)) with respect to b", Typeset`opts$$ = {
+   AppearanceElements -> {
+     "Warnings", "Assumptions", "Brand", "Pods", "PodMenus", "Unsuccessful", 
+      "Sources"}, Asynchronous -> All, 
+    TimeConstraint -> {30, Automatic, Automatic, Automatic}, 
+    Method -> {
+     "Formats" -> {"cell", "minput", "msound", "dataformats"}, "Server" -> 
+      "http://api.wolframalpha.com/v1/"}, 
+    PodStates -> {"Input__Step-by-step solution"}}, Typeset`elements$$ = {
+   "Warnings", "Assumptions", "Brand", "Pods", "PodMenus", "Unsuccessful", 
+    "Sources"}, Typeset`pod1$$ = XMLElement[
+   "pod", {"title" -> "Derivative", "scanner" -> "Derivative", "id" -> 
+     "Input", "position" -> "100", "error" -> "false", "numsubpods" -> "2", 
+     "primary" -> "true"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement["minput", {}, {"D[-(N Tanh[b]), b]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            RowBox[{
+              FormBox[
+               TagBox[
+                FormBox[
+                 RowBox[{
+                   FormBox[
+                    TagBox[
+                    FractionBox[
+                    RowBox[{"\[PartialD]", "\"\""}], 
+                    RowBox[{"\[PartialD]", "b"}], MultilineFunction -> None], 
+                    HoldForm], TraditionalForm], "\[InvisibleApplication]", 
+                   RowBox[{"(", 
+                    TagBox[
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{"N", " ", 
+                    RowBox[{"tanh", "(", "b", ")"}]}], ")"}]}], HoldForm], 
+                    ")"}]}], TraditionalForm], Format[#, TraditionalForm]& ], 
+               TraditionalForm], "\[LongEqual]", 
+              TagBox[
+               RowBox[{
+                 RowBox[{"-", "N"}], " ", 
+                 RowBox[{
+                   SuperscriptBox["sech", "2"], "(", "b", ")"}]}], 
+               Identity]}], TraditionalForm]], "Output", {}, 
+          CellSize -> {550, Automatic}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,moutput,computabledata,formatteddata,formuladata"}]}\
+], 
+     XMLElement["subpod", {"title" -> "Possible intermediate steps"}, {
+       XMLElement["cell", {"compressed" -> True, "string" -> False}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             GridBox[{{
+                TagBox[
+                 GridBox[{{
+                    StyleBox[
+                    StyleBox[
+                    TemplateBox[{"\"Possible derivation:\""}, "RowDefault"], 
+                    GrayLevel[0.5], StripOnInput -> False], {
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0}, StripOnInput -> False]}, {
+                    TagBox[
+                    TemplateBox[{
+                    RowBox[{
+                    TagBox[
+                    FractionBox["\[DifferentialD]", 
+                    
+                    RowBox[{"\"\[DifferentialD]\"", "\[InvisibleSpace]", 
+                    "b"}]], 
+                    $CellContext`TagBoxWrapper[
+                    "StringBoxes" -> RowBox[{"d/d", "b"}]]], 
+                    "\[InvisibleSpace]", 
+                    RowBox[{"(", 
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{"N", " ", 
+                    RowBox[{"tanh", "(", "b", ")"}]}], ")"}]}], ")"}]}]}, 
+                    "RowDefault"], HoldForm]}}, 
+                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                  AllowScriptLevelChange -> False, DefaultBaseStyle -> 
+                  "Column", 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {
+                   "Columns" -> {{None}}, "Rows" -> {{0.5}}}], "Column"]}, {
+                TagBox[
+                 GridBox[{{
+                    StyleBox[
+                    StyleBox[
+                    TemplateBox[{"\"Factor out constants:\""}, "RowDefault"], 
+                    
+                    GrayLevel[0.5], StripOnInput -> False], {
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0}, StripOnInput -> False]}, {
+                    TagBox[
+                    TemplateBox[{
+                    TemplateBox[{"\" \[LongEqual] \"", 
+                    FormBox[
+                    RowBox[{"-", "N", " ", 
+                    RowBox[{"(", 
+                    FormBox[
+                    RowBox[{
+                    TagBox[
+                    FractionBox["\[DifferentialD]", 
+                    
+                    RowBox[{"\"\[DifferentialD]\"", "\[InvisibleSpace]", 
+                    "b"}]], 
+                    $CellContext`TagBoxWrapper[
+                    "StringBoxes" -> RowBox[{"d/d", "b"}]]], 
+                    "\[InvisibleSpace]", 
+                    RowBox[{"(", 
+                    RowBox[{"tanh", "(", "b", ")"}], ")"}]}], 
+                    TraditionalForm], ")"}]}], TraditionalForm]}, 
+                    "RowDefault"]}, "RowDefault"], HoldForm]}}, 
+                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                  AllowScriptLevelChange -> False, DefaultBaseStyle -> 
+                  "Column", 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+                 "Column"]}, {
+                TagBox[
+                 GridBox[{{
+                    StyleBox[
+                    StyleBox[
+                    TemplateBox[{"\"The derivative of \"", 
+                    FormBox[
+                    RowBox[{"tanh", "(", "b", ")"}], TraditionalForm], 
+                    "\" is \"", 
+                    FormBox[
+                    RowBox[{
+                    SuperscriptBox["sech", "2"], "(", "b", ")"}], 
+                    TraditionalForm], "\":\""}, "RowDefault"], 
+                    GrayLevel[0.5], StripOnInput -> False], {
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0}, StripOnInput -> False]}, {
+                    TagBox[
+                    GridBox[{{
+                    StyleBox[
+                    TemplateBox[{"\"Answer\"", "\":\""}, "RowDefault"], 
+                    FontFamily -> "Arial", FontSize -> 12, StripOnInput -> 
+                    False], "\[SpanFromLeft]"}, {"\"\"", 
+                    TagBox[
+                    TemplateBox[{
+                    TemplateBox[{"\" \[LongEqual] \"", 
+                    TemplateBox[{
+                    RowBox[{"-", "N"}], "\" \"", 
+                    TagBox[
+                    GridBox[{{
+                    SuperscriptBox[
+                    TagBox[
+                    RowBox[{"sech", "(", "b", ")"}], HoldForm], 
+                    TagBox["2", HoldForm]]}}, AutoDelete -> False, 
+                    GridBoxFrame -> {
+                    "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}}, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    FrameStyle -> GrayLevel[0.7], AllowScriptLevelChange -> 
+                    False], "Grid"]}, "RowDefault"]}, "RowDefault"]}, 
+                    "RowDefault"], HoldForm]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Baseline}}}, 
+                    AutoDelete -> False, 
+                    GridBoxBackground -> {"Columns" -> {{
+                    RGBColor[{1., 0.984313725490196, 0.6745098039215687}]}}}, 
+                    GridBoxFrame -> {
+                    "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}}, 
+                    GridBoxItemSize -> {"Columns" -> {2.5, Automatic}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {2, 0, 3}, "Rows" -> {1.5, 1, 2}}, 
+                    AllowScriptLevelChange -> False, FrameStyle -> 
+                    RGBColor[{0.8196078431372549, 0.788235294117647, 
+                    0.16078431372549018`}]], "Grid"]}}, 
+                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                  AllowScriptLevelChange -> False, DefaultBaseStyle -> 
+                  "Column", 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+                 "Column"]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+              AllowScriptLevelChange -> False, DefaultBaseStyle -> "Column", 
+              GridBoxDividers -> {
+               "Columns" -> {{False}}, "Rows" -> {False, {True}, False}}, 
+              GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+              GridBoxSpacings -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{3}}}, FrameStyle -> 
+              GrayLevel[0.7]], "Column"], TraditionalForm]], "Output", {}, 
+          CellSize -> {550, Automatic}]}], 
+       XMLElement["dataformats", {}, {"plaintext"}]}], 
+     XMLElement["states", {"count" -> "1"}, {
+       XMLElement[
+       "state", {
+        "name" -> "Hide steps", "input" -> "Input__Hide steps"}, {}]}], 
+     XMLElement["infos", {"count" -> "2"}, {
+       XMLElement[
+       "info", {"text" -> "tanh(x) is the hyperbolic tangent function"}, {
+         XMLElement[
+         "link", {
+          "url" -> "http://reference.wolfram.com/mathematica/ref/Tanh.html", 
+           "text" -> "Documentation", "title" -> "Mathematica"}, {}], 
+         XMLElement[
+         "link", {
+          "url" -> "http://functions.wolfram.com/ElementaryFunctions/Tanh", 
+           "text" -> "Properties", "title" -> "Wolfram Functions Site"}, {}], 
+         
+         XMLElement[
+         "link", {
+          "url" -> "http://mathworld.wolfram.com/HyperbolicTangent.html", 
+           "text" -> "Definition", "title" -> "MathWorld"}, {}], 
+         XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+           Cell[
+            BoxData[
+             FormBox[
+              TemplateBox[{
+                RowBox[{"tanh", "(", "x", ")"}], "\" \"", 
+                "\"is the hyperbolic tangent function\""}, "RowDefault"], 
+              TraditionalForm]], "Output", {}]}]}], 
+       XMLElement[
+       "info", {"text" -> "sech(x) is the hyperbolic secant function"}, {
+         XMLElement[
+         "link", {
+          "url" -> "http://reference.wolfram.com/mathematica/ref/Sech.html", 
+           "text" -> "Documentation", "title" -> "Mathematica"}, {}], 
+         XMLElement[
+         "link", {
+          "url" -> "http://functions.wolfram.com/ElementaryFunctions/Sech", 
+           "text" -> "Properties", "title" -> "Wolfram Functions Site"}, {}], 
+         
+         XMLElement[
+         "link", {
+          "url" -> "http://mathworld.wolfram.com/HyperbolicSecant.html", 
+           "text" -> "Definition", "title" -> "MathWorld"}, {}], 
+         XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+           Cell[
+            BoxData[
+             FormBox[
+              TemplateBox[{
+                RowBox[{"sech", "(", "x", ")"}], "\" \"", 
+                "\"is the hyperbolic secant function\""}, "RowDefault"], 
+              TraditionalForm]], "Output", {}]}]}]}]}], Typeset`pod2$$ = 
+   XMLElement[
+   "pod", {"title" -> "3D plot", "scanner" -> "Plot", "id" -> "3DPlot", 
+     "position" -> "200", "error" -> "false", "numsubpods" -> "0", "async" -> 
+     "http://www4c.wolframalpha.com/api/v2/asyncPod.jsp?id=\
+MSPa1473214573ficb8bb5d6000030e519f16ceh5c6i5517769275226475668", 
+     "asyncfailed" -> "data not found"}, {}], Typeset`pod3$$ = XMLElement[
+   "pod", {"title" -> "Contour plot", "scanner" -> "Plot", "id" -> 
+     "ContourPlot", "position" -> "300", "error" -> "false", "numsubpods" -> 
+     "0", "async" -> 
+     "http://www4c.wolframalpha.com/api/v2/asyncPod.jsp?id=\
+MSPa1474214573ficb8bb5d6000039bgf18h415fgdgf5517769275226475668", 
+     "asyncfailed" -> "data not found"}, {}], Typeset`pod4$$ = XMLElement[
+   "pod", {"title" -> "Alternate form assuming b and N are real", "scanner" -> 
+     "Simplification", "id" -> "AlternateFormAssumingAllVariablesAreReal", 
+     "position" -> "400", "error" -> "false", "numsubpods" -> "1"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement["minput", {}, {"ComplexExpand[-(N Sech[b]^2)]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             RowBox[{"-", 
+               FractionBox[
+                RowBox[{"4", " ", "N", " ", 
+                  RowBox[{
+                    SuperscriptBox["cosh", "2"], "(", "b", ")"}]}], 
+                SuperscriptBox[
+                 RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"cosh", "(", 
+                    RowBox[{"2", " ", "b"}], ")"}], "+", "1"}], ")"}], 
+                 "2"]]}], Identity], TraditionalForm]], "Output", {}, 
+          CellSize -> {550, Automatic}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,moutput,computabledata,formatteddata,formuladata"}]}\
+], 
+     XMLElement["infos", {"count" -> "1"}, {
+       XMLElement[
+       "info", {"text" -> "cosh(x) is the hyperbolic cosine function"}, {
+         XMLElement[
+         "link", {
+          "url" -> "http://reference.wolfram.com/mathematica/ref/Cosh.html", 
+           "text" -> "Documentation", "title" -> "Mathematica"}, {}], 
+         XMLElement[
+         "link", {
+          "url" -> "http://functions.wolfram.com/ElementaryFunctions/Cosh", 
+           "text" -> "Properties", "title" -> "Wolfram Functions Site"}, {}], 
+         
+         XMLElement[
+         "link", {
+          "url" -> "http://mathworld.wolfram.com/HyperbolicCosine.html", 
+           "text" -> "Definition", "title" -> "MathWorld"}, {}], 
+         XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+           Cell[
+            BoxData[
+             FormBox[
+              TemplateBox[{
+                RowBox[{"cosh", "(", "x", ")"}], "\" \"", 
+                "\"is the hyperbolic cosine function\""}, "RowDefault"], 
+              TraditionalForm]], "Output", {}]}]}]}]}], Typeset`pod5$$ = 
+   XMLElement[
+   "pod", {"title" -> "Root", "scanner" -> "Reduce", "id" -> "Root", 
+     "position" -> "500", "error" -> "false", "numsubpods" -> "1", "primary" -> 
+     "true"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement[
+       "minput", {}, {"Reduce[-(N Sech[b]^2) == 0, {b, N}, Reals]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            FormBox[
+             FormBox[
+              TagBox[
+               GridBox[{{
+                  PaneBox[
+                   RowBox[{"N", "\[LongEqual]", "0"}], BaselinePosition -> 
+                   Baseline, ImageSize -> 550]}}, 
+                GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                AllowScriptLevelChange -> False, DefaultBaseStyle -> "Column",
+                 GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+               "Column"], TraditionalForm], TraditionalForm], 
+            TraditionalForm]], "Output", {}, CellSize -> {550, Automatic}]}], 
+       
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,moutput,computabledata,formatteddata,formuladata"}]}\
+]}], Typeset`pod6$$ = XMLElement[
+   "pod", {"title" -> "Property as a function", "scanner" -> 
+     "FunctionProperties", "id" -> "PropertyAsAFunction", "position" -> "600",
+      "error" -> "false", "numsubpods" -> "1"}, {
+     XMLElement["subpod", {"title" -> "Parity"}, {
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox["\"odd\"", TraditionalForm]], "Output", {}, 
+          CellSize -> {550, Automatic}]}], 
+       XMLElement[
+       "dataformats", {}, {"plaintext,computabledata,formatteddata"}]}]}], 
+   Typeset`pod7$$ = XMLElement[
+   "pod", {"title" -> "Periodicity", "scanner" -> "FunctionProperties", "id" -> 
+     "Periodicity", "position" -> "700", "error" -> "false", "numsubpods" -> 
+     "1"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             GridBox[{{
+                FormBox[
+                 TagBox[
+                  FormBox[
+                   
+                   TemplateBox[{
+                    "\"periodic in \"", "b", "\" with period \"", 
+                    RowBox[{"\[ImaginaryI]", " ", "\[Pi]"}]}, "RowDefault"], 
+                   TraditionalForm], Format[#, TraditionalForm]& ], 
+                 TraditionalForm]}}, 
+              GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+              "Column", 
+              GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+             "Column"], TraditionalForm]], "Output", {}, 
+          CellSize -> {550, Automatic}]}], 
+       XMLElement[
+       "dataformats", {}, {"plaintext,computabledata,formatteddata"}]}], 
+     XMLElement["states", {"count" -> "1"}, {
+       XMLElement[
+       "state", {
+        "name" -> "Approximate form", "input" -> 
+         "Periodicity__Approximate form"}, {}]}]}], Typeset`pod8$$ = 
+   XMLElement[
+   "pod", {"title" -> "Series expansion at b=0", "scanner" -> "Series", "id" -> 
+     "SeriesExpansionAt `1`x=0.", "position" -> "800", "error" -> "false", 
+     "numsubpods" -> "1"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement["minput", {}, {"Series[-(N Sech[b]^2), {b, 0, 4}]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             GridBox[{{
+                TemplateBox[{
+                  RowBox[{
+                    RowBox[{"-", "N"}], "+", 
+                    RowBox[{
+                    SuperscriptBox["b", "2"], " ", "N"}], "-", 
+                    FractionBox[
+                    RowBox[{"2", " ", 
+                    SuperscriptBox["b", "4"], " ", "N"}], "3"], "+", 
+                    InterpretationBox[
+                    RowBox[{"O", "(", 
+                    SuperscriptBox["b", "5"], ")"}], 
+                    SeriesData[$CellContext`b, 0, {}, 0, 5, 1], Editable -> 
+                    False]}], 
+                  RowBox[{"SeriesData", "[", 
+                    RowBox[{"b", ",", "0", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "N1239"}], ",", "0", ",", "N1239", ",", "0", 
+                    ",", 
+                    RowBox[{"-", 
+                    FractionBox[
+                    RowBox[{"2", " ", "N1239"}], "3"]}]}], "}"}], ",", "0", 
+                    ",", "5", ",", "1"}], "]"}]}, "SeriesData", 
+                 DisplayFunction -> (#& ), InterpretationFunction -> (#2& ), 
+                 SyntaxForm -> Plus]}, {
+                StyleBox[
+                 
+                 RowBox[{
+                  "\"(\"", "\[NoBreak]", "\"Taylor series\"", "\[NoBreak]", 
+                   "\")\""}], {FontSize -> 10, FontFamily -> "Verdana", 
+                  GrayLevel[0.5], LinebreakAdjustments -> {1, 100, 1, 0, 100},
+                   LineIndent -> 0}, StripOnInput -> False]}}, 
+              GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+              AllowScriptLevelChange -> False, DefaultBaseStyle -> "Column", 
+              GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+             "Column"], TraditionalForm]], "Output", {}, 
+          CellSize -> {550, Automatic}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,moutput,computabledata,formatteddata,formuladata"}]}\
+], 
+     XMLElement["infos", {"count" -> "1"}, {
+       XMLElement["info", {}, {
+         XMLElement[
+         "link", {
+          "url" -> "http://mathworld.wolfram.com/Big-ONotation.html", "text" -> 
+           "Big\[Hyphen]O notation"}, {}]}]}]}], Typeset`pod9$$ = XMLElement[
+   "pod", {"title" -> "Indefinite integral", "scanner" -> "Integral", "id" -> 
+     "IndefiniteIntegral", "position" -> "900", "error" -> "false", 
+     "numsubpods" -> "1", "primary" -> "true"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement["minput", {}, {"Integrate[D[-(N Tanh[b]), b], b]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            RowBox[{
+              TagBox[
+               RowBox[{"\[Integral]", 
+                 RowBox[{
+                   RowBox[{
+                    RowBox[{"-", "N"}], " ", 
+                    RowBox[{
+                    SuperscriptBox["sech", "2"], "(", "b", ")"}]}], 
+                   RowBox[{"\[DifferentialD]", "b"}]}]}], HoldForm], 
+              "\[LongEqual]", 
+              TagBox[
+               StyleBox[
+                RowBox[{
+                  StyleBox[
+                   RowBox[{
+                    RowBox[{"-", "N"}], " ", 
+                    RowBox[{"tanh", "(", "b", ")"}]}], {
+                    GrayLevel[0], LinebreakAdjustments -> {1, 100, 1, 0, 100},
+                     LineIndent -> 0}, StripOnInput -> False], "+", 
+                  StyleBox[
+                  "\"constant\"", {
+                   Magnification -> 0.9 Inherited, FontSize -> Inherited, 
+                    FontFamily -> "Helvetica", 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0}, StripOnInput -> False]}], {
+                 GrayLevel[0.6], LinebreakAdjustments -> {1, 100, 1, 0, 100}, 
+                 LineIndent -> 0}, StripOnInput -> False], Identity]}], 
+            TraditionalForm]], "Output", {}, CellSize -> {550, Automatic}]}], 
+       
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,moutput,computabledata,formatteddata,formuladata"}]}\
+], 
+     XMLElement["states", {"count" -> "1"}, {
+       XMLElement[
+       "state", {
+        "name" -> "Step-by-step solution", "input" -> 
+         "IndefiniteIntegral__Step-by-step solution"}, {}]}]}], 
+   Typeset`pod10$$ = XMLElement[
+   "pod", {"title" -> "Limit", "scanner" -> "GlobalExtrema", "id" -> "Limit", 
+     "position" -> "1000", "error" -> "false", "numsubpods" -> "1"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement[
+       "minput", {}, {
+        "Limit[-(N Sech[b]^2), {b -> -Infinity, b -> Infinity}]"}], 
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            RowBox[{
+              TagBox[
+               RowBox[{
+                 UnderscriptBox["lim", 
+                  RowBox[{"b", "\[Rule]", 
+                    RowBox[{"\[PlusMinus]", "\[Infinity]"}]}]], 
+                 "\[ThinSpace]", 
+                 RowBox[{
+                   RowBox[{"-", "N"}], " ", 
+                   RowBox[{
+                    SuperscriptBox["sech", "2"], "(", "b", ")"}]}]}], 
+               HoldForm], "\[LongEqual]", "0"}], TraditionalForm]], 
+          "Output", {}, CellSize -> {550, Automatic}]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,minput,moutput,computabledata,formatteddata,formuladata"}]}\
+]}], Typeset`pod11$$, Typeset`pod12$$, Typeset`pod13$$, Typeset`pod14$$, 
+   Typeset`pod15$$, Typeset`pod16$$, Typeset`pod17$$, Typeset`pod18$$, 
+   Typeset`pod19$$, Typeset`pod20$$, Typeset`pod21$$, Typeset`pod22$$, 
+   Typeset`pod23$$, Typeset`pod24$$, Typeset`pod25$$, Typeset`pod26$$, 
+   Typeset`pod27$$, Typeset`pod28$$, Typeset`pod29$$, Typeset`pod30$$, 
+   Typeset`pod31$$, Typeset`pod32$$, Typeset`pod33$$, Typeset`pod34$$, 
+   Typeset`pod35$$, Typeset`pod36$$, Typeset`pod37$$, Typeset`pod38$$, 
+   Typeset`pod39$$, Typeset`pod40$$, Typeset`aux1$$ = {
+   True, False, {False, False}, True}, Typeset`aux2$$ = {
+   True, False, {False}, True}, Typeset`aux3$$ = {True, False, {False}, True},
+    Typeset`aux4$$ = {True, False, {False}, True}, Typeset`aux5$$ = {
+   True, False, {False}, True}, Typeset`aux6$$ = {True, False, {False}, True},
+    Typeset`aux7$$ = {True, False, {False}, True}, Typeset`aux8$$ = {
+   True, False, {False}, True}, Typeset`aux9$$ = {True, False, {False}, True},
+    Typeset`aux10$$ = {True, False, {False}, True}, Typeset`aux11$$ = {
+   True, False, {False}, True}, Typeset`aux12$$ = {
+   True, False, {False}, True}, Typeset`aux13$$ = {
+   True, False, {False}, True}, Typeset`aux14$$ = {
+   True, False, {False}, True}, Typeset`aux15$$ = {
+   True, False, {False}, True}, Typeset`aux16$$ = {
+   True, False, {False}, True}, Typeset`aux17$$ = {
+   True, False, {False}, True}, Typeset`aux18$$ = {
+   True, False, {False}, True}, Typeset`aux19$$ = {
+   True, False, {False}, True}, Typeset`aux20$$ = {
+   True, False, {False}, True}, Typeset`aux21$$ = {
+   True, False, {False}, True}, Typeset`aux22$$ = {
+   True, False, {False}, True}, Typeset`aux23$$ = {
+   True, False, {False}, True}, Typeset`aux24$$ = {
+   True, False, {False}, True}, Typeset`aux25$$ = {
+   True, False, {False}, True}, Typeset`aux26$$ = {
+   True, False, {False}, True}, Typeset`aux27$$ = {
+   True, False, {False}, True}, Typeset`aux28$$ = {
+   True, False, {False}, True}, Typeset`aux29$$ = {
+   True, False, {False}, True}, Typeset`aux30$$ = {
+   True, False, {False}, True}, Typeset`aux31$$ = {
+   True, False, {False}, True}, Typeset`aux32$$ = {
+   True, False, {False}, True}, Typeset`aux33$$ = {
+   True, False, {False}, True}, Typeset`aux34$$ = {
+   True, False, {False}, True}, Typeset`aux35$$ = {
+   True, False, {False}, True}, Typeset`aux36$$ = {
+   True, False, {False}, True}, Typeset`aux37$$ = {
+   True, False, {False}, True}, Typeset`aux38$$ = {
+   True, False, {False}, True}, Typeset`aux39$$ = {
+   True, False, {False}, True}, Typeset`aux40$$ = {
+   True, False, {False}, True}, Typeset`asyncpods$$ = {}, Typeset`nonpods$$ = {
+    XMLElement["error", {}, {"\n  ", 
+      XMLElement["code", {}, {"1010"}], "\n  ", 
+      XMLElement["msg", {}, {"Computation error"}], "\n "}]}, 
+   Typeset`initdone$$ = True, 
+   Typeset`queryinfo$$ = {{
+    "success" -> "true", "error" -> "false", "numpods" -> "10", "datatypes" -> 
+     "D", "timedout" -> "InterestingMultiDimensionalDefiniteIntegrals", 
+     "timedoutpods" -> "", "timing" -> "3.359", "parsetiming" -> "0.755", 
+     "parsetimedout" -> "false", "recalculate" -> 
+     "http://www4c.wolframalpha.com/api/v2/recalc.jsp?id=\
+MSPa1470214573ficb8bb5d600003902292752f6g7905517769275226475668", "id" -> 
+     "MSPa1471214573ficb8bb5d600001885ge5851ch941g", "host" -> 
+     "http://www4c.wolframalpha.com", "server" -> "49", "related" -> 
+     "http://www4c.wolframalpha.com/api/v2/relatedQueries.jsp?id=\
+MSPa1472214573ficb8bb5d600001b336h9262a2c60b5517769275226475668", "version" -> 
+     "2.6"}, {"success" -> "false", "error" -> "true", "numpods" -> "0", 
+     "datatypes" -> "", "timedout" -> "", "timedoutpods" -> "", "timing" -> 
+     "0.051000000000000004", "parsetiming" -> "0.", "parsetimedout" -> 
+     "false", "recalculate" -> "", "id" -> "", "host" -> 
+     "http://www4c.wolframalpha.com", "server" -> "51", "related" -> "", 
+     "version" -> "2.6"}}, Typeset`sessioninfo$$ = {
+   "TimeZone" -> 2., 
+    "Date" -> {2016, 9, 6, 9, 34, 28.455103`8.206735143502028}, "Line" -> 24, 
+    "SessionID" -> 29995517415383216579}, Typeset`showpods$$ = {1, 2, 3, 4, 5,
+    6, 7, 8, 9, 10}, Typeset`failedpods$$ = {2, 3, 11, 12, 13, 14, 15, 16, 17,
+    18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 
+   36, 37, 38, 39, 40}, Typeset`chosen$$ = {}, Typeset`open$$ = False, 
+   Typeset`newq$$ = "differentiate (- N * tanh(b)) with respect to b"}, 
+   DynamicBox[ToBoxes[
+     AlphaIntegration`FormatAlphaResults[
+      Dynamic[{
+       2, {Typeset`pod1$$, Typeset`pod2$$, Typeset`pod3$$, Typeset`pod4$$, 
+         Typeset`pod5$$, Typeset`pod6$$, Typeset`pod7$$, Typeset`pod8$$, 
+         Typeset`pod9$$, Typeset`pod10$$, Typeset`pod11$$, Typeset`pod12$$, 
+         Typeset`pod13$$, Typeset`pod14$$, Typeset`pod15$$, Typeset`pod16$$, 
+         Typeset`pod17$$, Typeset`pod18$$, Typeset`pod19$$, Typeset`pod20$$, 
+         Typeset`pod21$$, Typeset`pod22$$, Typeset`pod23$$, Typeset`pod24$$, 
+         Typeset`pod25$$, Typeset`pod26$$, Typeset`pod27$$, Typeset`pod28$$, 
+         Typeset`pod29$$, Typeset`pod30$$, Typeset`pod31$$, Typeset`pod32$$, 
+         Typeset`pod33$$, Typeset`pod34$$, Typeset`pod35$$, Typeset`pod36$$, 
+         Typeset`pod37$$, Typeset`pod38$$, Typeset`pod39$$, 
+         Typeset`pod40$$}, {
+        Typeset`aux1$$, Typeset`aux2$$, Typeset`aux3$$, Typeset`aux4$$, 
+         Typeset`aux5$$, Typeset`aux6$$, Typeset`aux7$$, Typeset`aux8$$, 
+         Typeset`aux9$$, Typeset`aux10$$, Typeset`aux11$$, Typeset`aux12$$, 
+         Typeset`aux13$$, Typeset`aux14$$, Typeset`aux15$$, Typeset`aux16$$, 
+         Typeset`aux17$$, Typeset`aux18$$, Typeset`aux19$$, Typeset`aux20$$, 
+         Typeset`aux21$$, Typeset`aux22$$, Typeset`aux23$$, Typeset`aux24$$, 
+         Typeset`aux25$$, Typeset`aux26$$, Typeset`aux27$$, Typeset`aux28$$, 
+         Typeset`aux29$$, Typeset`aux30$$, Typeset`aux31$$, Typeset`aux32$$, 
+         Typeset`aux33$$, Typeset`aux34$$, Typeset`aux35$$, Typeset`aux36$$, 
+         Typeset`aux37$$, Typeset`aux38$$, Typeset`aux39$$, Typeset`aux40$$}, 
+        Typeset`chosen$$, Typeset`open$$, Typeset`elements$$, Typeset`q$$, 
+        Typeset`opts$$, Typeset`nonpods$$, Typeset`queryinfo$$, 
+        Typeset`sessioninfo$$, Typeset`showpods$$, Typeset`failedpods$$, 
+        Typeset`newq$$}]], StandardForm],
+    ImageSizeCache->{893., {505., 510.}},
+    TrackedSymbols:>{Typeset`showpods$$, Typeset`failedpods$$}],
+   DynamicModuleValues:>{},
+   Initialization:>If[
+     Not[Typeset`initdone$$], Null; AlphaIntegration`DoAsyncInitialization[
+       Hold[{
+        2, {Typeset`pod1$$, Typeset`pod2$$, Typeset`pod3$$, Typeset`pod4$$, 
+          Typeset`pod5$$, Typeset`pod6$$, Typeset`pod7$$, Typeset`pod8$$, 
+          Typeset`pod9$$, Typeset`pod10$$, Typeset`pod11$$, Typeset`pod12$$, 
+          Typeset`pod13$$, Typeset`pod14$$, Typeset`pod15$$, Typeset`pod16$$, 
+          Typeset`pod17$$, Typeset`pod18$$, Typeset`pod19$$, Typeset`pod20$$, 
+          Typeset`pod21$$, Typeset`pod22$$, Typeset`pod23$$, Typeset`pod24$$, 
+          Typeset`pod25$$, Typeset`pod26$$, Typeset`pod27$$, Typeset`pod28$$, 
+          Typeset`pod29$$, Typeset`pod30$$, Typeset`pod31$$, Typeset`pod32$$, 
+          Typeset`pod33$$, Typeset`pod34$$, Typeset`pod35$$, Typeset`pod36$$, 
+          Typeset`pod37$$, Typeset`pod38$$, Typeset`pod39$$, 
+          Typeset`pod40$$}, {
+         Typeset`aux1$$, Typeset`aux2$$, Typeset`aux3$$, Typeset`aux4$$, 
+          Typeset`aux5$$, Typeset`aux6$$, Typeset`aux7$$, Typeset`aux8$$, 
+          Typeset`aux9$$, Typeset`aux10$$, Typeset`aux11$$, Typeset`aux12$$, 
+          Typeset`aux13$$, Typeset`aux14$$, Typeset`aux15$$, Typeset`aux16$$, 
+          Typeset`aux17$$, Typeset`aux18$$, Typeset`aux19$$, Typeset`aux20$$, 
+          Typeset`aux21$$, Typeset`aux22$$, Typeset`aux23$$, Typeset`aux24$$, 
+          Typeset`aux25$$, Typeset`aux26$$, Typeset`aux27$$, Typeset`aux28$$, 
+          Typeset`aux29$$, Typeset`aux30$$, Typeset`aux31$$, Typeset`aux32$$, 
+          Typeset`aux33$$, Typeset`aux34$$, Typeset`aux35$$, Typeset`aux36$$, 
+          Typeset`aux37$$, Typeset`aux38$$, Typeset`aux39$$, Typeset`aux40$$},
+          Typeset`chosen$$, Typeset`open$$, Typeset`elements$$, Typeset`q$$, 
+         Typeset`opts$$, Typeset`nonpods$$, Typeset`queryinfo$$, 
+         Typeset`sessioninfo$$, Typeset`showpods$$, Typeset`failedpods$$, 
+         Typeset`newq$$, 
+         "http://www4c.wolframalpha.com/api/v2/recalc.jsp?id=\
+MSPa1470214573ficb8bb5d600003902292752f6g7905517769275226475668", 
+         Typeset`asyncpods$$}]]; Typeset`asyncpods$$ = {}; 
+     Typeset`initdone$$ = True],
+   SynchronousInitialization->False],
+  BaseStyle->{Deployed -> True},
+  DeleteWithContents->True,
+  Editable->False,
+  SelectWithContents->True]], "Print",
+ CellMargins->{{20, 10}, {Inherited, Inherited}},
+ CellChangeTimes->{3.682136068551784*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ FormBox["", TraditionalForm]], "Input",
+ CellChangeTimes->{{3.682135880184784*^9, 3.682135881776511*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "1"}], " ", "*", " ", 
+  RowBox[{"b", "^", "2"}], " ", "*", " ", "N", " ", 
+  RowBox[{"sech", "^", "2"}], 
+  RowBox[{"(", "b", ")"}]}]], "Input",
+ CellChangeTimes->{{3.6821358915379257`*^9, 3.682135899032555*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   SuperscriptBox["b", "3"]}], " ", "N", " ", 
+  SuperscriptBox["sech", "2"]}]], "Output",
+ CellChangeTimes->{3.682135899521275*^9}]
 }, Open  ]]
 },
-WindowSize->{808, 911},
-WindowMargins->{{4, Automatic}, {Automatic, 4}},
+WindowSize->{960, 564},
+WindowMargins->{{Automatic, 0}, {Automatic, -1}},
 FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 28, \
 2016)",
 StyleDefinitions->"Default.nb"
@@ -1216,11 +1391,22 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 284, 3, 41, "WolframAlphaLong"],
-Cell[867, 27, 55676, 1169, 1876, "Print"]
+Cell[867, 27, 30632, 632, 890, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31536, 664, 359, 9, 32, "Input"],
+Cell[31898, 675, 306, 8, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32241, 688, 192, 2, 41, "WolframAlphaLong"],
+Cell[32436, 692, 32514, 657, 1025, "Print"]
+}, Open  ]],
+Cell[64965, 1352, 120, 2, 28, "Input"],
+Cell[CellGroupData[{
+Cell[65110, 1358, 252, 6, 32, "Input"],
+Cell[65365, 1366, 172, 5, 66, "Output"]
 }, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 

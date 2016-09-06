@@ -1,9 +1,12 @@
 %!TEX root = report.tex
-\subsection{Average Energy}
+\subsection[]{Average Energy\footnote{The derivation has been computed with \textcite{math}.}}
 	\label{a:derivations:averageEnergy}
 	\begin{align*}
-		\averageEnergy 
-			& = - \frac{\partial \ln \left[ \partitionfunction \right]}{\partial \beta}.\\
+		\firstline{
+			\averageEnergy
+		}{
+			- \frac{\partial \ln \left[ \partitionfunction \right]}{\partial \beta}
+		}
 		\comment{
 			\textit{Definition of \partitionfunction in \cref{eq:introduced1D:partitionFunctionAnalyticalSolution}}.
 		}
@@ -43,13 +46,13 @@
 			\textit{Simplify the expression.}
 		}
 		\content{
-			- N \left(\frac{\partial}{\partial \beta} \cosh(\beta) \right) \text{sech}(\beta)
+			- N \left(\frac{\partial}{\partial \beta} \cosh(\beta) \right) \sech(\beta)
 		}
 		\comment{
 			\textit{Derivative of } \cosh(\alpha) \textit{ is } \sinh(\alpha).
 		}
 		\content{
-			- \sinh(\beta) N \text{sech}(\beta)
+			- \sinh(\beta) N \sech(\beta)
 		}
 		\comment{
 			\textit{Simplify the expression.}
@@ -59,15 +62,48 @@
 		}
 	\end{align*}
 
-% \subsection{Specific Heat}
-% 	\label{a:derivations:specificHeat}
-% 	\begin{align*}
-% 		\specificHeat 
-% 			& = \\
-% 		\comment{
-% 			\textit{Some comment}.
-% 		}
-% 		\content{
-% 			b
-% 		}
-% 	\end{align*}
+\subsection{Specific Heat}
+	\label{a:derivations:specificHeat}
+	\begin{align*}
+		\firstline{\specificHeat}{
+			\frac{\partial \averageEnergy}{\partial \temperature}
+		}
+		\comment{
+			\textit{Definition of specific heat.}
+		}
+		\content{
+			\frac{\partial \averageEnergy}{\partial \beta} \cdot \frac{1}{\partial \temperature}
+		}
+		\comment{
+			\textit{Derivate of \temperature w.r.t. to $\beta$.}
+		}
+		\content{
+			\frac{\partial \averageEnergy}{\partial \beta} \cdot \frac{1}{\rfrac{-1}{\beta^2}}
+		}
+		\comment{
+			Rewrite.
+		}
+		\content{
+			- \beta^2 \frac{\partial \averageEnergy}{\partial \beta}
+		}
+		\comment{
+			\textit{Definition of \averageEnergy.}
+		}
+		\content{
+			- \beta^2 \left(\frac{\partial}{\partial \beta} -N \tanh (\beta)\right)
+		}
+		\comment{
+			\frac{\partial}{\partial \beta} -N \tanh (\beta) = 
+			-N \frac{\partial}{\partial \beta} \tanh (\beta) = 
+			-N \sech^2(\beta)
+		}
+		\content{
+			\beta^2 N \sech^2(\beta)
+		}
+		\comment{
+			\textit{Definition of $\sech$: $\sech(\alpha) = \frac{1}{\cosh(\alpha)}$.}
+		}
+		\content{
+			N \left(\frac{\beta}{\cosh(\beta)}\right)^2
+		}
+	\end{align*}		
