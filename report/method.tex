@@ -1,12 +1,22 @@
 %!TEX root = report.tex
 \todo[inline]{What are we going to discuss in this section?}
 
+\todo[inline]{Pseudocode of MMC}
+\input{pseudo_mmc}
 
+\todo[inline]{Discuss selectRandomSpinFunction}
+
+\todo[inline]{Discuss flipSpinConfigurationFunction}
+
+\todo[inline]{Present selectNextConfigurationFunction pseudo code}
+\input{pseudo_selectconfig}
+
+\todo[inline]{Discuss computeEnergyDifference function}
 \todo[inline]{Determine W: p194 physics by computer}
 \todo[inline]{Determine Delta E: p194 physics by computer}
 % Bepaal w p194 physics by computer
 % We only allow transitions at which at most one spin is changed. Furthermore if the change in spin results in an energetically better state, the transition to this state always happens, \ie $\transitionProbability\left(\configuration{i} \to \configuration{j}\right) = 1$. Using \cref{eq:intro:mcm:detailedbalance,eq:intro:1D:configurationProbability} gives the transition function for all other cases:
-% \todo{Boltzman constant eruit werken}
+% \todo{Boltzman constant k_b = 1 eruit werken}
 % 	\begin{equation*}
 % 		\transitionProbability\left(\configuration{i} \to \configuration{j}\right) = \exp \left[\frac{\hamiltonian\left(\configuration{i}\right) - \hamiltonian\left(\configuration{j}\right)}{k_b \temperature}\right].
 % 	\end{equation*}
@@ -20,6 +30,6 @@
 % 	\end{equation}
 %
 
-\todo[inline]{Pseudocode metropolis monte carlo}
+\todo[inline]{Discuss the if else}
 
 The implementation of the presented algorithm can be found in \cref{a:implementation}. \todo[inline]{Refer to exact listings.}

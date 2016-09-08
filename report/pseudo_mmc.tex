@@ -1,0 +1,22 @@
+%!TEX root = report.tex		
+\begin{algorithm}
+	\setstretch{1.2}
+	\SetAlgoShortEnd
+	\DontPrintSemicolon
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+	\Input{
+		$\configuration{\mathit{init}}$ the initial configuration\\
+		$\numberOfIterations$ number of iterations
+	}
+	\BlankLine
+	$\configuration{\mathit{cur}}$ := $\configuration{\mathit{init}}$\;
+	\For{$i = 0$ \KwTo \numberOfIterations}{
+		\spin{} := \FuncSty{selectRandomSpin()}\;
+		$\configuration{\mathit{pot}}$ := \FuncSty{flipSpin(\spin{}, $\configuration{\mathit{cur}}$)}\;
+		$\configuration{\mathit{cur}}$ := \FuncSty{selectConfig(
+			$\configuration{\mathit{cur}}$,
+			$\configuration{\mathit{pot}}$
+		)}
+	}
+	\caption{$\text{MMC}(\configuration{\mathit{init}}, \numberOfIterations)$\label{alg:method:mmc}}
+\end{algorithm}
