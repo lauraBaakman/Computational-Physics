@@ -1,10 +1,10 @@
 %!TEX root = report.tex
 % \todo[inline]{Ising Model in general}
-A magnet can be modeled as a large collection of electronic spins. In the Ising model spins point either up, \mbox{\spin{n} = +1}, or down, \mbox{\spin{n} = -1} \cite{strogatz2014nonlinear}. The magnetization of a magnet is defined as its average spin:
+A magnet can be modeled as a large collection of electronic spins. In the Ising model spins point either up, \mbox{\spin{} = +1}, or down, \mbox{\spin{} = -1} \cite{strogatz2014nonlinear}. The magnetization of a magnet is defined as its average spin:
 \begin{equation*}
-	\magnetization = \abs{\frac{1}{N} \sum_{i = 1}^{N} \spin{i}},
+	\magnetization = \abs{\frac{1}{\numberOfSpins} \sum_{i = 1}^{\numberOfSpins} \spin{i}},
 \end{equation*}
-where $N$ is the number of spins. At high temperatures the spins point in random directions, consequently the magnetization is approximately zero. At a low enough temperature all spins in the two-dimensional model align themselves, this effect is called spontaneous magnetization. The temperature at which this phase transition occurs is called the critical temperature, \criticalTemperature \cite{cai20011Handout}
+where \numberOfSpins is the number of spins. At high temperatures the spins point in random directions, consequently the magnetization is approximately zero. At a low enough temperature all spins in the two-dimensional model align themselves, this effect is called spontaneous magnetization. The temperature at which this phase transition occurs is called the critical temperature, \criticalTemperature \cite{cai20011Handout}
 
 \Cref{sss:intro:ising:1D} and \ref{sss:intro:ising:2D} introduce the one- and two-dimensional Ising model, respectively. 
 
@@ -18,7 +18,7 @@ where $N$ is the number of spins. At high temperatures the spins point in random
 
 	In the following the zero-field ferromagnetic model, \ie \mbox{$\interactionStrength = 1$} and \mbox{$\magneticMoment = 0$},  is considered. The energy \energy of a configuration of spins, \configuration{}, in this model is given by 
 	\begin{equation*}
-		\energy\left(\configuration{}\right) = \sum_{n = 1}^{N - 1}\spin{n}\spin{n+1}.
+		\energy\left(\configuration{}\right) = \sum_{n = 1}^{\numberOfSpins - 1}\spin{n}\spin{n+1}.
 	\end{equation*}
 	The probability of a configuration of spins \configuration{} at temperature \temperature is given by
 	\begin{equation}
@@ -33,11 +33,13 @@ where $N$ is the number of spins. At high temperatures the spins point in random
 	\end{equation}
 
 	% START ANALYTICAL STUFF
-	Both the one and two dimensional Ising model can be solved analytically. Under free end boundary conditions, \ie the boundary particles, \spin{1} and \spin{N}, only observe one neighbor \cite{landau2014guide}, the analytical solution of \cref{eq:intro:1D:partitionFunction} is
+	Both the one and two dimensional Ising model can be solved analytically. Under free end boundary conditions, \ie the boundary particles, \spin{1} and \spin{\numberOfSpins}, only observe one neighbor \cite{landau2014guide}, the analytical solution of \cref{eq:intro:1D:partitionFunction} is
 	\begin{equation}
 		\label{eq:introduced1D:partitionFunctionAnalyticalSolution}
-		\partitionfunction = {(2 \cosh \beta)}^N.
+		\partitionfunction = {(2 \cosh \beta)}^\numberOfSpins.
 	\end{equation}
+	\todo[inline]{Wat is $E_n$?}
+	\todo[inline]{Waarover loopt die som?}
 	The average energy in the system can be expressed as a function of \partitionfunction \cite{Murray20011Handout}
 	\begin{equation*}
 		% \label{eq:intro:1D:averageEnergyOriginal}
@@ -49,35 +51,35 @@ where $N$ is the number of spins. At high temperatures the spins point in random
 	\end{equation*}
 	and by following the steps presented in \cref{a:derivations:averageEnergy} it can be found that
 	\begin{equation*}
-		\averageEnergy = - \frac{\partial \ln \left[ \partitionfunction \right]}{\partial \beta} = - N \cdot \tanh (\beta).
+		\averageEnergy = - \frac{\partial \ln \left[ \partitionfunction \right]}{\partial \beta} = - \numberOfSpins \cdot \tanh (\beta).
 	\end{equation*}
-	Consequently $\rfrac{U}{N} = - \tanh (\beta)$.
+	Consequently $\rfrac{\averageEnergy}{\numberOfSpins} = - \tanh (\beta)$.
 
 	The specific heat describes how the average energy changes as a function of the temperature. Consequently
 	\begin{equation*}
-		\specificHeat = \frac{\partial \averageEnergy}{\partial \temperature} = N {\left(\frac{\beta}{\cosh(\beta)}\right)}^{2}
+		\specificHeat = \frac{\partial \averageEnergy}{\partial \temperature} = \numberOfSpins {\left(\frac{\beta}{\cosh(\beta)}\right)}^{2}
 	\end{equation*}
 	as shown in \cref{a:derivations:specificHeat} \cite{warkHandout}, consequently
 	\begin{equation*}
-	 	\frac{\specificHeat}{N} = {\left(\frac{\beta}{\cosh(\beta)}\right)}^2.
+	 	\frac{\specificHeat}{\numberOfSpins} = {\left(\frac{\beta}{\cosh(\beta)}\right)}^2.
 	 \end{equation*}
  
 \subsubsection{Two-Dimensional Model}
 	\label{sss:intro:ising:2D}
-	The 2D Ising model is a square lattice whose lattice sites are occupied by spins. Each spin has either a positive or a negative spin \cite{kenzel1997physics}. The Hamiltonian of the 2D model is the same as the one of the one dimensional model given in \cref{eq:intro:ising:1D:hamiltonian}. The pairs of nearest neighbours are now found by looking at the four connected neighbours, \ie the nearest neighbours of \mbox{spin \spin{i,j}} are \spin{i - 1, j}, \spin{i + 1, j}, \spin{i, j - 1} and \spin{i, j + 1}. The energy of a configuration \configuration{n} that has $N \times N$ spins is computed as
+	The 2D Ising model is a square lattice whose lattice sites are occupied by spins. Each spin has either a positive or a negative spin \cite{kenzel1997physics}. The Hamiltonian of the 2D model is the same as the one of the one dimensional model given in \cref{eq:intro:ising:1D:hamiltonian}. The pairs of nearest neighbours are now found by looking at the four connected neighbours, \ie the nearest neighbours of \mbox{spin \spin{i,j}} are \spin{i - 1, j}, \spin{i + 1, j}, \spin{i, j - 1} and \spin{i, j + 1}. The energy of a configuration \configuration{n} that has $\dimensionality \times \dimensionality$ spins is computed as
 	\begin{equation}
 		\label{eq:intro:ising:2d:energy}
 		\begin{split}
 		\energy\left(\configuration{n} \right) 
-			& = - \sum_{i = 1}^{N - 1}\sum_{j = 1}^{N} \spin{i,j}\spin{i+1,j}\\
-			&\quad\quad - \sum_{i = 1}^{N}\sum_{j = 1}^{N - 1} \spin{i,j} \spin{i, j+1}.
+			& = - \sum_{i = 1}^{\dimensionality - 1}\sum_{j = 1}^{\dimensionality} \spin{i,j}\spin{i+1,j}\\
+			&\quad\quad - \sum_{i = 1}^{\dimensionality}\sum_{j = 1}^{\dimensionality - 1} \spin{i,j} \spin{i, j+1}.
 		\end{split}
 	\end{equation}
 
 	% Analytical stuff
-	The two-dimensional Ising modle has been solved analytically by \textcite{onsager1944crystal}. He showed that the average magnetization per spin on a infinite 2D lattice, \ie $N = \infty$, is
+	The two-dimensional Ising modle has been solved analytically by \textcite{onsager1944crystal}. He showed that the average magnetization per spin on a infinite 2D lattice, \ie $\numberOfSpins = \infty$, is
 	\begin{equation*}
-		\frac{\magnetization}{N^2} = \begin{cases}
+		\frac{\magnetization}{\dimensionality^2} = \begin{cases}
 			{(1 - {\sinh}^{-4}(2\beta))}^2 & \text{if } \temperature < \criticalTemperature\\
 			0 								& \text{if } \temperature > \criticalTemperature
 		\end{cases}
@@ -87,4 +89,4 @@ where $N$ is the number of spins. At high temperatures the spins point in random
 		\criticalTemperature = \frac{2}{\ln \left(1 + \sqrt{2}\right)}.
 	\end{equation*}
 
-	Given \cref{eq:intro:1D:partitionFunction} solving the the Ising model is relatively simple. To find which configurations of spins result in an equilibirium one only needs to try them all. Unfortunately the computational complexity of this operation is exponential in $N$. To be exact, a lattice with $N$ spins has $2^N$ possible configurations, computing \energy according to \cref{eq:intro:ising:2d:energy} for one configuration takes $2N$ steps. This leads to $2N2^N$ computation steps \cite{kenzel1997physics}. Solving the problem with the Metropolis Monte Carlo method circumvents this complexity problem. 
+	Given \cref{eq:intro:1D:partitionFunction} solving the the Ising model is relatively simple. To find which configurations of spins result in an equilibirium one only needs to try them all. Unfortunately the computational complexity of this operation is exponential in $\numberOfSpins$, the number of spins. To be exact, a lattice with \numberOfSpins spins has $2^\numberOfSpins$ possible configurations, computing \energy according to \cref{eq:intro:ising:2d:energy} for one configuration takes $2\numberOfSpins$ steps. This leads to $2\numberOfSpins2^\numberOfSpins$ computation steps \cite{kenzel1997physics}. Solving the problem with the Metropolis Monte Carlo method circumvents this complexity problem. 

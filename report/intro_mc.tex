@@ -2,12 +2,12 @@
 
 Monte Carlo methods rely on random sampling to obtain numerical results. They are often used to solve problems that might be deterministic in principle but are difficult to solve with other approaches. Monte Carlo experiments can be used for sampling, \ie generating draws from some probability distribution \cite{kroese2014monte}. 
 
-In the context of the Ising model one could naively consider using a few randomly generated states to compute the partition function. However the central limit theorem tells us that randomly generated states have an energy that is approximately $\bigOh{\sqrt{N}}$ for sufficiently large $N$. However the states that we are interested in have an energy of the order \bigOh{N}, which means that they are not generated at all by the naive method. 
+In the context of the Ising model one could naively consider using a few randomly generated states to compute the partition function. However the central limit theorem tells us that randomly generated states have an energy that is approximately $\bigOh{\sqrt{\numberOfSpins}}$ for sufficiently large $N$. However the states that we are interested in have an energy of the order \bigOh{\numberOfSpins}, which means that they are not generated at all by the naive method. 
 
 Consequently we need some way to generate the physically relevant states. This can be done by relaxing some configuration into a thermal equilibrium by generating from it a new sequence of states. This requires a transition probability $\transitionProbability\left(\configuration{i} \to \configuration{j} \right)$ from configuration \configuration{i} to configuration \configuration{j}. In thermal equilibrium the probability of finding a given configuration is presented in \cref{eq:intro:1D:configurationProbability}. As we require $P\left(\configuration{i}\right)$ to be stationary in thermal equilibrium we get the detailed balance:
 \begin{multline}\label{eq:intro:mcm:detailedbalance}
-	\transitionProbability\left(\configuration{i} \to \configuration{j}\right)\exp\left[-E(\configuration{i})\beta \right] = \\
-	\transitionProbability\left(\configuration{j} \to \configuration{i}\right)\exp\left[-E(\configuration{j})\beta \right].
+	\transitionProbability\left(\configuration{i} \to \configuration{j}\right)\exp\left[-\energy(\configuration{i})\beta \right] = \\
+	\transitionProbability\left(\configuration{j} \to \configuration{i}\right)\exp\left[-\energy(\configuration{j})\beta \right].
 \end{multline}
 The function $\transitionProbability(\cdot)$ needs to cover the entire configuration space. The Metropolis algorithm is one of the algorithms that ensures this \cite{kenzel1997physics}. 
 
