@@ -1,11 +1,26 @@
 %!TEX root = report.tex
-	\todo[inline]{Consider random states, won't work, since ....}
-	\todo[inline]{Metropolis MC in general}
 
-	\todo[inline]{Importance sampling}
+Monte Carlo methods rely on random sampling to obtain numerical results. They are often used to solve problems that might be deterministic in principle but are difficult to solve with other approaches. Monte Carlo experiments can be used for sampling, \ie generating draws from some probability distribution \cite{kroese2014monte}. 
 
-	\todo[inline]{The Metropolis solution}
+In the context of the Ising model one could naively consider using a few randomly generated states to compute the partition function. However the central limit theorem tells us that randomly generated states have an energy that is approximately $\bigOh{\sqrt{N}}$ for sufficiently large $N$. However the states that we are interested in have an energy of the order \bigOh{N}, which means that they are not generated at all by the naive method. 
 
-	\todo[inline]{Use the general average stuff to show the next two functions.}
-	\todo[inline]{How to compute average energy in the simulation}
-	\todo[inline]{How to compute average magnetization in the simulation}
+Consequently we need some way to generate the physically relevant states. This can be done by relaxing some configuration into a thermal equilibrium by generating from it a new sequence of states. This requires a transition probability $\transitionProbability\left(\configuration{i} \to \configuration{j} \right)$ from configuration \configuration{i} to configuration \configuration{j}. In thermal equilibrium the probability of finding a given configuration is presented in \cref{eq:intro:1D:configurationProbability}. As we require $P\left(\configuration{i}\right)$ to be stationary in thermal equilibrium we get the detailed balance:
+\begin{multline}\label{eq:intro:mcm:detailedbalance}
+	\transitionProbability\left(\configuration{i} \to \configuration{j}\right)\exp\left[-E(\configuration{i})\beta \right] = \\
+	\transitionProbability\left(\configuration{j} \to \configuration{i}\right)\exp\left[-E(\configuration{j})\beta \right].
+\end{multline}
+The function $\transitionProbability(\cdot)$ needs to cover the entire configuration space. The Metropolis algorithm is one of the algorithms that ensures this \cite{kenzel1997physics}. We only allow transitions at which at most one spin is changed. Furthermore if the change in spin results in an energetically better state, the transition to this state always happens, \ie $\transitionProbability\left(\configuration{i} \to \configuration{j}\right) = 1$. Using \cref{eq:intro:mcm:detailedbalance,eq:intro:1D:configurationProbability} gives the transition function for all other cases:
+	\begin{equation}
+		\transitionProbability\left(\configuration{i} \to \configuration{j}\right) = \exp \left[\frac{\hamiltonian\left(\configuration{i}\right) - \hamiltonian\left(\configuration{j}\right)}{k_b \temperature}\right].
+	\end{equation}
+% \begin{widetext}
+% 	\begin{equation}
+% 		\transitionProbability\left(\configuration{i} \to \configuration{j}\right) = 
+% 		\begin{cases}
+% 			1 & \text{if } \hamiltonian\left(\configuration{j}\right) < \hamiltonian\left(\configuration{i}\right)\\
+% 			\exp \left[\frac{\hamiltonian\left(\configuration{i}\right) - \hamiltonian\left(\configuration{j}\right)}{k_b \temperature}\right] & \text{otherwise}
+% 		\end{cases}
+% 	\end{equation}
+% \end{widetext}
+
+\todo[inline]{Introduce the idea Metropolis Monte Carlo} 

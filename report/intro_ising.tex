@@ -21,11 +21,11 @@ where $N$ is the number of spins. At high temperatures the spins point in random
 		\energy\left(\configuration{i}\right) = \sum_{n = 1}^{N - 1}\spin{n}\spin{n+1}.
 	\end{equation*}
 	The probability of a configuration of spins \configuration{i} at temperature \temperature is given by
-	\begin{equation*}
-		% \label{eq:intro:1D:configurationProbability}
+	\begin{equation}
+		\label{eq:intro:1D:configurationProbability}
 		P\left(\configuration{i}\right) = 
 		\frac{1}{\partitionfunction} \exp\left[-{E(\configuration{i})}\frac{1}{\temperature}\right],
-	\end{equation*}
+	\end{equation}
 	where $\temperature = \rfrac{1}{\beta}$ and \partitionfunction is the partition function:
 	\begin{equation}
 		\label{eq:intro:1D:partitionFunction}
@@ -64,24 +64,24 @@ where $N$ is the number of spins. At high temperatures the spins point in random
  
 \subsubsection{Two-Dimensional Model}
 	\label{sss:intro:ising:2D}
-	The 2D Ising model is a square lattice whose lattice sites are occupied by spins. Each spin has either a positive or a negative spin \cite{kenzel1997physics}. The Hamiltonian of the 2D model is the same as the one of the one dimensional model given in \cref{eq:intro:ising:1D:hamiltonian}. The pairs of nearest neighbours are now found by looking at the four connected neighbours, \ie the nearest neighbours of spin \spin{i,j} are \spin{i - 1, j}, \spin{i + 1, j}, \spin{i, j - 1} and \spin{i, j + 1}. The energy of a configuration \configuration{n} that has $N \times N$ spins is computed as
-	\begin{equation*}
+	The 2D Ising model is a square lattice whose lattice sites are occupied by spins. Each spin has either a positive or a negative spin \cite{kenzel1997physics}. The Hamiltonian of the 2D model is the same as the one of the one dimensional model given in \cref{eq:intro:ising:1D:hamiltonian}. The pairs of nearest neighbours are now found by looking at the four connected neighbours, \ie the nearest neighbours of \mbox{spin \spin{i,j}} are \spin{i - 1, j}, \spin{i + 1, j}, \spin{i, j - 1} and \spin{i, j + 1}. The energy of a configuration \configuration{n} that has $N \times N$ spins is computed as
+	\begin{equation}
+		\label{eq:intro:ising:2d:energy}
 		\begin{split}
 		\energy\left(\configuration{n} \right) 
 			& = - \sum_{i = 1}^{N - 1}\sum_{j = 1}^{N} \spin{i,j}\spin{i+1,j}\\
 			&\quad\quad - \sum_{i = 1}^{N}\sum_{j = 1}^{N - 1} \spin{i,j} \spin{i, j+1}.
 		\end{split}
-	\end{equation*}
+	\end{equation}
 
 	% Analytical stuff
 	The two-dimensional Ising modle has been solved analytically by \textcite{onsager1944crystal}. He showed that the average magnetization per spin on a infinite 2D lattice, \ie $N = \infty$, is
-	\begin{equation}
-		\label{eq:intro:ising:2d:energy}
+	\begin{equation*}
 		\frac{\magnetization}{N^2} = \begin{cases}
 			{(1 - {\sinh}^{-4}(2\beta))}^2 & \text{if } \temperature < \criticalTemperature\\
 			0 								& \text{if } \temperature > \criticalTemperature
 		\end{cases}
-	\end{equation}
+	\end{equation*}
 	where
 	\begin{equation*}
 		\criticalTemperature = \frac{2}{\ln \left(1 + \sqrt{2}\right)}.
