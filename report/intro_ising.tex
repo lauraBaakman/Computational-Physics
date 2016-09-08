@@ -10,20 +10,20 @@ where $N$ is the number of spins. At high temperatures the spins point in random
 
 \subsubsection{One-Dimensional Model}
 	\label{sss:intro:ising:1D}
-	\textcite{ising1925beitrag} introduced a model consisting of a one-dimensional lattice op spin variables. Contrary to the two dimensional model this model does not exhibit state transitions. The Hamiltonian of the one dimensional Ising model with the set spins \mbox{\configuration{i} = \spinset} is
+	\textcite{ising1925beitrag} introduced a model consisting of a one-dimensional lattice op spin variables. Contrary to the two dimensional model this model does not exhibit state transitions. The Hamiltonian of the one dimensional Ising model with the set spins \mbox{\configuration{} = \spinset} is
 	\begin{equation}\label{eq:intro:ising:1D:hamiltonian}
-		\hamiltonian = - \interactionStrength \sum_{\pair{i}{j}}\spin{i}\spin{j} - \magneticMoment \sum_{i} \spin{i}.
+		\hamiltonian\left(\configuration{} \right) = - \interactionStrength \sum_{\pair{i}{j}}\spin{i}\spin{j} - \magneticMoment \sum_{i} \spin{i}.
 	\end{equation}
 	Where \pair{i}{j} is a nearest neighbour pair, the nearest neighbour of \spin{i} in the one dimensional model are \spin{i - 1} and \spin{i + 1}. \interactionStrength specifies the strength of the interactions between the particles. In a ferromagnetic model, \mbox{$\interactionStrength > 0$} neighboring spins prefer to be parallel. In the anti-ferromagnetic model, \mbox{$\interactionStrength < 0$} spins prefer a direction different to one of their neighbors. The constant \magneticMoment represents the external magnetic field, the spins want to align with the direction of $h$, \ie when \mbox{$h > 0$} spins prefer to be positive. 
 
-	In the following the zero-field ferromagnetic model, \ie \mbox{$\interactionStrength = 1$} and \mbox{$\magneticMoment = 0$},  is considered. The energy \energy of a configuration of spins, \mbox{$\configuration{i} = \spinset$}, in this model is given by 
+	In the following the zero-field ferromagnetic model, \ie \mbox{$\interactionStrength = 1$} and \mbox{$\magneticMoment = 0$},  is considered. The energy \energy of a configuration of spins, \configuration{}, in this model is given by 
 	\begin{equation*}
-		\energy\left(\configuration{i}\right) = \sum_{n = 1}^{N - 1}\spin{n}\spin{n+1}.
+		\energy\left(\configuration{}\right) = \sum_{n = 1}^{N - 1}\spin{n}\spin{n+1}.
 	\end{equation*}
-	The probability of a configuration of spins \configuration{i} at temperature \temperature is given by
+	The probability of a configuration of spins \configuration{} at temperature \temperature is given by
 	\begin{equation}
 		\label{eq:intro:1D:configurationProbability}
-		P\left(\configuration{i}\right) = 
+		P\left(\configuration{}\right) = 
 		\frac{1}{\partitionfunction} \exp\left[-{E(\configuration{i})}\frac{1}{\temperature}\right],
 	\end{equation}
 	where $\temperature = \rfrac{1}{\beta}$ and \partitionfunction is the partition function:

@@ -1,6 +1,24 @@
 %!TEX root = report.tex
 \todo[inline]{What are we going to discuss in this section?}
 
-\todo[inline]{beter structureren, splitsen in 1D en 2D?}
 
-\todo[inline]{how have we applied the MMC to the 1D and 2D ising model? Refer to appendix with actual implementation}
+\todo[inline]{Determine W: p194 physics by computer}
+% Bepaal w p194 physics by computer
+% We only allow transitions at which at most one spin is changed. Furthermore if the change in spin results in an energetically better state, the transition to this state always happens, \ie $\transitionProbability\left(\configuration{i} \to \configuration{j}\right) = 1$. Using \cref{eq:intro:mcm:detailedbalance,eq:intro:1D:configurationProbability} gives the transition function for all other cases:
+% \todo{Boltzman constant eruit werken}
+% 	\begin{equation*}
+% 		\transitionProbability\left(\configuration{i} \to \configuration{j}\right) = \exp \left[\frac{\hamiltonian\left(\configuration{i}\right) - \hamiltonian\left(\configuration{j}\right)}{k_b \temperature}\right].
+% 	\end{equation*}
+% Writing \cref{eq:intro:ising:1D:hamiltonian} as
+% 	\begin{equation*}
+% 			\hamiltonian\left(\configuration{}\right) = - \spin{i} \sum_{j \in \neighbourhood{\spin{i}}} \spin{j} + \mathit{remainder}
+% 	\end{equation*}
+% where the sum is restricted to the nearest neighbors of \spin{i} and \textit{remainder} contains the part of \hamiltonian that does not depend on \spin{i} we can write 
+% 	\begin{equation}
+% 	\Delta\energy = 	
+% 	\end{equation}
+%
+
+\todo[inline]{Pseudocode metropolis monte carlo}
+
+\todo[inline]{Refer to implementation}

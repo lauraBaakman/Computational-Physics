@@ -9,18 +9,6 @@ Consequently we need some way to generate the physically relevant states. This c
 	\transitionProbability\left(\configuration{i} \to \configuration{j}\right)\exp\left[-E(\configuration{i})\beta \right] = \\
 	\transitionProbability\left(\configuration{j} \to \configuration{i}\right)\exp\left[-E(\configuration{j})\beta \right].
 \end{multline}
-The function $\transitionProbability(\cdot)$ needs to cover the entire configuration space. The Metropolis algorithm is one of the algorithms that ensures this \cite{kenzel1997physics}. We only allow transitions at which at most one spin is changed. Furthermore if the change in spin results in an energetically better state, the transition to this state always happens, \ie $\transitionProbability\left(\configuration{i} \to \configuration{j}\right) = 1$. Using \cref{eq:intro:mcm:detailedbalance,eq:intro:1D:configurationProbability} gives the transition function for all other cases:
-	\begin{equation}
-		\transitionProbability\left(\configuration{i} \to \configuration{j}\right) = \exp \left[\frac{\hamiltonian\left(\configuration{i}\right) - \hamiltonian\left(\configuration{j}\right)}{k_b \temperature}\right].
-	\end{equation}
-% \begin{widetext}
-% 	\begin{equation}
-% 		\transitionProbability\left(\configuration{i} \to \configuration{j}\right) = 
-% 		\begin{cases}
-% 			1 & \text{if } \hamiltonian\left(\configuration{j}\right) < \hamiltonian\left(\configuration{i}\right)\\
-% 			\exp \left[\frac{\hamiltonian\left(\configuration{i}\right) - \hamiltonian\left(\configuration{j}\right)}{k_b \temperature}\right] & \text{otherwise}
-% 		\end{cases}
-% 	\end{equation}
-% \end{widetext}
+The function $\transitionProbability(\cdot)$ needs to cover the entire configuration space. The Metropolis algorithm is one of the algorithms that ensures this \cite{kenzel1997physics}. 
 
-\todo[inline]{Introduce the idea Metropolis Monte Carlo} 
+The Metropolis Monte Carlo algorithm starts in some initial configuration, it then moves to subsequent configurations by flipping one randomly selected spin with a probability defined by \mbox{$\transitionProbability(\cdot)$}. 
