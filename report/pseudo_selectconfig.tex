@@ -3,14 +3,16 @@
 	\setstretch{1.2}
 	\SetAlgoShortEnd
 	\DontPrintSemicolon
-	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+	\SetKwInOut{Input}{input}
+	\SetKwInOut{Output}{output}
 	\Input{
-			$\configuration{\mathit{cur}}$ the current configuration
+			$\configuration{\mathit{cur}}$ the current configuration \newline
 			$\configuration{\mathit{pot}}$ the potential configuration
 	}
 	\Output{
 		$\configuration{\mathit{new}}$ the selected configuration
 	}
+
 	\BlankLine
 	$\Delta \energy$ := \FuncSty{computeDeltaE(
 		$\configuration{\mathit{cur}}$, 
