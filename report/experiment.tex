@@ -1,34 +1,38 @@
 %!TEX root = report.tex
-\todo[inline]{What are we going to discuss?}
+This section introduces the experiments we ran with the model introduced in the previous sections. In the experiments below the number of iterations, \numberOfIterations, is not necessarily equal to \numberOfSpins, the number of spins, but set independently. To give the system time to relax into the interesting states we perform \mbox{$\rfrac{1}{10} \cdot \numberOfIterations$} Monte Carlo steps, before actually taking the samples used to compute the results. 
+
+ The experiments we ran with the one and two dimensional model are discussed in \cref{ss:experiment:1D,ss:experiment:2D}, respectively.
 
 \subsection{One-Dimensional Model}
-	\todo[inline]{Wat gaan testen?}
-	
-	\subsubsection*{Average Energy}
-		\todo[inline]{Define average energy for 1D}
+\label{ss:experiment:1D}
+	In the 1D model we are interested in both the average energy and the specific heat per spin in the following parameter space \mbox{$\temperature = 0.2, 0.4, \dotsc, 4$}, \mbox{$\numberOfSpins=10,100,1000$} and \mbox{$\numberOfIterations=1000,10000$}. 
 
-	\subsubsection*{Specific Heat}
-		\todo[inline]{Define specific Heat for 1D}
+	\averageEnergy, the average energy of a set of configurations is
+	\begin{equation*}
+		\averageEnergy = \frac{1}{\#\sampleSet} \sum_{\configuration{i} \in \sampleSet} E(\configuration{i}),
+	\end{equation*}
+	where $\sampleSet = \left\{ \configuration{1}, \dotsc, \configuration{\numberOfSamples} \right\}$ the configurations generated during the Monte Carlo steps.
 
-\todo[inline]{Refer to listings/section in appendix with the code for this experiment.}
+	\specificHeat, the specific heat of a configuration is
+	\todo[inline]{Specific heat of a configuration? Or of a spin?}
+	\begin{equation*}
+		\specificHeat = 
+	\end{equation*}
+
+	\todo[inline]{Refer to listings/section in appendix with the code for this experiment.}
 
 \subsection{Two-Dimensional Model}
+\label{ss:experiment:2D}
 	\todo[inline]{Wat gaan we testen}
 
 	\subsubsection*{Average Energy}
 		\todo[inline]{Define average energy for 1D}
 
-		\todo[inline]{Report average energy for different values of T, N and NSAMPLES}
-
 
 	\subsubsection*{Specific Heat}
 		\todo[inline]{Define specific Heat for 2D}
 
-		\todo[inline]{Report specific heat for different values of T, N and NSAMPLES}
-
 	\subsubsection*{Average Magnetization}
 		\todo[inline]{Define magnetization}
-
-		\todo[inline]{Report average magnetization for different values of T, N and NSAMPLES}	
 
 	\todo[inline]{Refer to listings/section in appendix with the code for this experiment.}
