@@ -11,7 +11,7 @@
 	\BlankLine
 	$\configuration{\mathit{cur}}$ := $\configuration{\mathit{init}}$\;
 	\For{$i = 0$ \KwTo \numberOfIterations}{
-		\spin{} := \FuncSty{selectRandomSpin()}\;
+		\spin{} := \FuncSty{selectRandomSpin(\configuration{\mathit{cur}})}\;
 		$\configuration{\mathit{pot}}$ := \FuncSty{flipSpin(\spin{}, $\configuration{\mathit{cur}}$)}\;
 		$\configuration{\mathit{cur}}$ := \FuncSty{selectConfig(
 			$\configuration{\mathit{cur}}$,

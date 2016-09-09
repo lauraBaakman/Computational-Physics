@@ -18,9 +18,10 @@
 		$\configuration{\mathit{cur}}$, 
 		$\configuration{\mathit{pot}}$
 	)}\;
+	$\xi$ := $\exp\left[- \beta\Delta\energy \right]$\;
 	$\theta$ := \FuncSty{randomNumber($0$, $1$)}\;
-	\leIf{$\exp\left[- \beta\Delta\energy \right] > \theta$}{
-		$\configuration{\mathit{new}}$ := $\configuration{\mathit{pot}}$
+	\leIf{$\xi > \theta$}{
+		$\configuration{\mathit{new}}$ := $\configuration{\mathit{pot}}$\newline
 	}{
 		$\configuration{\mathit{new}}$ := $\configuration{\mathit{cur}}$
 	}
