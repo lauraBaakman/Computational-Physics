@@ -66,7 +66,7 @@ where \numberOfSpins is the number of spins. At high temperatures the spins poin
  
 \subsubsection{Two-Dimensional Model}
 	\label{sss:intro:ising:2D}
-	The 2D Ising model is a square lattice whose lattice sites are occupied by spins. Each spin has either a positive or a negative spin \cite{kenzel1997physics}. The Hamiltonian of the 2D model is the same as the one of the one dimensional model given in \cref{eq:intro:ising:1D:hamiltonian}. The pairs of nearest neighbours are now found by looking at the four connected neighbours, \ie the nearest neighbours of \mbox{spin \spin{i,j}} are \spin{i - 1, j}, \spin{i + 1, j}, \spin{i, j - 1} and \spin{i, j + 1}. The energy of a configuration \configuration{n} that has $\dimensionality \times \dimensionality$ spins is computed as
+	The 2D Ising model is a square lattice whose lattice sites are occupied by spins. Each spin has either a positive or a negative spin \cite{kenzel1997physics}. The Hamiltonian of the 2D model is the same as the one of the one dimensional model given in \cref{eq:intro:ising:1D:hamiltonian}. The pairs of nearest neighbours are now found by looking at the four connected neighbours, \ie the nearest neighbours of \mbox{spin \spin{i,j}} are \spin{i - 1, j}, \spin{i + 1, j}, \spin{i, j - 1} and \spin{i, j + 1}. \todo{Wat als ie op de rand zit, lopen we rond, of zien we gewoon minder?}The energy of a configuration \configuration{n} that has $\dimensionality \times \dimensionality$ spins is computed as
 	\begin{equation}
 		\label{eq:intro:ising:2d:energy}
 		\begin{split}
@@ -77,7 +77,7 @@ where \numberOfSpins is the number of spins. At high temperatures the spins poin
 	\end{equation}
 
 	% Analytical stuff
-	The two-dimensional Ising modle has been solved analytically by \textcite{onsager1944crystal}. He showed that the average magnetization per spin on a infinite 2D lattice, \ie $\numberOfSpins = \infty$, is
+	The two-dimensional Ising model has been solved analytically by \textcite{onsager1944crystal}. He showed that the average magnetization per spin on a infinite 2D lattice, \ie $\numberOfSpins = \infty$, is
 	\begin{equation}
 		\label{eq:intro:ising:2D:magnetizationAnalytical}
 		\frac{\magnetization}{\dimensionality^2} = \begin{cases}
