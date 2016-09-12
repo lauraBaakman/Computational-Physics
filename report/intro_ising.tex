@@ -78,12 +78,13 @@ where \numberOfSpins is the number of spins. At high temperatures the spins poin
 
 	% Analytical stuff
 	The two-dimensional Ising modle has been solved analytically by \textcite{onsager1944crystal}. He showed that the average magnetization per spin on a infinite 2D lattice, \ie $\numberOfSpins = \infty$, is
-	\begin{equation*}
+	\begin{equation}
+		\label{eq:intro:ising:2D:magnetizationAnalytical}
 		\frac{\magnetization}{\dimensionality^2} = \begin{cases}
 			{(1 - {\sinh}^{-4}(2\beta))}^2 & \text{if } \temperature < \criticalTemperature\\
 			0 								& \text{if } \temperature > \criticalTemperature
 		\end{cases}
-	\end{equation*}
+	\end{equation}
 	where
 	\begin{equation*}
 		\criticalTemperature = \frac{2}{\ln \left(1 + \sqrt{2}\right)}.

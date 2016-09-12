@@ -7,32 +7,21 @@ This section introduces the experiments we ran with the model introduced in the 
 \label{ss:experiment:1D}
 	In the 1D model we are interested in both the average energy and the specific heat per spin in the following parameter space \mbox{$\temperature = 0.2, 0.4, \dotsc, 4$}, \mbox{$\numberOfSpins=10,100,1000$} and \mbox{$\numberOfIterations=1000,10000$}. 
 
-	\averageEnergy, the average energy of a set of configurations is
+	\averageEnergy, the average energy is given by
 	\begin{equation*}
 		\averageEnergy = \frac{1}{\#\sampleSet} \sum_{\configuration{i} \in \sampleSet} E(\configuration{i}),
 	\end{equation*}
-	where $\sampleSet = \left\{ \configuration{1}, \dotsc, \configuration{\numberOfSamples} \right\}$ the configurations generated during the Monte Carlo steps.
-
-	\specificHeat, the specific heat of a configuration is
-	\todo[inline]{Specific heat of a configuration? Or of a spin?}
+	where $\sampleSet = \left\{ \configuration{1}, \dotsc, \configuration{\numberOfSamples} \right\}$ is the set of configurations generated during the Monte Carlo steps. \specificHeat, the specific heat is defined as
 	\begin{equation*}
-		\specificHeat = 
+		\specificHeat = \beta^2 \left( 
+			\frac{1}{\#\sampleSet} \left(  \sum_{\configuration{i} \in \sampleSet} E^2(\configuration{i})\right) - \averageEnergy^2 
+		\right).
 	\end{equation*}
-
+	Furthermore we will compare the results of the simulation with the analytical solution presented earlier.
 	\todo[inline]{Refer to listings/section in appendix with the code for this experiment.}
 
 \subsection{Two-Dimensional Model}
 \label{ss:experiment:2D}
-	\todo[inline]{Wat gaan we testen}
-
-	\subsubsection*{Average Energy}
-		\todo[inline]{Define average energy for 1D}
-
-
-	\subsubsection*{Specific Heat}
-		\todo[inline]{Define specific Heat for 2D}
-
-	\subsubsection*{Average Magnetization}
-		\todo[inline]{Define magnetization}
+	In the 2D model we are not only interested in the average energy and specific heat per spin but also the average magnetization per spin. \todo{Formule toevoegen?} The following parameter space is used: \mbox{$\temperature = 0.2, 0.4, \dotsc, 4$}, \mbox{\numberOfSpins = 10, 50, 100} and $\numberOfIterations = 1000, 10000$. The found average average magnetization per spin is compared with the analytical solution presented in \cref{eq:intro:ising:2D:magnetizationAnalytical}.
 
 	\todo[inline]{Refer to listings/section in appendix with the code for this experiment.}
