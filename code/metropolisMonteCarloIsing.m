@@ -12,23 +12,35 @@ for i = 1:paramters.numRelaxIterations
 end
 
 for i = 1:parameters.numSampleIterations
-   configuration = monteCarloStep(configuration);
+   configuration = monteCarloStep(parameters.beta, configuration);
    configurations(:,:, i) = configuration;
 end
 
 end
 
-function [nextConfig] = monteCarloStep(currentConfig)
-    potentialConfig = flipRandomSpin(current);
-    nextConfig = selectNextConfig(currentConfig, potentialConfig);
+function [nextConfig] = monteCarloStep(currentConfig, parameters)
+    potentialConfig, flippedSpin = flipRandomSpin(current);
+    nextConfig = selectNextConfig(currentConfig, potentialConfig, flippedSpin, parameters);
 end
 
-function [potentialConfig] = flipRandomSpin(currentConfig)
+function [potentialConfig, flippedSpinIdx] = flipRandomSpin(currentConfig)
     potentialConfig = currentConfig;
-    randomIdx = randi(numel(potentialConfig));
+    flippedSpinIdx = randi(numel(potentialConfig));
     potentialConfig(randomIdx) = potentialConfig(randomIdx) * -1;
 end
 
-function [nextConfig] = selectNextConfig(currentConfig, potentialConfig)
-    sprintf('Not yet Implemented')
+function [nextConfig] = selectNextConfig(currentConfig, potentialConfig, flippedSpin, parameters)
+    deltaE = computeDeltaE(potentialConfig, flippedSpin);
+    xi = exp(- parameters.beta * deltaE);
+    theta = rand();
+    if xi > theta
+        nextConfig = potentialConfig;
+    else
+        nextConfig = currentConfig;
+    end
+end
+
+function [deltaE] = computeDeltaE(potentialConfig, flippedSpinIdx, parameters)
+    neighbors = parameters.neighbourFunction(flippedSpinIdx, potentialConfig);
+    deltaE = -2 * potentialConfig(flippedSpin) * sum(neighbors);
 end
