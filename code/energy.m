@@ -12,7 +12,9 @@ function [ energy ] = energy( configuration )
 end
 
 function [energy] = energy1D(configuration)
-    error('Error. \nNot yet implemented.')
+    left_shifted = [0 configuration];
+    right_shifted = [configuration 0];
+    energy = -1 * sum(left_shifted .* right_shifted);
 end
 
 function [energy] = energy2D(configuration)
