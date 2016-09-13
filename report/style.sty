@@ -52,6 +52,30 @@
 \RequirePackage[backend=bibtex]{biblatex}
 \RequirePackage{csquotes}
 
+%Listings
+\RequirePackage{listings}
+\RequirePackage{courier}
+
+\lstset{language=Matlab, 
+	tabsize = 4, 
+	columns=flexible, 
+	breaklines = true, 
+	keepspaces=true,
+	showspaces=false,
+	showstringspaces=false,
+	basicstyle=\small\ttfamily,
+	commentstyle=\color[RGB]{116, 167, 108},
+	keywordstyle=[1]\bfseries\color[RGB]{90, 114, 173},
+	keywordstyle=[2]\color[rgb]{0.5,0.0,0.0},
+	keywordstyle=[3]\color[rgb]{0.127,0.427,0.514},
+	keywordstyle=[4]\color[rgb]{0.4,0.4,0.4},
+	stringstyle=\color[RGB]{172, 80, 83},
+	frame = single,
+	caption=\lstname,	
+}
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
+
 % Pseudo code
 \RequirePackage[algoruled,vlined, shortend]{algorithm2e}
 \RequirePackage[export]{adjustbox}
