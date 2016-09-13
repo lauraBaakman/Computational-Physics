@@ -1,5 +1,6 @@
-function [ figure ] = averageEnergy1D( experiments, numberOfSampleIterations, varargin )
-%AVERAGEENERGY1D Generate the Plotly handles for the U/N plots.
+function [ figure ] = specificHeat ( experiments, numberOfSampleIterations, varargin)
+ns, varargin )
+%SPECIFICHEAT1D Generate the Plotly handles for the C/N plots.
 %   Plots U/N as a function of T for different values of N, i.e. number of
 %   samples.
 
@@ -18,12 +19,12 @@ function [ figure ] = averageEnergy1D( experiments, numberOfSampleIterations, va
        statistics = [subsubset.statistics];
        parameters = [subsubset.parameters];
        
-       averageEnergiesPerSpin = [statistics.averageEnergy]./N;
+       specificHeatPerSpin = [statistics.specificHeat]./N;
        temperatures = [parameters.temperature];
        
         traces{i} = struct(...
           'x', temperatures, ...
-          'y', averageEnergiesPerSpin, ...
+          'y', specificHeatPerSpin, ...
           'name', sprintf('N = %d', N), ...
           'mode', 'lines' ,...
           'type', 'scatter');
@@ -31,10 +32,11 @@ function [ figure ] = averageEnergy1D( experiments, numberOfSampleIterations, va
     
     layout = struct(...
         'xaxis', struct('title', '$T$', 'autotick', false, 'tick0', 0, 'dtick', 0.2),...
-        'yaxis', struct('title', '$\frac{U}{N_\textit{samples}}$'));
+        'yaxis', struct('title', '$\frac{C}{N_\textit{samples}}$'));
     
     figure.data = traces;
     figure.layout = layout;
-    figure.UserData = struct('filename', 'latex', 'fileopt', 'overwrite');
-%     response = plotly(traces, struct('layout', layout, 'filename', 'latex', 'fileopt', 'overwrite'));
+    figure.UserData = struct('filename', 'latex', 'fileopt', 'overwrite');    
+    
 end
+
