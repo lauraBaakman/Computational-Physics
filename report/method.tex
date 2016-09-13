@@ -21,6 +21,7 @@ If a the potential configuration is determined is decided by two values: $\theta
 \begin{equation}
 	\xi = \exp\left[- \beta\Delta\energy \right].
 \end{equation}
-If the transition from \configuration{\mathit{cur}} to \configuration{\mathit{pot}} decreases the energy of the system \mbox{$\xi > 1$} and as \mbox{$\theta \in \left(0, 1\right)$} this means that potential states with a lower energy than the current state are always accepted. The guard of the if also ensures that state transitions that increase the energy, \ie \mbox{$\xi < 1$}, are not necessarily discarded.
+\todo[inline]{Formuleer opnieuw, dit loopt niet helemaal lekker.}
+If the transition from \configuration{\mathit{cur}} to \configuration{\mathit{pot}} decreases the energy of the system $\xi$ is greater than one and as \mbox{$\theta \in \left(0, 1\right)$} this means that potential states with a lower energy than the current state are always accepted. The guard of the \t{if} also ensures that state transitions that increase the energy, \ie \mbox{$\xi < 1$}, are not necessarily discarded.
 
 The implementation of the presented algorithm can be found in \cref{a:implementation}. \todo[inline]{Refer to exact listings.}
