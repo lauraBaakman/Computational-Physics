@@ -1,5 +1,4 @@
 function [ figure ] = specificHeat1D ( experiments, numberOfSampleIterations, varargin)
-ns, varargin )
 %SPECIFICHEAT1D Generate the Plotly handles for the C/N plots.
 %   Plots U/N as a function of T for different values of N, i.e. number of
 %   samples.
