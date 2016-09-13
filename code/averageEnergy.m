@@ -14,7 +14,7 @@ function [average] = averageEnergy1D( configurations )
     [~, ~, num_configurations] = size(configurations);
     shifted_left = [zeros(1, 1, num_configurations), configurations];
     shifted_right = [configurations, zeros(1, 1, num_configurations)];
-    
+    multiplied = shifted_left .* shifted_right;
     energy_per_configuration = -1 * sum(multiplied, 2);
     average = mean(energy_per_configuration);
 end
