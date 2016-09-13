@@ -1,4 +1,5 @@
 clc; close all; clear all; 
+rng('default');
 
 computeNumRelaxIterations = @(n) 1/10 .* n;
 
@@ -6,8 +7,6 @@ computeNumRelaxIterations = @(n) 1/10 .* n;
 temperatures = 0.2:0.2:4;
 numParticlesList = [10, 100, 1000];
 numSampleIterationsList = [1000, 10000];
-
-number_of_simulations = prod([length(temperatures), length(numParticlesList), length(numSampleIterationsList)]);
 
 idx = 1;
 
