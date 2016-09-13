@@ -2,11 +2,16 @@ clc; close all; clear all;
 
 computeNumRelaxIterations = @(n) 1/10 .* n;
 
-%%init
+%% Init 
 temperatures = 0.2:0.2:4;
 numParticlesList = [10, 100, 1000];
 numSampleIterationsList = [1000, 10000];
 
+number_of_simulations = prod([length(temperatures), length(numParticlesList), length(numSampleIterationsList)]);
+
+idx = 1;
+
+%% Run Simulations
 for temperature = temperatures
    for numParticles = numParticlesList
       for numSampleIterations =  numSampleIterationsList
@@ -17,11 +22,22 @@ for temperature = temperatures
             'numParticles', numParticles,...
             'numSampleIterations', numSampleIterations,...
             'numRelaxIterations', numRelaxIterations,...
-            'beta', 1,...
-            'neighbourFunction', neighbors.OneD2Connected);
+            'neighborFunction', @neighbors.OneD2Connected);
           
           initial_configuration = generateRandomConfiguration([1, numParticles]);
           configurations = metropolisMonteCarloIsing(initial_configuration, parameters);
+          
+          parameters = rmfield(parameters, 'neighborFunction');
+          
+          experiments(idx).parameters = parameters;
+          experiments(idx).configurations = configurations;
+          idx = idx + 1;
       end
    end
 end
+
+%% Store the results
+save('../results/1D.mat', 'experiments')
+
+
+%% Compute requested data
