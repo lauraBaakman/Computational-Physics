@@ -30,6 +30,9 @@ for temperature = temperatures
           
           experiments(idx).parameters = parameters;
           experiments(idx).configurations = configurations;
+          experiments(idx).statistics = struct(...
+              'averageEnergy', averageEnergy(configurations),...
+              'specificHeat', computeSpecificHeat(configurations));
           idx = idx + 1;
       end
    end
@@ -40,3 +43,4 @@ save('../results/1D.mat', 'experiments')
 
 
 %% Compute requested data
+
