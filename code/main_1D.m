@@ -31,8 +31,8 @@ for temperature = temperatures
           experiments(idx).parameters = parameters;
           experiments(idx).configurations = configurations;
           experiments(idx).statistics = struct(...
-              'averageEnergy', averageEnergy(configurations),...
-              'specificHeat', computeSpecificHeat(configurations));
+              'averageEnergy', computeAverageEnergy(configurations),...
+              'specificHeat', computeSpecificHeat(configurations, parameters.temperature));
           idx = idx + 1;
       end
    end

@@ -1,5 +1,5 @@
-function [ energy ] = energy( configuration )
-%ENERGY Compute the energy of a configuration
+function [ energy ] = computeEnergy( configuration )
+%COMPUTEENERGY Compute the energy of a configuration
 
     if isvector(configuration)
         energy = energy1D(configuration);
