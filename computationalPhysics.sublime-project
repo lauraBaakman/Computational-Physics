@@ -32,7 +32,7 @@
 			],
 			"folder_exclude_patterns":
 			[
-				"img",
+				"img", "tables"
 			],
 			"follow_symlinks": true,
 			"name": "Report",
@@ -51,7 +51,12 @@
 			"follow_symlinks": true,
 			"name": "Images",
 			"path": "./report/img"
-		}
+		},
+		{
+			"follow_symlinks": true,
+			"name": "Tables",
+			"path": "./report/tables"
+		}		
 	],
 	"settings":
 	{
