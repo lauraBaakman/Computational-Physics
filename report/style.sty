@@ -36,8 +36,8 @@
 \titleformat{\subsubsection}[block]{\normalsize\scshape}{\thesubsubsection.}{1em}{}
 
 %Wiskunde
-\RequirePackage[low=1e-1,high=1e3]{threshold}
-\sisetup{round-mode=figures, round-precision=4, exponent-base=e, exponent-product={}}
+\RequirePackage[low=1e-1,high=1e2]{threshold}
+\sisetup{round-mode=figures, round-precision=3, exponent-base=e, exponent-product={}}
 \RequirePackage{mathtools}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
@@ -117,7 +117,7 @@
 \newcommand{\resultsOneDTable}[2]{%
 		\begin{table*}
 		\centering
-		\begin{tabular}{lllllll}
+		\begin{tabular}{ccllllc}
 			\toprule
 			~ & ~ & \multicolumn{2}{c}{Numerical} & \multicolumn{2}{c}{Analytical}\\ 
 			\cmidrule(r){3-4}\cmidrule(r){5-6}
