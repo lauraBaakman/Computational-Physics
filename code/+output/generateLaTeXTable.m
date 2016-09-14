@@ -3,7 +3,7 @@ function [] = generateLaTeXTable( experiments, numSampleIterations, numParticles
     data = collectData(experiments, numSampleIterations, numParticles);
 
     
-   sprintf('%0.3g\t %0.3g\t %0.3g\t %0.3g\t %0.3g\t %0.3g\t %0.3g\t\n', data)
+   output = sprintf( '\\num[round-precision=2]{%1.1f}\t& \\num{%0.5f}\t& \\num{%0.5f}\t& \\num{%0.5f}\t& \\num{%0.5f}\t& \\num{%0.5f}\t& \\num[round-precision=2]{%0.5f}\t\\\\\n', data)
    
 end
 
@@ -31,4 +31,8 @@ function [data] = collectData(experiments, numSampleIterations, numParticles)
    data = [temperature; beta;...
        UperSpin_MMC; CperSpin_MMC;...
        UperSpin_theory; CperSpin_theory; accuracy];
+end
+
+function [outputFilePath] = generateOutputFilePath(numSampleIterations, numParticles)
+
 end
