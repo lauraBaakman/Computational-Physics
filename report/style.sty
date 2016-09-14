@@ -112,3 +112,22 @@
 \newcommand{\comment}[1]{~ 					= & \left\{ #1 \right\}\\}
 \newcommand{\content}[1]{~  				  & \hspace{1em} \ensuremath{#1}\\}
 \newcommand{\firstline}[2]{\ensuremath{#1} 	= & \hspace{1em} \ensuremath{#2}\\}
+
+% Results Table
+\newcommand{\resultsOneDTable}[2]{%
+		\begin{table*}
+		\centering
+		\begin{tabular}{lllllll}
+			\toprule
+			~ & ~ & \multicolumn{2}{c}{Numerical} & \multicolumn{2}{c}{Analytical}\\ 
+			\cmidrule(r){3-4}\cmidrule(r){5-6}
+			\temperature & $\beta$ & \rfrac{\averageEnergy}{\numberOfSpins} & \rfrac{\specificHeat}{\numberOfSpins} & \rfrac{\averageEnergy}{\numberOfSpins} &
+			 \rfrac{\specificHeat}{\numberOfSpins} & accuracy  \\
+			 \midrule
+			\input{tables/NS#2_N#1}
+			\bottomrule
+		\end{tabular}
+		\caption{Results of the 1D simulation for \numberOfSpins = #1, \numberOfSamples = #2.}
+		\label{tab:results:1D:#1:#2}
+	\end{table*}
+}
