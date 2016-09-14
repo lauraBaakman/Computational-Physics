@@ -1,4 +1,4 @@
-function [ configurations ] = metropolisMonteCarloIsing( initialConfiguration, parameters )
+function [ configurations ] = MMCIsing( initialConfiguration, parameters )
 %METRPOLOISMONTECARLOISING Solve the Ising model with the MMC method.
 %   InitialConfiguration is the initial configuration of the model,
 %   parameters contains the parameters used in the simulation. 

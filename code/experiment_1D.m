@@ -24,15 +24,19 @@ for temperature = temperatures
             'neighborFunction', @neighbors.OneD2Connected);
           
           initial_configuration = generateRandomConfiguration([1, numParticles]);
-          configurations = metropolisMonteCarloIsing(initial_configuration, parameters);
+          configurations = MMCIsing(initial_configuration, parameters);
           
           parameters = rmfield(parameters, 'neighborFunction');
           
           experiments(idx).parameters = parameters;
           experiments(idx).configurations = configurations;
+          
+          U = computeAverageEnergy(configurations);
+          C = computeSpecificHeat(configurations, parameters.temperature);
+          
           experiments(idx).statistics = struct(...
-              'averageEnergy', computeAverageEnergy(configurations),...
-              'specificHeat', computeSpecificHeat(configurations, parameters.temperature));
+              'averageEnergy', U,...
+              'specificHeat', C);
           idx = idx + 1;
       end
    end
