@@ -1,4 +1,12 @@
 clc; close all; clear all; 
-load('../results/small1D.mat');
+load('../results/1D.mat');
 
-output.generateLaTeXTable(experiments, 1000, 10);
+numParticlesList = [10, 100, 1000];
+numSampleIterationsList = [1000, 10000];
+
+   for numParticles = numParticlesList
+      for numSampleIterations =  numSampleIterationsList
+        output.generateLaTeXTable(experiments, numSampleIterations, numParticles);          
+      end
+   end
+
