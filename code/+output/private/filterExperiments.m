@@ -14,22 +14,26 @@ function [ subset ] = filterExperiments( experiments, varargin )
     
     if ~ isnan(parser.Results.temperature)
         parameters = [subset.parameters];
-        subset = subset([parameters.temperature] == parser.Results.temperature);
+        subset = subset([parameters.temperature] ...
+            == parser.Results.temperature);
     end
 
     if ~ isnan(parser.Results.numParticles)
         parameters = [subset.parameters];
-        subset = subset([parameters.numParticles] == parser.Results.numParticles);
+        subset = subset([parameters.numParticles] ...
+            == parser.Results.numParticles);
     end
 
     if ~ isnan(parser.Results.numSampleIterations)
         parameters = [subset.parameters];
-        subset = subset([parameters.numSampleIterations] == parser.Results.numSampleIterations);
+        subset = subset([parameters.numSampleIterations] ...
+            == parser.Results.numSampleIterations);
     end    
     
     if ~ isnan(parser.Results.numRelaxIterations)
         parameters = [subset.parameters];
-        subset = subset([parameters.numRelaxIterations] == parser.Results.numRelaxIterations);
+        subset = subset([parameters.numRelaxIterations] ...
+            == parser.Results.numRelaxIterations);
     end        
 
 end

@@ -1,19 +1,27 @@
 %!TEX root = report.tex
 
 \subsection{Simulation}
-	\lstinputlisting{./../code/MMCIsing.m}
-	\lstinputlisting{./../code/generateRandomConfiguration.m}
+\label{app:implementation:simulation}
+	\lstinputlisting[label={lst:simulation:mmci}]{./../code/MMCIsing.m}
+	\lstinputlisting[label={lst:simulation:randconfig}]{./../code/generateRandomConfiguration.m}
+	\lstinputlisting[label={lst:simulation:neighbours1d}]{./../code/+neighbors/OneD2Connected.m}
+	\lstinputlisting[label={lst:simulation:neighbours2d}]{./../code/+neighbors/TwoD4Connected.m}
 
 \subsection{Statistics}
-	\lstinputlisting{./../code/computeAverageEnergy.m}
-	\lstinputlisting{./../code/computeSpecificHeat.m}
-	\lstinputlisting{./../code/computeMagnetization.m}
+\label{app:implementation:statistics}
+	\lstinputlisting[label={lst:statistics:computeAverageEnergy}]{./../code/computeAverageEnergy.m}
+	\lstinputlisting[label={lst:statistics:computeSpecificHeat}]{./../code/computeSpecificHeat.m}
+	\lstinputlisting[label={lst:statistics:computeAccuracy}]{./../code/computeAccuracy.m}
+	\lstinputlisting[label={lst:statistics:computeMagnetization}]{./../code/computeMagnetization.m}
+
 
 \subsection{Experiments}
-	\lstinputlisting{./../code/experiment_1D.m}
-	\lstinputlisting{./../code/experiment_2D.m}
+\label{app:implementation:experiments}
+	\lstinputlisting[label={lst:experiment:1d}]{./../code/experiment_1D.m}
+	\lstinputlisting[label={lst:experiment:2d}]{./../code/experiment_2D.m}
 
 \subsection{Plots}
+\label{app:implementation:plots}
 	\lstinputlisting{./../code/plot_1D.m}
 	\lstinputlisting{./../code/plot_2D.m}
 	\lstinputlisting{./../code/+output/averageEnergy1D.m}
@@ -21,6 +29,7 @@
 	\lstinputlisting{./../code/+output/private/filterExperiments.m}
 
 \subsection{Tables}
+\label{app:implementation:tables}
 	\lstinputlisting{./../code/tables_1D.m}
 	\lstinputlisting{./../code/tables_2D.m}
 	\lstinputlisting{./../code/+output/generateLaTeXTable.m}

@@ -2,7 +2,8 @@ function [ neighbors ] = TwoD4Connected( elementIdx, matrix )
 %TWOD4CONNECTED The 2-connected neighbours of ELEMENT in  the 2D MATRIX.
 
     if length(size(matrix)) ~= 2
-       error('Error. \nMatrix must be 2 dimensional not %d-dimensional.',length(size(matrix)))
+       error('Error. \nMatrix must be 2 dimensional not %d-dimensional.',...
+           length(size(matrix)))
     end
 
     [row, col] = ind2sub(size(matrix), elementIdx);

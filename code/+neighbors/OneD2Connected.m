@@ -2,7 +2,8 @@ function [neighbors] = OneD2Connected( elementIdx, matrix )
 %ONED2CONNECTED The 2-connected neighbours of ELEMENT in the 1D MATRIX.
 
 if ~isvector(matrix)
-   error('Error. \nMatrix must be 1 dimensional not %d-dimensional.',length(size(matrix)))
+   error('Error. \nMatrix must be 1 dimensional not %d-dimensional.',...
+       length(size(matrix)))
 end
 
     left_neighbor = [];

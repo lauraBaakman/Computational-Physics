@@ -28,9 +28,10 @@ function [configurations] = sampleSystem(configuration, parameters)
     end
 end
 
-function [nextConfig] = monteCarloStep(currentConfig, parameters)
-    [potentialConfig, flippedSpinIdx] = flipRandomSpin(currentConfig);
-    nextConfig = selectNextConfig(currentConfig, potentialConfig, flippedSpinIdx, parameters);
+function [nextConfig] = monteCarloStep(curConfig, parameters)
+    [potConfig, flippedSpinIdx] = flipRandomSpin(curConfig);
+    nextConfig = selectNextConfig(curConfig, potConfig,...
+        flippedSpinIdx, parameters);
 end
 
 function [potentialConfig, flippedSpinIdx] = flipRandomSpin(currentConfig)

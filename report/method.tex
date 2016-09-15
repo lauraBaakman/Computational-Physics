@@ -9,7 +9,7 @@ $\FuncSty{selectRandomSpin()}$ selects on spin randomly from the spins in \confi
 
 \input{pseudo_selectconfig}
 
-Given two configurations \FuncSty{selectConfig()} selects with which one the simulation should continue. To this end $\Delta\energy$, the difference in energy between the two configurations, is computed. It is not possible to compute the energy of the two configurations according to \cref{eq:intro:ising:2d:energy}. However writing \cref{eq:intro:ising:1D:hamiltonian} as
+Given two configurations, \configuration{\mathit{pot}} and \configuration{\mathit{cur}}, \FuncSty{selectConfig()} selects with which one the simulation should continue. To this end $\Delta\energy$, the difference in energy between the two configurations, is computed. It is not possible to compute the energy of the two configurations according to \cref{eq:intro:ising:2d:energy}. However writing \cref{eq:intro:ising:1D:hamiltonian} as
 	\begin{equation}\label{eq:method:hamiltonian}
 			\hamiltonian\left(\configuration{}\right) = - \spin{i} \sum_{j \in \neighbourhood{\spin{i}}} \spin{j} + \mathit{remainder}
 	\end{equation}
@@ -21,7 +21,6 @@ If a the potential configuration is determined is decided by two values: $\theta
 \begin{equation}
 	\xi = \exp\left[- \beta\Delta\energy \right].
 \end{equation}
-\todo[inline]{Formuleer opnieuw, dit loopt niet helemaal lekker.}
-If the transition from \configuration{\mathit{cur}} to \configuration{\mathit{pot}} decreases the energy of the system $\xi$ is greater than one and as \mbox{$\theta \in \left(0, 1\right)$} this means that potential states with a lower energy than the current state are always accepted. The guard of the \t{if} also ensures that state transitions that increase the energy, \ie \mbox{$\xi < 1$}, are not necessarily discarded.
+If the transition from \configuration{\mathit{cur}} to \configuration{\mathit{pot}} decreases the energy of the system $\xi$ is greater than one and as \mbox{$\theta \in \left(0, 1\right)$} potential states with an energy that is lower than that of the current state are always accepted. The guard of the \t{if} also ensures that state transitions that increase the energy, \ie \mbox{$\xi < 1$}, are not necessarily discarded.
 
-The implementation of the presented algorithm can be found in \cref{a:implementation}. \todo[inline]{Refer to exact listings.}
+The implementation of the presented algorithm can be found in \crefrange{lst:simulation:mmci}{lst:simulation:neighbours2d} in \cref{app:implementation:simulation}.

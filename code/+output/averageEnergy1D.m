@@ -9,7 +9,8 @@ function [ figure ] = averageEnergy1D( experiments, numberOfSampleIterations, va
     parser.addParameter('numParticles', [10, 100, 1000]);
     parser.parse(experiments, numberOfSampleIterations, varargin{:});
 
-    subset = filterExperiments(experiments, 'numSampleIterations', numberOfSampleIterations);
+    subset = filterExperiments(experiments, ...
+        'numSampleIterations', numberOfSampleIterations);
 
     for i = 1:length(parser.Results.numParticles)
         N = parser.Results.numParticles(i);
@@ -32,11 +33,11 @@ function [ figure ] = averageEnergy1D( experiments, numberOfSampleIterations, va
     layout = struct(...
         'legend', struct('x', 0.8,'y', 0.2),...
         'font', struct('size', 18),...
-        'xaxis', struct('title', '$T$', 'autotick', false, 'tick0', 0, 'dtick', 0.4, 'tickangle', 0),...
+        'xaxis', struct('title', '$T$', 'autotick', false, ...
+            'tick0', 0, 'dtick', 0.4, 'tickangle', 0),...
         'yaxis', struct('title', '$\frac{U}{N_\textit{samples}}$'));
     
     figure.data = traces;
     figure.layout = layout;
     figure.UserData = struct('filename', 'latex', 'fileopt', 'overwrite');
-%     response = plotly(traces, struct('layout', layout, 'filename', 'latex', 'fileopt', 'overwrite'));
 end

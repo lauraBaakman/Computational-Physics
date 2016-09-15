@@ -20,16 +20,16 @@ where \numberOfSpins is the number of spins. At high temperatures the spins poin
 	\begin{equation*}
 		\energy\left(\configuration{}\right) = \sum_{n = 1}^{\numberOfSpins - 1}\spin{n}\spin{n+1}.
 	\end{equation*}
-	The probability of a configuration of spins \configuration{} at temperature \temperature is given by
+	The probability of realising a configuration of spins \configuration{} with energy \energy is given by
 	\begin{equation}
 		\label{eq:intro:1D:configurationProbability}
 		P\left(\configuration{}\right) = 
-		\frac{1}{\partitionfunction} \exp\left[-{E(\configuration{i})}\frac{1}{\temperature}\right],
+		\frac{1}{\partitionfunction} \exp\left[-{\energy(\configuration{})}\frac{1}{\temperature}\right],
 	\end{equation}
-	where $\temperature = \rfrac{1}{\beta}$ and \partitionfunction is the partition function:
+	where \temperature represents the temperature, $\beta = \rfrac{1}{\temperature}$ and \partitionfunction is the partition function:
 	\begin{equation}
 		\label{eq:intro:1D:partitionFunction}
-		\partitionfunction = \sum_{\spinset} \exp\left[- \energy \beta \right].
+		\partitionfunction = \sum_{\spinset} \exp\left[- {\energy(\configuration{})} \beta \right].
 	\end{equation}
 
 	% START ANALYTICAL STUFF
@@ -38,16 +38,14 @@ where \numberOfSpins is the number of spins. At high temperatures the spins poin
 		\label{eq:introduced1D:partitionFunctionAnalyticalSolution}
 		\partitionfunction = {(2 \cosh \beta)}^\numberOfSpins.
 	\end{equation}
-	\todo[inline]{Wat is $E_n$?}
-	\todo[inline]{Waarover loopt die som?}
-	The average energy in the system can be expressed as a function of \partitionfunction \cite{Murray20011Handout}
+	The average energy can be expressed as a function of \partitionfunction \cite{Murray20011Handout}
 	\begin{equation*}
 		% \label{eq:intro:1D:averageEnergyOriginal}
-		\averageEnergy = \frac{1}{\partitionfunction} \cdot \sum_{n} \energy_n \cdot \exp\left[-\beta \energy_n \right].		
+		\averageEnergy = \frac{1}{\partitionfunction} \cdot \sum_{\configuration{i} \in \allPossibleConfigurations} \energy\left(\configuration{i}\right) \cdot \exp\left[-\beta \energy\left(\configuration{i}\right) \right],
 	\end{equation*} 
-	Observing that
+	where \allPossibleConfigurations is the set of all possible configurations, \ie $\allPossibleConfigurations = \left\{\configuration{1}, \dotsc, \configuration{2^\numberOfSpins}\right\}$. Observing that
 	\begin{equation*}
-		\frac{\partial \partitionfunction}{\partial \beta} = \sum_{n} - \energy_n \exp\left[-\beta \energy_n \right],
+		\frac{\partial \partitionfunction}{\partial \beta} = \sum_{\configuration{i} \in \allPossibleConfigurations} - \energy\left(\configuration{i}\right) \exp\left[-\beta \energy\left(\configuration{i}\right) \right],
 	\end{equation*}
 	and by following the steps presented in \cref{a:derivations:averageEnergy} it can be found that
 	\begin{equation*}
@@ -66,7 +64,7 @@ where \numberOfSpins is the number of spins. At high temperatures the spins poin
  
 \subsubsection{Two-Dimensional Model}
 	\label{sss:intro:ising:2D}
-	The 2D Ising model is a square lattice whose lattice sites are occupied by spins. Each spin has either a positive or a negative spin \cite{kenzel1997physics}. The Hamiltonian of the 2D model is the same as the one of the one dimensional model given in \cref{eq:intro:ising:1D:hamiltonian}. The pairs of nearest neighbours are now found by looking at the four connected neighbours, \ie the nearest neighbours of \mbox{spin \spin{i,j}} are \spin{i - 1, j}, \spin{i + 1, j}, \spin{i, j - 1} and \spin{i, j + 1}. \todo{Wat als ie op de rand zit, lopen we rond, of zien we gewoon minder?}The energy of a configuration \configuration{n} that has $\dimensionality \times \dimensionality$ spins is computed as
+	The 2D Ising model is a square lattice whose lattice sites are occupied by spins. Each spin has either a positive or a negative spin \cite{kenzel1997physics}. The Hamiltonian of the 2D model is the same as the one of the one dimensional model given in \cref{eq:intro:ising:1D:hamiltonian}. The pairs of nearest neighbours are now found by looking at the four connected neighbours, \ie the nearest neighbours of \mbox{spin \spin{i,j}} are \spin{i - 1, j}, \spin{i + 1, j}, \spin{i, j - 1} and \spin{i, j + 1}. The energy of a configuration \configuration{n} that has $\dimensionality \times \dimensionality$ spins is computed as
 	\begin{equation}
 		\label{eq:intro:ising:2d:energy}
 		\begin{split}
