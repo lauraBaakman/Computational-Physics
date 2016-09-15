@@ -36,8 +36,12 @@
 \titleformat{\subsubsection}[block]{\normalsize\scshape}{\thesubsubsection.}{1em}{}
 
 %Wiskunde
-\RequirePackage[low=1e-1,high=1e2]{threshold}
-\sisetup{round-mode=figures, round-precision=3, exponent-base=e, exponent-product={}}
+\RequirePackage{siunitx}
+\sisetup{round-mode=figures, 
+		round-precision=3, 
+		exponent-base=e,
+		exponent-product={}
+}
 \RequirePackage{mathtools}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}

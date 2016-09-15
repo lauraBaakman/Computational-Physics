@@ -44,7 +44,3 @@ end
 
 %% Store the results
 save('../results/1D.mat', 'experiments')
-
-
-%% Compute requested data
-
