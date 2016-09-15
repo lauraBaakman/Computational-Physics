@@ -1,8 +1,9 @@
-function [ configurations ] = MMCIsing( initialConfiguration, parameters )
+function [ configurations ] = MMCIsing( modelSize, parameters )
 %METRPOLOISMONTECARLOISING Solve the Ising model with the MMC method.
 %   InitialConfiguration is the initial configuration of the model,
 %   parameters contains the parameters used in the simulation. 
 
+initialConfiguration = ones(modelSize);
 relaxedConfiguration = relaxSystem(initialConfiguration, parameters);
 configurations = sampleSystem(relaxedConfiguration, parameters);
 

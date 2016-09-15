@@ -4,7 +4,8 @@ rng('default');
 computeNumRelaxIterations = @(n) 1/10 .* n;
 
 %% Init 
-temperatures = 0.2:0.2:4;
+% temperatures = 0.2:0.2:4;
+temperatures = 0.2:1:4;
 numParticlesList = [10, 100, 1000];
 numSampleIterationsList = [1000, 10000];
 
@@ -23,8 +24,8 @@ for temperature = temperatures
             'numRelaxIterations', numRelaxIterations,...
             'neighborFunction', @neighbors.OneD2Connected);
           
-          initial_configuration = generateRandomConfiguration([1, numParticles]);
-          configurations = MMCIsing(initial_configuration, parameters);
+          modelSize = [1, numParticles];
+          configurations = MMCIsing(modelSize, parameters);
           
           parameters = rmfield(parameters, 'neighborFunction');
           
