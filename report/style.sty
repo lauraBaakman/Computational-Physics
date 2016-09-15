@@ -117,21 +117,30 @@
 \newcommand{\content}[1]{~  				  & \hspace{1em} \ensuremath{#1}\\}
 \newcommand{\firstline}[2]{\ensuremath{#1} 	= & \hspace{1em} \ensuremath{#2}\\}
 
+\RequirePackage{longtable}
+
 % Results Table
 \newcommand{\resultsOneDTable}[2]{%
-		\begin{table*}
-		\centering
-		\begin{tabular}{ccllllc}
+		\begin{longtable}{ccllllc}
+			\caption{Results of the 1D simulation for \numberOfSpins = #1, \numberOfSamples = #2.}\\
 			\toprule
 			~ & ~ & \multicolumn{2}{c}{Numerical} & \multicolumn{2}{c}{Analytical}\\ 
 			\cmidrule(r){3-4}\cmidrule(r){5-6}
 			\temperature & $\beta$ & \rfrac{\averageEnergy}{\numberOfSpins} & \rfrac{\specificHeat}{\numberOfSpins} & \rfrac{\averageEnergy}{\numberOfSpins} &
 			 \rfrac{\specificHeat}{\numberOfSpins} & accuracy  \\
-			 \midrule
-			\input{tables/NS#2_N#1}
-			\bottomrule
-		\end{tabular}
-		\caption{Results of the 1D simulation for \numberOfSpins = #1, \numberOfSamples = #2.}
-		\label{tab:results:1D:#1:#2}
-	\end{table*}
+			 \midrule \endfirsthead
+			 \caption{continued}\\
+					\toprule
+			~ & ~ & \multicolumn{2}{c}{Numerical} & \multicolumn{2}{c}{Analytical}\\ 
+			\cmidrule(r){3-4}\cmidrule(r){5-6}
+			\temperature & $\beta$ & \rfrac{\averageEnergy}{\numberOfSpins} & \rfrac{\specificHeat}{\numberOfSpins} & \rfrac{\averageEnergy}{\numberOfSpins} &
+			 \rfrac{\specificHeat}{\numberOfSpins} & accuracy  \\
+			 \midrule \endhead
+		\bottomrule
+		\endfoot
+		\bottomrule
+		\endlastfoot		
+		\input{tables/NS#2_N#1}
+		\label{tab:results:1D:#1:#2}			
+		\end{longtable}
 }
