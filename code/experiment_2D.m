@@ -4,12 +4,9 @@ rng('default');
 computeNumRelaxIterations = @(n) 1/10 .* n;
 
 %% Init 
-% temperatures = 0.2:0.2:4;
-temperatures = 0.2:1:4;
-% dimensionalityList = [10, 50, 100];
-dimensionalityList = [2, 5];
-% numSampleIterationsList = [1000, 10000];
-numSampleIterationsList = [2, 10];
+temperatures = 0.2:0.2:4;
+dimensionalityList = [10, 50, 100];
+numSampleIterationsList = [1000, 10000];
 
 idx = 1;
 
