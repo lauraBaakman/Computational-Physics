@@ -21,7 +21,7 @@ This section introduces the experiments we ran with the model introduced in the 
 	\begin{equation}\label{eq:experiment:1D:accuracy}
 		\accuracy = 1 - \abs{ \frac{\abs{\nu - \alpha}}{\alpha}}.
 	\end{equation}
-	The dicsussed experiment is implemented in \cref{lst:experiment:1d}. 
+	The discussed experiment is implemented in \cref{lst:experiment:1d}. 
 	The implementation of \cref{eq:experiment:1D:averageEnergy,eq:experiment:1D:specificHeat,eq:experiment:1D:accuracy}
 	are presented in \cref{lst:statistics:computeAverageEnergy,lst:statistics:computeSpecificHeat,lst:statistics:computeAccuracy}, respectively. 
 	All mentioned listings can be found in \cref{a:implementation}.	
@@ -29,7 +29,10 @@ This section introduces the experiments we ran with the model introduced in the 
 
 \subsection{Two-Dimensional Model}
 \label{ss:experiment:2D}
-	In the 2D model we are not only interested in the average energy and specific heat per spin but also the average magnetization per spin. \todo{Formule toevoegen?} The following parameter space is used: \mbox{$\temperature = 0.2, 0.4, \dotsc, 4$}, \mbox{\numberOfSpins = 10, 50, 100} and $\numberOfIterations = 1000, 10000$. The found average average magnetization per spin is compared with the analytical solution presented in \cref{eq:intro:ising:2D:magnetizationAnalytical}.
+	In the 2D model we are not only interested in the average energy and specific heat per spin but also the average magnetization per spin. The magnetization of a magnet is defined as its average spin:
+	\begin{equation}\label{eq:experiment:2D:magnetization}
+		\magnetization = \abs{\frac{1}{\numberOfSpins} \sum_{i = 1}^{\numberOfSpins} \spin{i}}.
+	\end{equation} 
+	The following parameter space is used: \mbox{$\temperature = 0.2, 0.4, \dotsc, 4$}, \mbox{\numberOfSpins = 10, 50, 100} and $\numberOfIterations = 1000, 10000$. The found average average magnetization per spin is compared with the analytical solution presented in \cref{eq:intro:ising:2D:magnetizationAnalytical}.
 
-	\todo[inline]{Refer to listings/section in appendix with the code for this experiment.}
-
+	The discussed experiment and \cref{eq:experiment:2D:magnetization} are presented in \cref{lst:experiment:2d,lst:statistics:computeMagnetization} in \cref{a:implementation}, respectively.
