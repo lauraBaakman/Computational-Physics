@@ -4,18 +4,18 @@ rng('default');
 computeNumRelaxIterations = @(n) 1/10 .* n;
 
 %% Init 
-% temperatures = 0.2:0.2:4;
-temperatures = 0.2:1:4;
+temperatures = 0.2:0.2:4;
 numParticlesList = [10, 100, 1000];
 numSampleIterationsList = [1000, 10000];
 
 idx = 1;
 
 %% Run Simulations
-for temperature = temperatures
-   for numParticles = numParticlesList
-      for numSampleIterations =  numSampleIterationsList
-          numRelaxIterations = computeNumRelaxIterations(numSampleIterations);
+for numParticles = numParticlesList
+    for numSampleIterations =  numSampleIterationsList
+        numRelaxIterations = computeNumRelaxIterations(numSampleIterations);
+        initialConfiguration = ones([1, numParticles]);
+        for temperature = temperatures
           
           parameters = struct(...
             'temperature', temperature,...
@@ -24,8 +24,11 @@ for temperature = temperatures
             'numRelaxIterations', numRelaxIterations,...
             'neighborFunction', @neighbors.OneD2Connected);
           
-          modelSize = [1, numParticles];
-          configurations = MMCIsing(modelSize, parameters);
+          configurations = MMCIsing(initialConfiguration, parameters);
+
+          % The initial configuration for the next temperature is the
+          % final configuration of the previous temperature
+          initialConfiguration = configurations(:,:,end);
           
           parameters = rmfield(parameters, 'neighborFunction');
           
