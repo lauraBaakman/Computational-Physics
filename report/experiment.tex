@@ -17,7 +17,10 @@ This section introduces the experiments we ran with the model introduced in the 
 			\frac{1}{\#\sampleSet} \left(  \sum_{\configuration{i} \in \sampleSet} E^2(\configuration{i})\right) - \averageEnergy^2 
 		\right).
 	\end{equation*}
-	Furthermore we will compare the results of the simulation with the analytical solution presented earlier.
+	Furthermore we will compare the results of the simulation with the analytical solution presented earlier. To compare the numerical and analytical results the mean accuracy of the specific heat and the average energy per spin are computed. The accuracy of a variable where $\nu$ and $\alpha$ represent the numerically and analytically found values, respectively is
+	\begin{equation*}
+		\accuracy = 1 - \abs{ \frac{\abs{\nu - \alpha}}{\alpha}}.
+	\end{equation*}
 	\todo[inline]{Refer to listings/section in appendix with the code for this experiment.}
 
 \subsection{Two-Dimensional Model}
