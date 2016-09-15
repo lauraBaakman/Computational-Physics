@@ -43,11 +43,11 @@ for dimensionality = dimensionalityList
           
           U = computeAverageEnergy(configurations);
           C = computeSpecificHeat(configurations, parameters.temperature);
-          M = computeMagnetization(configurations);
+          M = computeAverageMagnetization(configurations);
           
           experiments(idx).statistics = struct('averageEnergy', U,...
-              'specificHeat', C,
-              'magnetization', M);
+              'specificHeat', C,...
+              'averageMagnetization', M);
           idx = idx + 1;
         end
     end
