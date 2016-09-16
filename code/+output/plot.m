@@ -11,6 +11,12 @@ function [figure] = plot( experiments, statistic, varargin)
     numParticlesList = unique([parameters.numParticles]);
     numSampleIterationsList = unique([parameters.numSampleIterations]);
 
+    % source: https://plot.ly/ipython-notebooks/color-scales/
+    colors = ['#AECDE1', '#3C76AF',...
+        '#BBDE93', '#559E3F', ...
+        '#ED9F9C', '#D0352C', ...
+        '#F4C17B', '#EF8632'];
+    
     i = 1;
     for numParticles = numParticlesList
         for numSampleIterations = numSampleIterationsList
