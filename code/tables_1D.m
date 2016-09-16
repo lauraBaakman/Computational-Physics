@@ -6,7 +6,9 @@ numSampleIterationsList = [1000, 10000];
 
    for numParticles = numParticlesList
       for numSampleIterations =  numSampleIterationsList
-        output.generateLaTeXTable(experiments, numSampleIterations, numParticles);          
+        accuracy = output.generateLaTeXTable(experiments, numSampleIterations, numParticles);          
+        fprintf('%d %d %f\n', numParticles, numSampleIterations, accuracy)
       end
+      fprintf('\n')
    end
 
