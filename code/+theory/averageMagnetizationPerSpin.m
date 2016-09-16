@@ -1,4 +1,4 @@
-function [ average ] = averageMagnetizationPerSpin2D( temperatures)
+function [ average ] = averageMagnetizationPerSpin( temperatures)
 %AVERAGEMAGNETIZATIONPERSPIN2D Theoretical average energy per spin.
 
 T_c = 2 / log(1 + sqrt(2));
