@@ -1,5 +1,5 @@
 function [ average, energies ] = computeAverageEnergy( configurations )
-%COMPUTEAVERAGEENERGY Compute the average energy of a list of configurations. 
+%COMPUTEAVERAGEENERGY Compute the average energy of a list of CONFIGURATIONS. 
 % Energies is the list of energies that the average is based on.
 
     energies = computeEnergies(configurations);
