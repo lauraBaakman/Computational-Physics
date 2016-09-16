@@ -13,6 +13,22 @@ This section presents the results of the experiments with the one- and two- dime
 
 	For all values of $\numberOfSpins$ we find that the accuracy improves in general as the number of samples increases, although this effect is stronger in simulations with more spins.
 
+	\begin{table}
+		\centering
+		\caption{Average accuracies of the one-dimensional simulation.}
+		\begin{tabular}{cccc}
+			\toprule
+			~ & \multicolumn{3}{c}{Number of Spins (\numberOfSpins)}\\ 
+			\cmidrule(r){2-4}
+			\numberOfSamples & 10 & 100 & 1000 \\
+			 \midrule 
+			 1000 & \num{-0.848369} & \num{-1.115464} & \num{-0.095644}\\
+			 1000 & \num{0.873160} & \num{0.813785} & \num{0.726252}\\
+			\bottomrule
+		\end{tabular}
+		\label{tab:results:1D:averageAccuracies}			
+	\end{table}
+
 \subsection{Two-Dimensional Model}
 \label{ss:results:2D}
 	The average energy, specific heat and average magnetization per spin for the different combinations of \numberOfSpins and \numberOfSamples can be found in \cref{fig:results:2D}. 
