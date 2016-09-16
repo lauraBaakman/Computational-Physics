@@ -12,21 +12,21 @@ function [figure] = plot( experiments, statistic, varargin)
     numSampleIterationsList = unique([parameters.numSampleIterations]);
 
     % source: https://plot.ly/ipython-notebooks/color-scales/
-    colors = ['#AECDE1', '#3C76AF',...
+    colors = {'#AECDE1', '#3C76AF',...
         '#BBDE93', '#559E3F', ...
         '#ED9F9C', '#D0352C', ...
-        '#F4C17B', '#EF8632'];
+        '#F4C17B', '#EF8632'};
     
     i = 1;
     for numParticles = numParticlesList
         for numSampleIterations = numSampleIterationsList
-            traces{i} = createPlotStruct(experiments, statistic, numParticles, numSampleIterations);
+            traces{i} = createPlotStruct(experiments, statistic, numParticles, numSampleIterations, colors{i});
             i = i + 1;
         end
     end
 
     if isa(parser.Results.theoretical, 'function_handle')
-        traces{i} = createTheoreticalPlotStruct(parameters, parser.Results.theoretical);
+        traces{i} = createTheoreticalPlotStruct(parameters, parser.Results.theoretical, colors{i});
     end    
     
     figure = createPlot(traces, statistic);
@@ -72,7 +72,7 @@ function [yLabel] = createYLabel(statistic)
     yLabel= sprintf('$\\frac{%s}{N}$', statisticStr);
 end
 
-function [trace] = createPlotStruct(experiments, statistic, numParticles, numSampleIterations)
+function [trace] = createPlotStruct(experiments, statistic, numParticles, numSampleIterations, color)
     [temperatures, dependent] = getData(experiments, statistic, numParticles, numSampleIterations);
     dimensionality = sqrt(numParticles);
     trace = struct(...
@@ -81,13 +81,13 @@ function [trace] = createPlotStruct(experiments, statistic, numParticles, numSam
           'name', sprintf('$d = %03d, N_\\textit{samples} = %1.0g$', dimensionality, numSampleIterations), ...
           'mode', 'lines+marker' ,...
           'line', struct(...
-                'color', 'red',...
+                'color', color,...
                 'dash', 'solid',...
                 'width', 2),...          
           'type', 'scatter');
 end
 
-function [trace] = createTheoreticalPlotStruct(parameters, theoretical)
+function [trace] = createTheoreticalPlotStruct(parameters, theoretical, color)
     temperatures = unique([parameters.temperature]);
     temperatures = linspace(min(temperatures), max(temperatures), 100); 
     dependent = theoretical(temperatures);
@@ -99,7 +99,8 @@ function [trace] = createTheoreticalPlotStruct(parameters, theoretical)
           'type', 'scatter',...
           'line', struct(...
                 'dash', 'dashdot',...
-                'width', 2)...
+                'width', 2,...
+                'color', color)...
             );
 end
 
