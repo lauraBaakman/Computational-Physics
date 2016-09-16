@@ -53,3 +53,8 @@ end
 
 %% Store the results
 save('../results/2D.mat', 'experiments')
+
+%% Create plots
+output.plot(experiments, 'averageEnergy');
+output.plot(experiments, 'specificHeat');
+output.plot(experiments, 'averageMagnetization');
