@@ -1,5 +1,11 @@
-function [figure] = plot( experiments, statistic)
+function [figure] = plot( experiments, statistic, varargin)
 %PLOT the parameter per spin as a function of temperature. 
+    parser = inputParser;
+    parser.addRequired('experiments');
+    parser.addRequired('statistic');
+    addParameter(parser, 'theoretical', nan);
+    parser.parse(experiments, statistic, varargin{:});
+    
     parameters = [experiments.parameters];
     
     numParticlesList = unique([parameters.numParticles]);
@@ -10,6 +16,9 @@ function [figure] = plot( experiments, statistic)
         for numSampleIterations = numSampleIterationsList
             traces{i} = createPlotStruct(experiments, statistic, numParticles, numSampleIterations);
             i = i + 1;
+        end
+        if isa(parser.Results.theoretical, 'function_handle')
+            sprintf('Adding theoretical values')
         end
     end
 

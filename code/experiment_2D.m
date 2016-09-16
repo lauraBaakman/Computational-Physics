@@ -59,4 +59,5 @@ save('../results/2D.mat', 'experiments')
 %% Create plots
 output.plot(experiments, 'averageEnergy');
 output.plot(experiments, 'specificHeat');
-output.plot(experiments, 'averageMagnetization');
+output.plot(experiments, 'averageMagnetization',...
+    'theoretical', @theory.averageMagnetizationPerSpin);
