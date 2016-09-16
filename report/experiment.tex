@@ -1,11 +1,11 @@
 %!TEX root = report.tex
-This section introduces the experiments we ran with the model introduced in the previous sections. In the experiments below the number of iterations, \numberOfIterations, is not necessarily equal to \numberOfSpins, the number of spins, but set independently. To give the system time to relax into the interesting states we perform \mbox{$\rfrac{1}{10} \cdot \numberOfIterations$} Monte Carlo steps, before actually taking the samples used to compute the results. 
+This section introduces the experiments we ran with the model introduced in the previous sections. The required random numbers were generated with a Mersenne Twister with seed 0. To give the system time to relax into the interesting states we perform \mbox{$\rfrac{1}{10} \cdot \numberOfIterations$} Monte Carlo steps, before actually taking the samples used to compute the results. 
 
  The experiments we ran with the one and two dimensional model are discussed in \cref{ss:experiment:1D,ss:experiment:2D}, respectively.
 
 \subsection{One-Dimensional Model}
 \label{ss:experiment:1D}
-	In the 1D model we are interested in both the average energy and the specific heat per spin in the following parameter space \mbox{$\temperature = 0.2, 0.4, \dotsc, 4$}, \mbox{$\numberOfSpins=10,100,1000$} and \mbox{$\numberOfIterations=1000,10000$}. 
+	In the one-dimensional model we are interested in both the average energy and the specific heat per spin in the following parameter space \mbox{$\temperature = 0.2, 0.4, \dotsc, 4$}, \mbox{$\numberOfSpins=10,100,1000$} and \mbox{$\numberOfIterations=1000,10000$}. 
 
 	\averageEnergy, the average energy is given by
 	\begin{equation}\label{eq:experiment:1D:averageEnergy}
@@ -17,10 +17,11 @@ This section introduces the experiments we ran with the model introduced in the 
 			\frac{1}{\#\sampleSet} \left(  \sum_{\configuration{i} \in \sampleSet} E^2(\configuration{i})\right) - \averageEnergy^2 
 		\right).
 	\end{equation}
-	Furthermore we will compare the results of the simulation with the analytical solution presented earlier. To compare the numerical and analytical results the mean accuracy of the specific heat and the average energy per spin are computed. The accuracy of a variable where $\nu$ and $\alpha$ represent the numerically and analytically found values, respectively is
+	Furthermore we will compare the results of the simulation with the analytical solution presented in \cref{ss:intro:ising}. To compare the numerical and analytical results the mean accuracy of the specific heat and the average energy per spin are computed. The accuracy of a variable where $\nu$ and $\alpha$ represent the numerically and analytically found values, respectively, is
 	\begin{equation}\label{eq:experiment:1D:accuracy}
 		\accuracy = 1 - \abs{ \frac{\abs{\nu - \alpha}}{\alpha}}.
 	\end{equation}
+
 	The discussed experiment is implemented in \cref{lst:experiment:1d}. 
 	The implementation of \cref{eq:experiment:1D:averageEnergy,eq:experiment:1D:specificHeat,eq:experiment:1D:accuracy}
 	are presented in \cref{lst:statistics:computeAverageEnergy,lst:statistics:computeSpecificHeat,lst:statistics:computeAccuracy}, respectively. 
@@ -29,7 +30,7 @@ This section introduces the experiments we ran with the model introduced in the 
 
 \subsection{Two-Dimensional Model}
 \label{ss:experiment:2D}
-	In the 2D model we are not only interested in the average energy and specific heat per spin but also the average magnetization per spin. The magnetization of a magnet in the Ising model can be computed according to:
+	The two-dimensional model should exhibit a phase transition. Consequently we are not only interested in the average energy and specific heat per spin but also the average magnetization per spin. The magnetization of the Ising model can be computed as:
 	\begin{equation}\label{eq:experiment:2D:magnetization}
 		\magnetization = \frac{1}{\#\sampleSet} \sum_{\configuration{i} \in \sampleSet} \sum_{\spin{j} \in \configuration{i}} \spin{j}.
 	\end{equation}

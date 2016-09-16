@@ -1,22 +1,21 @@
 %!TEX root = report.tex
-% \todo[inline]{Ising Model in general}
 A magnet can be modeled as a large collection of electronic spins. In the Ising model spins point either up, \mbox{\spin{} = +1}, or down, \mbox{\spin{} = -1} \cite{strogatz2014nonlinear}. At high temperatures the spins point in random directions, consequently the magnetization is approximately zero. At a low enough temperature all spins in the two-dimensional model align themselves, this effect is called spontaneous magnetization. The temperature at which this phase transition occurs is called the critical temperature, \criticalTemperature \cite{cai20011Handout}
 
 \Cref{sss:intro:ising:1D} and \ref{sss:intro:ising:2D} introduce the one- and two-dimensional Ising model, respectively. 
 
 \subsubsection{One-Dimensional Model}
 	\label{sss:intro:ising:1D}
-	\textcite{ising1925beitrag} introduced a model consisting of a one-dimensional lattice op spin variables. Contrary to the two dimensional model this model does not exhibit state transitions. The Hamiltonian of the one dimensional Ising model with the set spins \mbox{\configuration{} = \spinset} is
+	\textcite{ising1925beitrag} introduced a model consisting of a one-dimensional lattice of spin variables. Contrary to the two dimensional model this model does not exhibit state transitions. The Hamiltonian of the one dimensional Ising model with the set spins \mbox{\configuration{} = \spinset} is
 	\begin{equation}\label{eq:intro:ising:1D:hamiltonian}
 		\hamiltonian\left(\configuration{} \right) = - \interactionStrength \sum_{\pair{i}{j}}\spin{i}\spin{j} - \magneticMoment \sum_{i} \spin{i}.
 	\end{equation}
-	Where \pair{i}{j} is a nearest neighbour pair, the nearest neighbour of \spin{i} in the one dimensional model are \spin{i - 1} and \spin{i + 1}. \interactionStrength specifies the strength of the interactions between the spins. In a ferromagnetic model, \mbox{$\interactionStrength > 0$} neighboring spins prefer to be parallel. In the anti-ferromagnetic model, \mbox{$\interactionStrength < 0$} spins prefer a direction different to one of their neighbors. The constant \magneticMoment represents the external magnetic field, the spins want to align with the direction of $h$, \ie when \mbox{$h > 0$} spins prefer to be positive. 
+	Where \pair{i}{j} is a nearest neighbor pair. The nearest neighbors of \spin{i} in the one dimensional model are \spin{i - 1} and \spin{i + 1}. \interactionStrength specifies the strength of the interactions between the spins. In a ferromagnetic model, \mbox{$\interactionStrength > 0$} neighboring spins prefer to be parallel. In the anti-ferromagnetic model, \mbox{$\interactionStrength < 0$} spins prefer a direction different to that of their neighbors. The constant \magneticMoment represents the external magnetic field. Spins prefer to align themselves with the direction of $\magneticMoment$, for example when \mbox{$\magneticMoment > 0$} spins prefer to be positive. 
 
-	In the following the zero-field ferromagnetic model, \ie \mbox{$\interactionStrength = 1$} and \mbox{$\magneticMoment = 0$},  is considered. The energy \energy of a configuration of spins, \configuration{}, in this model is given by 
+	In the following the zero-field ferromagnetic model, \ie \mbox{$\interactionStrength = 1$} and \mbox{$\magneticMoment = 0$}, is considered. The energy \energy of a configuration of spins, \configuration{}, in this model is given by 
 	\begin{equation*}
 		\energy\left(\configuration{}\right) = \sum_{n = 1}^{\numberOfSpins - 1}\spin{n}\spin{n+1}.
 	\end{equation*}
-	The probability of realising a configuration of spins \configuration{} with energy \energy is given by
+	The probability of realizing a configuration of spins \configuration{} with energy \energy is defined as
 	\begin{equation}
 		\label{eq:intro:1D:configurationProbability}
 		P\left(\configuration{}\right) = 
@@ -29,7 +28,7 @@ A magnet can be modeled as a large collection of electronic spins. In the Ising 
 	\end{equation}
 
 	% START ANALYTICAL STUFF
-	Both the one and two dimensional Ising model can be solved analytically. Under free end boundary conditions, \ie the boundary spins, \spin{1} and \spin{\numberOfSpins}, only observe one neighbor \cite{landau2014guide}, the analytical solution of \cref{eq:intro:1D:partitionFunction} is
+	Both the one- and two-dimensional Ising model can be solved analytically. Under free end boundary conditions, \ie the boundary spins, \spin{1} and \spin{\numberOfSpins}, only observe one neighbor \cite{landau2014guide}, the analytical solution of \cref{eq:intro:1D:partitionFunction} is
 	\begin{equation}
 		\label{eq:introduced1D:partitionFunctionAnalyticalSolution}
 		\partitionfunction = {(2 \cosh \beta)}^\numberOfSpins.
@@ -53,14 +52,14 @@ A magnet can be modeled as a large collection of electronic spins. In the Ising 
 	\begin{equation*}
 		\specificHeat = \frac{\partial \averageEnergy}{\partial \temperature} = \numberOfSpins {\left(\frac{\beta}{\cosh(\beta)}\right)}^{2}
 	\end{equation*}
-	as shown in \cref{a:derivations:specificHeat} \cite{warkHandout}, consequently
+	as shown in \cref{a:derivations:specificHeat} \cite{warkHandout} from this follows
 	\begin{equation*}
 	 	\frac{\specificHeat}{\numberOfSpins} = {\left(\frac{\beta}{\cosh(\beta)}\right)}^2.
 	 \end{equation*}
  
 \subsubsection{Two-Dimensional Model}
 	\label{sss:intro:ising:2D}
-	The 2D Ising model is a square lattice whose lattice sites are occupied by spins. Each spin has either a positive or a negative spin \cite{kenzel1997physics}. The Hamiltonian of the 2D model is the same as the one of the one dimensional model given in \cref{eq:intro:ising:1D:hamiltonian}. The pairs of nearest neighbours are now found by looking at the four connected neighbours, \ie the nearest neighbours of \mbox{spin \spin{i,j}} are \spin{i - 1, j}, \spin{i + 1, j}, \spin{i, j - 1} and \spin{i, j + 1}. The energy of a configuration \configuration{n} that has $\dimensionality \times \dimensionality$ spins is computed as
+	We consider as the two-dimensional Ising model a square lattice whose lattice sites are occupied by spins. Each spin is either positive or spin \cite{kenzel1997physics}. The Hamiltonian of the two-dimensional model is the same as the one of the one-dimensional model presented in \cref{eq:intro:ising:1D:hamiltonian}. The pairs of nearest neighbors are now found by looking at the four-connected neighbors, \ie the nearest neighbors of \mbox{spin \spin{i,j}} are \spin{i - 1, j}, \spin{i + 1, j}, \spin{i, j - 1} and \spin{i, j + 1}. The energy of a configuration \configuration{n} that has $\numberOfSpins = \dimensionality \times \dimensionality$ spins is computed as
 	\begin{equation}
 		\label{eq:intro:ising:2d:energy}
 		\begin{split}
@@ -71,7 +70,7 @@ A magnet can be modeled as a large collection of electronic spins. In the Ising 
 	\end{equation}
 
 	%Phase transition
-	The infinite Ising system with $\dimensionality \geq 2$ has a phase transition when no external magnetic field is present, \ie $\magneticMoment = 0$. Below the critical temperature \criticalTemperature the spins align themselves parallel to each other in the thermal average and generate macroscopic magnetization. The magnetization itself can be either positive or negative. The phase transition is critical, this means that as the temperature increases the magnetization, $\magnetization$, of the system changes continuously towards zero as the temperature is smaller than the critical temperature, \criticalTemperature. 
+	The infinite Ising system, \ie $\numberOfSpins = \infty$, with $\dimensionality \geq 2$ has a phase transition when no external magnetic field is present, \ie $\magneticMoment = 0$. In this case the the spins align themselves parallel to each other in the thermal average below the critical temperature \criticalTemperature. In this way they generate macroscopic magnetization. The magnetization itself can be either positive or negative. The phase transition is critical, which means that as the temperature increases, the magnetization, $\magnetization$, of the system changes continuously towards zero \cite{kenzel1997physics}. 
 	% If we mention it here we have to discuss it.
 	% Near the critical temperature for $\temperature < \criticalTemperature$ one can observe that 
 	% \begin{equation*}
@@ -79,7 +78,7 @@ A magnet can be modeled as a large collection of electronic spins. In the Ising 
 	% \end{equation*}
 
 	% Analytical stuff
-	The two-dimensional Ising model has been solved analytically by \textcite{onsager1944crystal}. He showed that the average magnetization per spin on a infinite 2D lattice, \ie $\numberOfSpins = \infty$, is
+	The two-dimensional Ising model has been solved analytically by \textcite{onsager1944crystal}. He showed that the average magnetization per spin on a infinite two-dimensional lattice, \ie $\numberOfSpins = \infty$, is
 	\begin{equation}
 		\label{eq:intro:ising:2D:magnetizationAnalytical}
 		\frac{\magnetization}{\dimensionality^2} = \begin{cases}
@@ -92,4 +91,4 @@ A magnet can be modeled as a large collection of electronic spins. In the Ising 
 		\criticalTemperature = \frac{2}{\ln \left(1 + \sqrt{2}\right)}.
 	\end{equation*}
 
-	Given \cref{eq:intro:1D:partitionFunction} solving the the Ising model is relatively simple. To find which configurations of spins result in an equilibirium one only needs to try them all. Unfortunately the computational complexity of this operation is exponential in $\numberOfSpins$, the number of spins. To be exact, a lattice with \numberOfSpins spins has $2^\numberOfSpins$ possible configurations, computing \energy according to \cref{eq:intro:ising:2d:energy} for one configuration takes $2\numberOfSpins$ steps. This leads to $2\numberOfSpins2^\numberOfSpins$ computation steps \cite{kenzel1997physics}. Solving the problem with the Metropolis Monte Carlo method circumvents this complexity problem. 
+	Given \cref{eq:intro:1D:partitionFunction} solving the the Ising model is relatively simple. To find which configurations of spins result in an equilibrium one only needs to try them all. Unfortunately the computational complexity of this operation is exponential in $\numberOfSpins$, the number of spins. To be exact, a lattice with \numberOfSpins spins has $2^\numberOfSpins$ possible configurations, computing \energy according to \cref{eq:intro:ising:2d:energy} for one configuration takes $2\numberOfSpins$ steps. This leads to $2\numberOfSpins2^\numberOfSpins$ computation steps \cite{kenzel1997physics}. Solving the problem with the Metropolis Monte Carlo method circumvents the issues caused by the high computational complexity. 

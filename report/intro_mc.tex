@@ -1,8 +1,8 @@
 %!TEX root = report.tex
 
-Monte Carlo methods rely on random sampling to obtain numerical results. They are often used to solve problems that might be deterministic in principle but are difficult to solve with other approaches. Monte Carlo experiments can be used for sampling, \ie generating draws from some probability distribution \cite{kroese2014monte}. 
+Monte Carlo methods rely on random sampling to obtain numerical results. They are often used to solve problems that might be deterministic in principle but are difficult to solve with other approaches. One of the applications of Monte Carlo experiments is sampling, \ie generating draws from some probability distribution \cite{kroese2014monte}. 
 
-In the context of the Ising model one could naively consider using a few randomly generated states to compute the partition function. However the central limit theorem tells us that randomly generated states have an energy that is approximately $\bigOh{\sqrt{\numberOfSpins}}$ for sufficiently large $N$. However the states that we are interested in have an energy of the order \bigOh{\numberOfSpins}, which means that they are not generated at all by the naive method. 
+In the context of the Ising model one could naively consider using a few randomly generated states to compute the partition function. However the central limit theorem tells us that these states have an energy that is approximately $\bigOh{\sqrt{\numberOfSpins}}$ for sufficiently large $N$. However the states that we are interested in have an energy of the order \bigOh{\numberOfSpins}, which means that they are not generated at all by the naive method. 
 
 Consequently we need some way to generate the physically relevant states. This can be done by relaxing some configuration into a thermal equilibrium by generating from it a new sequence of states. This requires a transition probability $\transitionProbability\left(\configuration{i} \to \configuration{j} \right)$ from configuration \configuration{i} to configuration \configuration{j}. In thermal equilibrium the probability of finding a given configuration is presented in \cref{eq:intro:1D:configurationProbability}. As we require $P\left(\configuration{i}\right)$ to be stationary in thermal equilibrium we get the detailed balance:
 \begin{multline}\label{eq:intro:mcm:detailedbalance}
@@ -11,4 +11,4 @@ Consequently we need some way to generate the physically relevant states. This c
 \end{multline}
 The function $\transitionProbability(\cdot)$ needs to cover the entire configuration space. The Metropolis algorithm is one of the algorithms that ensures this \cite{kenzel1997physics}. 
 
-The Metropolis Monte Carlo algorithm starts in some initial configuration, it then moves to subsequent configurations by flipping one randomly selected spin with a probability defined by \mbox{$\transitionProbability(\cdot)$}. This is repeated for a given number of steps.
+This algorithm starts in some initial configuration, it then moves to subsequent configurations by flipping one randomly selected spin with a probability defined by \mbox{$\transitionProbability(\cdot)$}. This is repeated for a given number of steps. Generally one should give the system as number of steps to relax into an interesting state before actually using the generated states.

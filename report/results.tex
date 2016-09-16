@@ -3,7 +3,7 @@ This section presents the results of the experiments with the one- and two- dime
 
 \subsection{One-Dimensional Model}
 \label{ss:results:1D}
-	\Crefrange{tab:results:1D:10:1000}{tab:results:1D:1000:10000} in \cref{a:results1D} present the results of the experiment with the one dimensional model.
+	\Crefrange{tab:results:1D:10:1000}{tab:results:1D:1000:10000} in \cref{a:results1D} present the results of the experiment with the one dimensional model. The average accuracies, without the $\pm \infty$ are presented in \cref{tab:results:1D:averageAccuracies}.
 
 	In \cref{tab:results:1D:10:1000,tab:results:1D:10:10000} we observe that the accuracy of the 1D simulation is reasonable for temperatures greater than 0.4. In the simulation with $\numberOfSpins = 10$. 
 	%
@@ -11,7 +11,7 @@ This section presents the results of the experiments with the one- and two- dime
 	%
 	If we increase the number of spins to $\numberOfSpins = 1000$ we only find reasonable accuracy with $\numberOfSamples = 10000$ for $\temperature > 1.6$.
 
-	For all values of $\numberOfSpins$ we find that the accuracy improves in general as the number of samples increases, although this effect is stronger in simulations with more spins.
+	For all values of $\numberOfSpins$ we find that the accuracy improves we find that the accuracy improves as the number of samples increases. 
 
 	\begin{table}
 		\centering
@@ -33,11 +33,11 @@ This section presents the results of the experiments with the one- and two- dime
 \label{ss:results:2D}
 	The average energy, specific heat and average magnetization per spin for the different combinations of \numberOfSpins and \numberOfSamples can be found in \cref{fig:results:2D}. 
 
-	In \cref{fig:results:2D:averageEnergy} we observe that the average energy per spin is not hardly influenced by the number of samples for $\numberOfSamples = 10$. As the number of spins in the simulation increases, the difference between the simulation with $\numberOfSamples = \num{1.e+3}$ and $\numberOfSamples = \num{1.e+4}$ increases. In general we observe that the average energy per spin increases as the temperature increases. In \cref{eq:experiment:1D:averageEnergy} the phase transition that we expect at $\criticalTemperature \approx \num{2.2}$ is indicated by an increase in the average energy per spin, after $\rfrac{\averageEnergy}{\numberOfSpins}$ has been constant for $\temperature < \criticalTemperature$. 
+	In \cref{fig:results:2D:averageEnergy} we observe that the average energy per spin is hardly influenced by the number of samples for $\numberOfSamples = 10$. As the number of spins in the simulation increases, the difference between the simulation with $\numberOfSamples = \num{1.e+3}$ and $\numberOfSamples = \num{1.e+4}$ increases. In general we observe that the average energy per spin increases as the temperature increases. In \cref{eq:experiment:1D:averageEnergy} the phase transition that we expect at $\criticalTemperature \approx \num{2.2}$ is indicated by an increase in the average energy per spin, after $\rfrac{\averageEnergy}{\numberOfSpins}$ has been constant for $\temperature << \criticalTemperature$. 
 
-	In \cref{fig:results:2D:specificHeat} we observe a bell-shaped curve in the specific heat per spin around $\temperature = 2$. The curve is more defined when $\numberOfSamples$ is higher and when the number of spins in the simulation increases. The highest points of these bell curves are found around $\temperature = \criticalTemperature$, \ie at the phase transition.
+	In \cref{fig:results:2D:specificHeat} we observe a bell-shaped curve in the specific heat per spin around $\temperature = 2$. The curve is more defined when $\numberOfSamples$ is higher and when the number of spins in the simulation increases. The highest points of these bell curves are found near $\temperature = \criticalTemperature$, \ie at the phase transition.
 
-	Comparing the measured average magnetization per spin in \cref{fig:results:2D:averageMagnetization} with the theoretical value in the same figure we observe that the curves reflecting the results of the simulation are less steep. Furthermore the smaller simulations seem to give a better approximation than the simulation with a lot of spins. In \cref{fig:results:2D:averageMagnetization} the phase transition is clearly illustrated buy the theoretical line. Nearly all lines in this figure illustrate that $\rfrac{\magnetization}{\numberOfSpins}$ is positve for low temperatures, it then decreases around $\temperature = \criticalTemperature$ and stays zero for temperatures that are a bit higher than the critical temperature. The last observation only holds for the theoretical infinite system. Most of the simulated systems do not reach $\rfrac{\magnetization}{\numberOfSpins} = 0$.
+	Comparing the measured average magnetization per spin in \cref{fig:results:2D:averageMagnetization} with the theoretical value in the same figure we observe that the curves reflecting the results of the simulation are less steep. Furthermore the smaller simulations seem to give a better approximation than the simulation with a lot of spins. In \cref{fig:results:2D:averageMagnetization} the phase transition is clearly illustrated by the theoretical line. Nearly all lines in this figure illustrate that $\rfrac{\magnetization}{\numberOfSpins}$ is positve for low temperatures, it then decreases around $\temperature = \criticalTemperature$ and stays zero for temperatures that are a bit higher than the critical temperature. The last observation only holds for the theoretical infinite system. Most of the simulated systems do not reach $\rfrac{\magnetization}{\numberOfSpins} = 0$.
 
 	\begin{figure}
 		\centering
