@@ -20,7 +20,7 @@ function [figure] = plot( experiments, statistic, varargin)
     end
 
     if isa(parser.Results.theoretical, 'function_handle')
-        traces{i} = createTheoreticalPlotStruct(parameters, numParticles, parser.Results.theoretical);
+        traces{i} = createTheoreticalPlotStruct(parameters, parser.Results.theoretical);
     end    
     
     figure = createPlot(traces, statistic);
@@ -77,10 +77,9 @@ function [trace] = createPlotStruct(experiments, statistic, numParticles, numSam
           'type', 'scatter');
 end
 
-function [trace] = createTheoreticalPlotStruct(parameters, numParticles, theoretical)
+function [trace] = createTheoreticalPlotStruct(parameters, theoretical)
     temperatures = unique([parameters.temperature]);
     dependent = theoretical(temperatures);
-    dimensionality = sqrt(numParticles);
     trace = struct(...
           'x', temperatures, ...
           'y', dependent, ...
