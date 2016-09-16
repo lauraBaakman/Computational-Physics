@@ -79,6 +79,7 @@ end
 
 function [trace] = createTheoreticalPlotStruct(parameters, theoretical)
     temperatures = unique([parameters.temperature]);
+    temperatures = linspace(min(temperatures), max(temperatures), 100); 
     dependent = theoretical(temperatures);
     trace = struct(...
           'x', temperatures, ...
