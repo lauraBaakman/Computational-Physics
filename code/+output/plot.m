@@ -1,4 +1,4 @@
-function [] = plot( experiments, statistic)
+function [figure] = plot( experiments, statistic)
 %PLOT the parameter per spin as a function of temperature. 
     parameters = [experiments.parameters];
     
