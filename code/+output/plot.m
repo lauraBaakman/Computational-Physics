@@ -1,4 +1,4 @@
-function [ output_args ] = plot( experiments, statistic)
+function [] = plot( experiments, statistic)
 %PLOT the parameter per spin as a function of temperature. 
     parameters = [experiments.parameters];
     
