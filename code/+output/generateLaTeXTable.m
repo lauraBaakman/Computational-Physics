@@ -1,6 +1,6 @@
 function [] = generateLaTeXTable( experiments, numSampleIterations, numParticles)
 %GENERATELATEXTABLE Generate a LaTeX table for the experiments.
-    data = output.collectData(experiments, numSampleIterations, numParticles);
+    data = collectData(experiments, numSampleIterations, numParticles);
     
     outputFile = generatePath(numSampleIterations, numParticles);
     
