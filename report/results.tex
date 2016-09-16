@@ -17,6 +17,12 @@ This section presents the results of the experiments with the one- and two- dime
 \label{ss:results:2D}
 	The average energy, specific heat and average magnetization per spin for the different combinations of \numberOfSpins and \numberOfSamples can be found in \cref{fig:results:2D}. 
 
+	In \cref{fig:results:2D:averageEnergy} we observe that the average energy per spin is not hardly influenced by the number of samples for $\numberOfSamples = 10$. As the number of spins in the simulation increases, the difference between the simulation with $\numberOfSamples = \num{1.e+3}$ and $\numberOfSamples = \num{1.e+4}$ increases. In general we observe that the average energy per spin increases as the temperature increases.
+
+	In \cref{fig:results:2D:specificHeat} we observe a bell-shaped curve in the specific heat per sin around $\temperature = 2$. The curve is more defined when $\numberOfSamples$ is higher and when the number of spins in the simulation increases.
+
+	Comparing the measured average magnetization per spin with the theoretical value we observe that the curves reflecting the results of the simulation are less steep. Furthermore the smaller simulations seem to give a better approximation than the simulation with a lot of spins. 
+
 	\begin{figure}
 		\centering
 		\begin{subfigure}{\columnwidth}
@@ -28,7 +34,7 @@ This section presents the results of the experiments with the one- and two- dime
 		\begin{subfigure}{\columnwidth}
 			\centering
 			\includegraphics[width=\textwidth]{./img/2D/specificHeat}
-			\caption{Average magnetization per spin.}
+			\caption{Specific heat per spin.}
 			\label{fig:results:2D:specificHeat}
 		\end{subfigure}	
 		\begin{subfigure}{\columnwidth}
