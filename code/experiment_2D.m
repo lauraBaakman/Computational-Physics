@@ -36,7 +36,7 @@ for dimensionality = dimensionalityList
           parameters = rmfield(parameters, 'neighborFunction');
           
           experiments(idx).parameters = parameters;
-          experiments(idx).configurations = configurations;
+%           experiments(idx).configurations = configurations;
           
           U = computeAverageEnergy(configurations);
           C = computeSpecificHeat(configurations, parameters.temperature);
@@ -47,6 +47,8 @@ for dimensionality = dimensionalityList
               'specificHeat', C,...
               'averageMagnetization', M);
           idx = idx + 1;
+          
+          clear configurations
         end
     end
 end
