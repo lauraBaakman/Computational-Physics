@@ -10,7 +10,7 @@ A magnet can be modeled as a large collection of electronic spins. In the Ising 
 	\begin{equation}\label{eq:intro:ising:1D:hamiltonian}
 		\hamiltonian\left(\configuration{} \right) = - \interactionStrength \sum_{\pair{i}{j}}\spin{i}\spin{j} - \magneticMoment \sum_{i} \spin{i}.
 	\end{equation}
-	Where \pair{i}{j} is a nearest neighbour pair, the nearest neighbour of \spin{i} in the one dimensional model are \spin{i - 1} and \spin{i + 1}. \interactionStrength specifies the strength of the interactions between the particles. In a ferromagnetic model, \mbox{$\interactionStrength > 0$} neighboring spins prefer to be parallel. In the anti-ferromagnetic model, \mbox{$\interactionStrength < 0$} spins prefer a direction different to one of their neighbors. The constant \magneticMoment represents the external magnetic field, the spins want to align with the direction of $h$, \ie when \mbox{$h > 0$} spins prefer to be positive. 
+	Where \pair{i}{j} is a nearest neighbour pair, the nearest neighbour of \spin{i} in the one dimensional model are \spin{i - 1} and \spin{i + 1}. \interactionStrength specifies the strength of the interactions between the spins. In a ferromagnetic model, \mbox{$\interactionStrength > 0$} neighboring spins prefer to be parallel. In the anti-ferromagnetic model, \mbox{$\interactionStrength < 0$} spins prefer a direction different to one of their neighbors. The constant \magneticMoment represents the external magnetic field, the spins want to align with the direction of $h$, \ie when \mbox{$h > 0$} spins prefer to be positive. 
 
 	In the following the zero-field ferromagnetic model, \ie \mbox{$\interactionStrength = 1$} and \mbox{$\magneticMoment = 0$},  is considered. The energy \energy of a configuration of spins, \configuration{}, in this model is given by 
 	\begin{equation*}
@@ -29,7 +29,7 @@ A magnet can be modeled as a large collection of electronic spins. In the Ising 
 	\end{equation}
 
 	% START ANALYTICAL STUFF
-	Both the one and two dimensional Ising model can be solved analytically. Under free end boundary conditions, \ie the boundary particles, \spin{1} and \spin{\numberOfSpins}, only observe one neighbor \cite{landau2014guide}, the analytical solution of \cref{eq:intro:1D:partitionFunction} is
+	Both the one and two dimensional Ising model can be solved analytically. Under free end boundary conditions, \ie the boundary spins, \spin{1} and \spin{\numberOfSpins}, only observe one neighbor \cite{landau2014guide}, the analytical solution of \cref{eq:intro:1D:partitionFunction} is
 	\begin{equation}
 		\label{eq:introduced1D:partitionFunctionAnalyticalSolution}
 		\partitionfunction = {(2 \cosh \beta)}^\numberOfSpins.
@@ -69,6 +69,14 @@ A magnet can be modeled as a large collection of electronic spins. In the Ising 
 			&\quad\quad - \sum_{i = 1}^{\dimensionality}\sum_{j = 1}^{\dimensionality - 1} \spin{i,j} \spin{i, j+1}.
 		\end{split}
 	\end{equation}
+
+	%Phase transition
+	The infinite Ising system with $\dimensionality \geq 2$ has a phase transition when no external magnetic field is present, \ie $\magneticMoment = 0$. Below the critical temperature \criticalTemperature the spins align themselves parallel to each other in the thermal average and generate macroscopic magnetization. The magnetization itself can be either positive or negative. The phase transition is critical, this means that as the temperature increases the magnetization, $\magnetization$, of the system changes continuously towards zero as the temperature is smaller than the critical temperature, \criticalTemperature. 
+	% If we mention it here we have to discuss it.
+	% Near the critical temperature for $\temperature < \criticalTemperature$ one can observe that 
+	% \begin{equation*}
+	% 	M \sim (\criticalTemperature - \temperature)^{\beta}.
+	% \end{equation*}
 
 	% Analytical stuff
 	The two-dimensional Ising model has been solved analytically by \textcite{onsager1944crystal}. He showed that the average magnetization per spin on a infinite 2D lattice, \ie $\numberOfSpins = \infty$, is
