@@ -38,7 +38,7 @@
 %Wiskunde
 \RequirePackage{siunitx}
 \sisetup{round-mode=figures, 
-		round-precision=1, 
+		round-precision=3, 
 		%exponent-base=10,
 		%exponent-product={}
 }
@@ -121,7 +121,7 @@
 
 % Results Table
 \newcommand{\resultsOneDTable}[2]{%
-		\begin{longtable}{ccllllc}
+		\begin{longtable}{ccSSSSS}
 			\caption{Results of the 1D simulation for \numberOfSpins = #1, \numberOfSamples = #2.}\\
 			\toprule
 			~ & ~ & \multicolumn{2}{c}{Numerical} & \multicolumn{2}{c}{Analytical}\\ 
