@@ -38,9 +38,9 @@
 %Wiskunde
 \RequirePackage{siunitx}
 \sisetup{round-mode=figures, 
-		round-precision=3, 
-		%exponent-base=10,
+		%round-precision=3, 
 		%exponent-product={}
+		round-precision=3,
 }
 \RequirePackage{mathtools}
 \RequirePackage{amsmath}
@@ -121,7 +121,13 @@
 
 % Results Table
 \newcommand{\resultsOneDTable}[2]{%
-		\begin{longtable}{ccSSSSc}
+		\begin{longtable}{
+			c
+			c
+			S[scientific-notation = engineering, table-figures-exponent = 1]
+			S[scientific-notation = engineering, table-figures-exponent = 1]S[scientific-notation = engineering, table-figures-exponent = 1]
+			S[scientific-notation = engineering, table-figures-exponent = 1]
+			c}
 			\caption{Results of the 1D simulation for \numberOfSpins = #1, \numberOfSamples = #2.}\\
 			\toprule
 			~ & ~ & \multicolumn{2}{c}{Numerical} & \multicolumn{2}{c}{Analytical}\\ 
