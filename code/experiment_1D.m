@@ -13,14 +13,18 @@ idx = 1;
 %% Run Simulations
 for numParticles = numParticlesList
     for numSampleIterations =  numSampleIterationsList
-        numRelaxIterations = computeNumRelaxIterations(numSampleIterations);
+        
+        actualNumSampleIterations = numSampleIterations * numParticles;
+        numRelaxIterations = computeNumRelaxIterations(actualNumSampleIterations);
+        
         initialConfiguration = ones([1, numParticles]);
+
         for temperature = temperatures
           
           parameters = struct(...
             'temperature', temperature,...
             'numParticles', numParticles,...
-            'numSampleIterations', numSampleIterations,...
+            'numSampleIterations', actualNumSampleIterations,...
             'numRelaxIterations', numRelaxIterations,...
             'neighborFunction', @neighbors.OneD2Connected);
           
