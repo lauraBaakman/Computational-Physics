@@ -15,7 +15,10 @@ for dimensionality = dimensionalityList
     numParticles = dimensionality * dimensionality;
     
     for numSampleIterations =  numSampleIterationsList
-        numRelaxIterations = computeNumRelaxIterations(numSampleIterations);
+        
+        actualNumSampleIterations = numSampleIterations * numParticles;
+        numRelaxIterations = computeNumRelaxIterations(actualNumSampleIterations);
+        
         initialConfiguration = ones([dimensionality, dimensionality]);
         
         for temperature = temperatures
@@ -23,7 +26,7 @@ for dimensionality = dimensionalityList
           parameters = struct(...
             'temperature', temperature,...
             'numParticles', numParticles,...
-            'numSampleIterations', numSampleIterations,...
+            'numSampleIterations', actualNumSampleIterations,...
             'numRelaxIterations', numRelaxIterations,...
             'neighborFunction', @neighbors.TwoD4Connected);
           
