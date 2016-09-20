@@ -121,54 +121,55 @@
 
 % Results Table
 \newcommand{\resultsOneDTable}[2]{%
-		\begin{longtable}{
-			c
-			c
-			S[scientific-notation = engineering, table-figures-exponent = 1]
-			S[scientific-notation = engineering, table-figures-exponent = 1]S[scientific-notation = engineering, table-figures-exponent = 1]
-			S[scientific-notation = engineering, table-figures-exponent = 1]
-			c}
-			\caption{Results of the 1D simulation for \numberOfSpins = #1, \numberOfSamples = #2.}\\
+	\begin{longtable}{
+			S[table-format = 1.1, round-precision=1, table-number-alignment = center, round-mode=places, round-precision=1]
+			S[table-format = 1.3, round-mode=places, round-precision=3, table-number-alignment = center]
+			S[table-format = +4.1, table-number-alignment=center, fixed-exponent={-3}, table-omit-exponent, round-precision=4, round-mode=figures]
+			S[table-format = 3.3, table-number-alignment=center, fixed-exponent={-3}, table-omit-exponent, round-precision=4, round-mode=figures]
+			S[table-format = +4.1, table-number-alignment=center, fixed-exponent={-3}, table-omit-exponent, round-precision=4, round-mode=figures]
+			S[table-format = 3.3, table-number-alignment=center, fixed-exponent={-3}, table-omit-exponent, round-precision=4, round-mode=figures]
+			S[table-format = 2.3, round-mode=places, round-precision=3, table-number-alignment = center]
+		}
+			\caption{Results of the 1D simulation for \numberOfSpins = #1, \numberOfSamples = #2.}
 			\toprule
-			  ~ 
-			& ~ 
-			& \multicolumn{2}{c}{Numerical} 
-			& \multicolumn{2}{c}{Analytical}\\ 
-			%
+				  ~ 
+				& ~ 
+				& \multicolumn{2}{c}{Numerical} 
+				& \multicolumn{2}{c}{Analytical}\\ 
 			\cmidrule(r){3-4}\cmidrule(r){5-6}
-			  \temperature 
-			& $\beta$ 
-			& \rfrac{\averageEnergy}{\numberOfSpins} 
-			& \rfrac{\specificHeat}{\numberOfSpins} 
-			& \rfrac{\averageEnergy}{\numberOfSpins} 
-			& \rfrac{\specificHeat}{\numberOfSpins} 
-			& accuracy  \\
-			%
-			\midrule \endfirsthead
-			%
-			\caption{continued}\\
+				  \temperature 
+				& $\beta$ 
+				& $\rfrac{\averageEnergy}{\numberOfSpins}  	\times \num{e-3}$
+				& $\rfrac{\specificHeat}{\numberOfSpins}   	\times \num{e-3}$ 
+				& $\rfrac{\averageEnergy}{\numberOfSpins} 	\times \num{e-3}$ 
+				& $\rfrac{\specificHeat}{\numberOfSpins}	\times \num{e-3}$ 
+				& accuracy  \\
+			\midrule 
+		\endfirsthead
+		%
+			\caption{continued.}\\
 			\toprule
-			  ~ 
-			& ~ 
-			& \multicolumn{2}{c}{Numerical} 
-			& \multicolumn{2}{c}{Analytical}\\ 
-			%
+				  ~ 
+				& ~ 
+				& \multicolumn{2}{c}{Numerical} 
+				& \multicolumn{2}{c}{Analytical}\\ 
 			\cmidrule(r){3-4}\cmidrule(r){5-6}
-			%
-			  \temperature 
-			& $\beta$ 
-			& \rfrac{\averageEnergy}{\numberOfSpins} 
-			& \rfrac{\specificHeat}{\numberOfSpins} 
-			& \rfrac{\averageEnergy}{\numberOfSpins} 
-			& \rfrac{\specificHeat}{\numberOfSpins} 
-			& accuracy  \\
-			%
-			 \midrule \endhead
-		\bottomrule
+				  \temperature 
+				& $\beta$ 
+				& $\rfrac{\averageEnergy}{\numberOfSpins}	\times \num{e-3}$
+				& $\rfrac{\specificHeat}{\numberOfSpins}	\times \num{e-3}$
+				& $\rfrac{\averageEnergy}{\numberOfSpins}	\times \num{e-3}$
+				& $\rfrac{\specificHeat}{\numberOfSpins} 	\times \num{e-3}$
+				& accuracy  \\
+			\midrule 	
+		\endhead
+			\bottomrule
 		\endfoot
-		\bottomrule
-		\endlastfoot		
-		\input{tables/NS#2_N#1}
-		\label{tab:results:1D:#1:#2}			
-		\end{longtable}
+			\bottomrule
+		\endlastfoot				
+		%\input{tables/NS#2_N#1.tex}
+		0.2	& 5.00000	& -0.90000	& 0.00000	& -0.99991	& 0.00454	& 0			\\
+		0.4	& 2.50000	& -0.87082	& 0.36600	& -0.98661	& 0.16620	& 0.66057	\\
+		0.6	& 1.66667	& -0.82581	& 0.39460	& -0.93111	& 0.36954	& 0.90449	\\		
+	\end{longtable}
 }
