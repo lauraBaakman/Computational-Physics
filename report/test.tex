@@ -2,64 +2,13 @@
 \usepackage{style}
 \usepackage{showframe}
 
-\makeatletter		
-\newcommand{\jfdkasjflas}[2]{
-	\begin{longtable}{
-			S[table-format = 1.1, round-precision=1, table-number-alignment = center, round-mode=places, round-precision=1]
-			S[table-format = 1.3, round-mode=places, round-precision=3, table-number-alignment = center]
-			S[table-format = +4.1, table-number-alignment=center, fixed-exponent={-3}, table-omit-exponent, round-precision=4, round-mode=figures]
-			S[table-format = 3.3, table-number-alignment=center, fixed-exponent={-3}, table-omit-exponent, round-precision=4, round-mode=figures]
-			S[table-format = +4.1, table-number-alignment=center, fixed-exponent={-3}, table-omit-exponent, round-precision=4, round-mode=figures]
-			S[table-format = 3.3, table-number-alignment=center, fixed-exponent={-3}, table-omit-exponent, round-precision=4, round-mode=figures]
-			S[table-format = 2.3, round-mode=places, round-precision=3, table-number-alignment = center]
-		}
-			\caption{Results of the 1D simulation for \numberOfSpins = 1, \numberOfSamples = 2.}\\
-			\toprule
-				  ~ 
-				& ~ 
-				& \multicolumn{2}{c}{Numerical} 
-				& \multicolumn{2}{c}{Analytical}\\ 
-			\cmidrule(r){3-4}\cmidrule(r){5-6}
-				  \temperature 
-				& $\beta$ 
-				& $\rfrac{\averageEnergy}{\numberOfSpins}  	\times \num{e-3}$
-				& $\rfrac{\specificHeat}{\numberOfSpins}   	\times \num{e-3}$ 
-				& $\rfrac{\averageEnergy}{\numberOfSpins} 	\times \num{e-3}$ 
-				& $\rfrac{\specificHeat}{\numberOfSpins}	\times \num{e-3}$ 
-				& accuracy  \\
-			\midrule 
-		\endfirsthead
-		%
-			\caption{continued.}\\
-			\toprule
-				  ~ 
-				& ~ 
-				& \multicolumn{2}{c}{Numerical} 
-				& \multicolumn{2}{c}{Analytical}\\ 
-			\cmidrule(r){3-4}\cmidrule(r){5-6}
-				  \temperature 
-				& $\beta$ 
-				& $\rfrac{\averageEnergy}{\numberOfSpins}	\times \num{e-3}$
-				& $\rfrac{\specificHeat}{\numberOfSpins}	\times \num{e-3}$
-				& $\rfrac{\averageEnergy}{\numberOfSpins}	\times \num{e-3}$
-				& $\rfrac{\specificHeat}{\numberOfSpins} 	\times \num{e-3}$
-				& accuracy  \\
-			\midrule 	
-		\endhead
-			\bottomrule
-		\endfoot
-			\bottomrule
-		\endlastfoot
-		\@@input tables/NS1000_N10.tex
-	\end{longtable}	
-}
-\makeatother
+
 
 \begin{document}
 
 \onecolumn
 
-\jfdkasjflas{10}{1000}
+\resultsOneDTable{10}{1000}
 
 
 \end{document}
