@@ -1,10 +1,10 @@
-function [ configurations, U ] = MMCIsing( initialConfiguration, parameters )
+function [ configurations, energies ] = MMCIsing( initialConfiguration, parameters )
 %METRPOLOISMONTECARLOISING Solve the Ising model with the MMC method.
 %   InitialConfiguration is the initial configuration of the model,
 %   parameters contains the parameters used in the simulation. 
 
 relaxedConfiguration = relaxSystem(initialConfiguration, parameters);
-[configurations, U] = sampleSystem(relaxedConfiguration, parameters);
+[configurations, energies] = sampleSystem(relaxedConfiguration, parameters);
 
 end
 
@@ -16,14 +16,12 @@ function [configuration] = relaxSystem(initialConfiguration, parameters)
     end
 end
 
-function [configurations, U] = sampleSystem(configuration, parameters)
-    previousEnergy = computeEnergy(configuration);
+function [configurations, energies] = sampleSystem(configuration, parameters)
+    previousEnergy = properties.energy(configuration);
     
     energies = nan(parameters.numSampleIterations + 1, 1);
     configurations = nan([size(configuration), parameters.numSampleIterations + 1]);
-    
-    
-    
+
     % Store the initial configuration
     configurations(:,:,1) = configuration;    
     energies(1) = previousEnergy;
@@ -36,8 +34,6 @@ function [configurations, U] = sampleSystem(configuration, parameters)
         energies(i + 1) = previousEnergy + deltaE;
         previousEnergy = energies(i + 1);
     end
-    
-    U = mean(energies);
 end
 
 function [nextConfig, deltaE] = monteCarloStep(curConfig, parameters)
