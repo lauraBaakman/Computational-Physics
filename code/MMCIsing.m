@@ -16,15 +16,9 @@ function [configuration] = relaxSystem(initialConfiguration, parameters)
     end
 end
 
-function [configurations] = sampleSystem(configuration, parameters)
-    configurations = nan([size(configuration), parameters.numSampleIterations]);
-    
-    % Store the initial configuration
-    configurations(:,:,1) = configuration;
     
     for i = 1:parameters.numSampleIterations
        configuration = monteCarloStep(configuration, parameters);
-       configurations(:,:, i + 1) = configuration;
     end
 end
 
