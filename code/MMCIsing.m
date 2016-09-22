@@ -1,10 +1,10 @@
-function [ configurations ] = MMCIsing( initialConfiguration, parameters )
+function [ configurations, U ] = MMCIsing( initialConfiguration, parameters )
 %METRPOLOISMONTECARLOISING Solve the Ising model with the MMC method.
 %   InitialConfiguration is the initial configuration of the model,
 %   parameters contains the parameters used in the simulation. 
 
 relaxedConfiguration = relaxSystem(initialConfiguration, parameters);
-configurations = sampleSystem(relaxedConfiguration, parameters);
+[configurations, U] = sampleSystem(relaxedConfiguration, parameters);
 
 end
 
@@ -16,14 +16,28 @@ function [configuration] = relaxSystem(initialConfiguration, parameters)
     end
 end
 
-function [U] = sampleSystem(configuration, parameters)
-    initialEnergy = computeEnergy(configuration);
+function [configurations, U] = sampleSystem(configuration, parameters)
+    previousEnergy = computeEnergy(configuration);
+    
+    energies = nan(parameters.numSampleIterations + 1, 1);
+    configurations = nan([size(configuration), parameters.numSampleIterations + 1]);
+    
+    
+    
+    % Store the initial configuration
+    configurations(:,:,1) = configuration;    
+    energies(1) = previousEnergy;
+    
     for i = 1:parameters.numSampleIterations
-       [configuration, deltaE] = monteCarloStep(configuration, parameters); 
-       totalDeltaEnergy = totalDeltaEnergy + deltaE; 
+        [configuration, deltaE] = monteCarloStep(configuration, parameters); 
+        
+        configurations(:,:, i + 1) = configuration;
+        
+        energies(i + 1) = previousEnergy + deltaE;
+        previousEnergy = energies(i + 1);
     end
     
-    U = initialEnergy + (totalDeltaEnergy / (1 + parameters.numSampleIterations));
+    U = mean(energies);
 end
 
 function [nextConfig, deltaE] = monteCarloStep(curConfig, parameters)
@@ -46,6 +60,7 @@ function [nextConfig, deltaE] = selectNextConfig(currentConfig, potentialConfig,
         nextConfig = potentialConfig;
     else
         nextConfig = currentConfig;
+        deltaE = 0;
     end
 end
 
