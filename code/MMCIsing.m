@@ -1,10 +1,10 @@
-function [ configurations, energies , magnetizations] = MMCIsing( initialConfiguration, parameters )
+function [ configuration, energies , magnetizations] = MMCIsing( initialConfiguration, parameters )
 %METRPOLOISMONTECARLOISING Solve the Ising model with the MMC method.
 %   InitialConfiguration is the initial configuration of the model,
 %   parameters contains the parameters used in the simulation. 
 
 relaxedConfiguration = relaxSystem(initialConfiguration, parameters);
-[configurations, energies, magnetizations] = sampleSystem(relaxedConfiguration, parameters);
+[energies, magnetizations, configuration] = sampleSystem(relaxedConfiguration, parameters);
 
 end
 
