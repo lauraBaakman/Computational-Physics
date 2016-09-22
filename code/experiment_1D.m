@@ -28,7 +28,7 @@ for numParticles = numParticlesList
                 'numRelaxIterations', numRelaxIterations,...
                 'neighborFunction', @neighbors.OneD2Connected);
             
-            configurations = MMCIsing(initialConfiguration, parameters);
+            [configurations, energies] = MMCIsing(initialConfiguration, parameters);
             
             % The initial configuration for the next temperature is the
             % final configuration of the previous temperature
@@ -38,10 +38,11 @@ for numParticles = numParticlesList
             
             experiments(idx).parameters = parameters;
             
-            U = computeAverageEnergy(configurations);
-            C = computeSpecificHeat(configurations, parameters.temperature);
+            U = mean(energies);
+            C = properties.specificHeat(temperature, energies);
             
-            experiments(idx).statistics = struct('averageEnergy', U,...
+            experiments(idx).statistics = struct(...
+                'averageEnergy', U,...
                 'specificHeat', C);
             idx = idx + 1;
         end
