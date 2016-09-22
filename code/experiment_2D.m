@@ -1,9 +1,9 @@
-clc; close all; clear all; 
+clc; close all; clear all;
 rng('default');
 
-computeNumRelaxIterations = @(n) 1/10 .* n;
+computeNumRelaxIterations = @(n) 1/10 .* n; 
 
-%% Init 
+%% Init
 temperatures = 0.2:0.2:4;
 dimensionalityList = [10, 50, 100];
 numSampleIterationsList = [1000, 10000];
@@ -22,35 +22,32 @@ for dimensionality = dimensionalityList
         initialConfiguration = ones([dimensionality, dimensionality]);
         
         for temperature = temperatures
-          
-          parameters = struct(...
-            'temperature', temperature,...
-            'numParticles', numParticles,...
-            'numSampleIterations', actualNumSampleIterations,...
-            'numRelaxIterations', numRelaxIterations,...
-            'neighborFunction', @neighbors.TwoD4Connected);
-          
-
-          % The initial configuration for the next temperature is the
-          % final configuration of the previous temperature
-          initialConfiguration = configurations(:,:,end);
-          
-          parameters = rmfield(parameters, 'neighborFunction');
-          
-          experiments(idx).parameters = parameters;
-%           experiments(idx).configurations = configurations;
-          
-          U = computeAverageEnergy(configurations);
-          C = computeSpecificHeat(configurations, parameters.temperature);
-          M = computeAverageMagnetization(configurations);
-          
-          experiments(idx).statistics = struct(...
-              'averageEnergy', U,...
-              'specificHeat', C,...
-              'averageMagnetization', M);
-          idx = idx + 1;
-          
-          clear configurations
+            
+            parameters = struct(...
+                'temperature', temperature,...
+                'numParticles', numParticles,...
+                'numSampleIterations', actualNumSampleIterations,...
+                'numRelaxIterations', numRelaxIterations,...
+                'neighborFunction', @neighbors.TwoD4Connected);
+            
+            % The initial configuration for the next temperature is the
+            % final configuration of the previous temperature
+            [energies , magnetizations, initialConfiguration] = MMCIsing(initialConfiguration, parameters);
+            
+            parameters = rmfield(parameters, 'neighborFunction');
+            
+            experiments(idx).parameters = parameters;
+            
+            U = mean(energies);
+            C = properties.specificHeat(temperature, energies);
+            M = mean(magnetizations);
+            
+            experiments(idx).statistics = struct(...
+                'averageEnergy', U,...
+                'specificHeat', C,...
+                'averageMagnetization', M);
+            idx = idx + 1;
+            
         end
     end
 end
