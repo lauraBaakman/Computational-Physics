@@ -6,8 +6,7 @@ computeNumRelaxIterations = @(n) 1/10 .* n;
 %% Init 
 temperatures = 0.2:0.2:4;
 numParticlesList = [10, 100, 1000];
-% numSampleIterationsList = [1000, 10000];
-numSampleIterationsList = [3, 4];
+numSampleIterationsList = [1000, 10000];
 
 idx = 1;
 
@@ -22,7 +21,7 @@ for numParticles = numParticlesList
         
         for temperature = temperatures
             
-            fprintf('1D: %f %d %d\n', temperature, numParticles, numRelaxIterations);
+            fprintf('1D: T = %1.1f N = %4d N_it = %8d\n', temperature, numParticles, actualNumSampleIterations);
             
             parameters = struct(...
                 'temperature', temperature,...
