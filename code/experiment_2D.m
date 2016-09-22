@@ -30,7 +30,6 @@ for dimensionality = dimensionalityList
             'numRelaxIterations', numRelaxIterations,...
             'neighborFunction', @neighbors.TwoD4Connected);
           
-          configurations = MMCIsing(initialConfiguration, parameters);
 
           % The initial configuration for the next temperature is the
           % final configuration of the previous temperature
