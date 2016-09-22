@@ -16,15 +16,19 @@ function [configuration] = relaxSystem(initialConfiguration, parameters)
     end
 end
 
-    
+function [U] = sampleSystem(configuration, parameters)
+    initialEnergy = computeEnergy(configuration);
     for i = 1:parameters.numSampleIterations
-       configuration = monteCarloStep(configuration, parameters);
+       [configuration, deltaE] = monteCarloStep(configuration, parameters); 
+       totalDeltaEnergy = totalDeltaEnergy + deltaE; 
     end
+    
+    U = initialEnergy + (totalDeltaEnergy / (1 + parameters.numSampleIterations));
 end
 
-function [nextConfig] = monteCarloStep(curConfig, parameters)
+function [nextConfig, deltaE] = monteCarloStep(curConfig, parameters)
     [potConfig, flippedSpinIdx] = flipRandomSpin(curConfig);
-    nextConfig = selectNextConfig(curConfig, potConfig,...
+    [nextConfig, deltaE] = selectNextConfig(curConfig, potConfig,...
         flippedSpinIdx, parameters);
 end
 
@@ -34,7 +38,7 @@ function [potentialConfig, flippedSpinIdx] = flipRandomSpin(currentConfig)
     potentialConfig(flippedSpinIdx) = potentialConfig(flippedSpinIdx) * -1;
 end
 
-function [nextConfig] = selectNextConfig(currentConfig, potentialConfig, flippedSpinIdx, parameters)
+function [nextConfig, deltaE] = selectNextConfig(currentConfig, potentialConfig, flippedSpinIdx, parameters)
     deltaE = computeDeltaE(potentialConfig, flippedSpinIdx, parameters);
     xi = exp(- (1 / parameters.temperature) * deltaE);
     theta = rand();
