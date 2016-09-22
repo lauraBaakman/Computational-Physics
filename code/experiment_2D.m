@@ -25,40 +25,40 @@ for dimensionality = dimensionalityList
             
             fprintf('2D: T = %1.1f N = %5d N_it = %9d\n', temperature, numParticles, actualNumSampleIterations);
             
-%             parameters = struct(...
-%                 'temperature', temperature,...
-%                 'numParticles', numParticles,...
-%                 'numSampleIterations', actualNumSampleIterations,...
-%                 'numRelaxIterations', numRelaxIterations,...
-%                 'neighborFunction', @neighbors.TwoD4Connected);
-%             
-%             % The initial configuration for the next temperature is the
-%             % final configuration of the previous temperature
-%             [energies , magnetizations, initialConfiguration] = MMCIsing(initialConfiguration, parameters);
-%             
-%             parameters = rmfield(parameters, 'neighborFunction');
-%             
-%             experiments(idx).parameters = parameters;
-%             
-%             U = mean(energies);
-%             C = properties.specificHeat(temperature, energies);
-%             M = mean(magnetizations);
-%             
-%             experiments(idx).statistics = struct(...
-%                 'averageEnergy', U,...
-%                 'specificHeat', C,...
-%                 'averageMagnetization', M);
-%             idx = idx + 1;
+            parameters = struct(...
+                'temperature', temperature,...
+                'numParticles', numParticles,...
+                'numSampleIterations', actualNumSampleIterations,...
+                'numRelaxIterations', numRelaxIterations,...
+                'neighborFunction', @neighbors.TwoD4Connected);
+            
+            % The initial configuration for the next temperature is the
+            % final configuration of the previous temperature
+            [energies , magnetizations, initialConfiguration] = MMCIsing(initialConfiguration, parameters);
+            
+            parameters = rmfield(parameters, 'neighborFunction');
+            
+            experiments(idx).parameters = parameters;
+            
+            U = mean(energies);
+            C = properties.specificHeat(temperature, energies);
+            M = mean(magnetizations);
+            
+            experiments(idx).statistics = struct(...
+                'averageEnergy', U,...
+                'specificHeat', C,...
+                'averageMagnetization', M);
+            idx = idx + 1;
             
         end
     end
 end
 
-% %% Store the results
-% save('../results/2D.mat', 'experiments')
-% 
-% %% Create plots
-% output.plot(experiments, 'averageEnergy');
-% output.plot(experiments, 'specificHeat');
-% output.plot(experiments, 'averageMagnetization',...
-%     'theoretical', @theory.averageMagnetizationPerSpin);
+%% Store the results
+save('../results/2D.mat', 'experiments')
+
+%% Create plots
+output.plot(experiments, 'averageEnergy');
+output.plot(experiments, 'specificHeat');
+output.plot(experiments, 'averageMagnetization',...
+    'theoretical', @theory.averageMagnetizationPerSpin);
