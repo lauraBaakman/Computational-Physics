@@ -8,7 +8,7 @@ function [mean_accuracy] = generateLaTeXTable( experiments, numSampleIterations,
     
     fileID = fopen(outputFile,'w+');
     fprintf(fileID, '%%!TEX root = ../report.tex\n\n');
-    fprintf(fileID, '\\num[round-precision=2]{%1.1f}\t& \\num{%0.5f}\t& \\num{%0.5f}\t& \\num{%0.5f}\t& \\num{%0.5f}\t& \\num{%0.5f}\t& \\num[round-precision=2]{%0.5f}\t\\\\\n', data);
+    fprintf(fileID, '%1.1f\t& %0.5f\t& %0.5f\t& %0.5f\t& %0.5f\t& %0.5f\t& %0.5f\t\\\\\n', data);
     fclose(fileID);
     
 end
