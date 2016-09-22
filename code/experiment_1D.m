@@ -37,7 +37,6 @@ for numParticles = numParticlesList
           parameters = rmfield(parameters, 'neighborFunction');
           
           experiments(idx).parameters = parameters;
-          experiments(idx).configurations = configurations;
           
           U = computeAverageEnergy(configurations);
           C = computeSpecificHeat(configurations, parameters.temperature);
