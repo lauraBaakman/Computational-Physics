@@ -1,10 +1,10 @@
-function [ configurations ] = MMCIsing( initialConfiguration, parameters )
+function [ configurations, energies , magnetizations] = MMCIsing( initialConfiguration, parameters )
 %METRPOLOISMONTECARLOISING Solve the Ising model with the MMC method.
 %   InitialConfiguration is the initial configuration of the model,
 %   parameters contains the parameters used in the simulation. 
 
 relaxedConfiguration = relaxSystem(initialConfiguration, parameters);
-configurations = sampleSystem(relaxedConfiguration, parameters);
+[configurations, energies, magnetizations] = sampleSystem(relaxedConfiguration, parameters);
 
 end
 
@@ -16,21 +16,29 @@ function [configuration] = relaxSystem(initialConfiguration, parameters)
     end
 end
 
-function [configurations] = sampleSystem(configuration, parameters)
-    configurations = nan([size(configuration), parameters.numSampleIterations]);
+function [energies, magnetizations, configuration] = sampleSystem(configuration, parameters)
+    previousEnergy = properties.energy(configuration);
     
-    % Store the initial configuration
-    configurations(:,:,1) = configuration;
+    energies = nan(parameters.numSampleIterations + 1, 1);
+    magnetizations = nan(parameters.numSampleIterations + 1, 1);
+
+    % Store properties of the initial configuration
+    energies(1) = previousEnergy;
+    magnetizations(1) = properties.magnetization(configuration);
     
     for i = 1:parameters.numSampleIterations
-       configuration = monteCarloStep(configuration, parameters);
-       configurations(:,:, i + 1) = configuration;
+        [configuration, deltaE] = monteCarloStep(configuration, parameters); 
+        
+        energies(i + 1) = previousEnergy + deltaE;
+        previousEnergy = energies(i + 1);
+        
+        magnetizations(i + 1) = properties.magnetization(configuration);
     end
 end
 
-function [nextConfig] = monteCarloStep(curConfig, parameters)
+function [nextConfig, deltaE] = monteCarloStep(curConfig, parameters)
     [potConfig, flippedSpinIdx] = flipRandomSpin(curConfig);
-    nextConfig = selectNextConfig(curConfig, potConfig,...
+    [nextConfig, deltaE] = selectNextConfig(curConfig, potConfig,...
         flippedSpinIdx, parameters);
 end
 
@@ -40,7 +48,7 @@ function [potentialConfig, flippedSpinIdx] = flipRandomSpin(currentConfig)
     potentialConfig(flippedSpinIdx) = potentialConfig(flippedSpinIdx) * -1;
 end
 
-function [nextConfig] = selectNextConfig(currentConfig, potentialConfig, flippedSpinIdx, parameters)
+function [nextConfig, deltaE] = selectNextConfig(currentConfig, potentialConfig, flippedSpinIdx, parameters)
     deltaE = computeDeltaE(potentialConfig, flippedSpinIdx, parameters);
     xi = exp(- (1 / parameters.temperature) * deltaE);
     theta = rand();
@@ -48,6 +56,7 @@ function [nextConfig] = selectNextConfig(currentConfig, potentialConfig, flipped
         nextConfig = potentialConfig;
     else
         nextConfig = currentConfig;
+        deltaE = 0;
     end
 end
 

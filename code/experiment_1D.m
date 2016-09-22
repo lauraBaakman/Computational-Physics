@@ -1,4 +1,4 @@
-clc; close all; clear all; 
+clc; close all; clear all;
 rng('default');
 
 computeNumRelaxIterations = @(n) 1/10 .* n;
@@ -18,35 +18,37 @@ for numParticles = numParticlesList
         numRelaxIterations = computeNumRelaxIterations(actualNumSampleIterations);
         
         initialConfiguration = ones([1, numParticles]);
-
+        
         for temperature = temperatures
-          
-          parameters = struct(...
-            'temperature', temperature,...
-            'numParticles', numParticles,...
-            'numSampleIterations', actualNumSampleIterations,...
-            'numRelaxIterations', numRelaxIterations,...
-            'neighborFunction', @neighbors.OneD2Connected);
-          
-          configurations = MMCIsing(initialConfiguration, parameters);
-
-          % The initial configuration for the next temperature is the
-          % final configuration of the previous temperature
-          initialConfiguration = configurations(:,:,end);
-          
-          parameters = rmfield(parameters, 'neighborFunction');
-          
-          experiments(idx).parameters = parameters;
-          experiments(idx).configurations = configurations;
-          
-          U = computeAverageEnergy(configurations);
-          C = computeSpecificHeat(configurations, parameters.temperature);
-          
-          experiments(idx).statistics = struct('averageEnergy', U,...
-              'specificHeat', C);
-          idx = idx + 1;
-      end
-   end
+            
+            fprintf('1D: %f %d %d', temperature, numParticles, numRelaxIterations);
+            
+            parameters = struct(...
+                'temperature', temperature,...
+                'numParticles', numParticles,...
+                'numSampleIterations', actualNumSampleIterations,...
+                'numRelaxIterations', numRelaxIterations,...
+                'neighborFunction', @neighbors.OneD2Connected);
+            
+            [configurations, energies] = MMCIsing(initialConfiguration, parameters);
+            
+            % The initial configuration for the next temperature is the
+            % final configuration of the previous temperature
+            initialConfiguration = configurations(:,:,end);
+            
+            parameters = rmfield(parameters, 'neighborFunction');
+            
+            experiments(idx).parameters = parameters;
+            
+            U = mean(energies);
+            C = properties.specificHeat(temperature, energies);
+            
+            experiments(idx).statistics = struct(...
+                'averageEnergy', U,...
+                'specificHeat', C);
+            idx = idx + 1;
+        end
+    end
 end
 
 %% Store the results
