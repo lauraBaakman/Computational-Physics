@@ -1,24 +1,16 @@
-function [ configuration, energies , magnetizations] = MMCIsing( initialConfiguration, parameters )
+function [ configuration, energies , magnetizations] = MMCIsing( configuration, parameters )
 %METRPOLOISMONTECARLOISING Solve the Ising model with the MMC method.
-%   InitialConfiguration is the initial configuration of the model,
+%   Configuration is the initial configuration of the model,
 %   parameters contains the parameters used in the simulation.
 
-relaxedConfiguration = relaxSystem(initialConfiguration, parameters);
-[energies, magnetizations, configuration] = sampleSystem(relaxedConfiguration, parameters);
-
-end
-
-function [configuration] = relaxSystem(initialConfiguration, parameters)
-    configuration = initialConfiguration;
-
+    % Relax the system
     for i = 1:parameters.numRelaxIterations
         configuration = monteCarloStep(configuration, parameters);
     end
-end
-
-function [energies, magnetizations, configuration] = sampleSystem(configuration, parameters)
+    
     previousEnergy = properties.energy(configuration);
 
+    % Preallocate
     energies = nan(parameters.numSampleIterations + 1, 1);
     magnetizations = nan(parameters.numSampleIterations + 1, 1);
 
@@ -26,14 +18,15 @@ function [energies, magnetizations, configuration] = sampleSystem(configuration,
     energies(1) = previousEnergy;
     magnetizations(1) = sum(sum(configuration, 1), 2);
 
-    for i = 1:parameters.numSampleIterations
+    % Sample the system
+    for i = 2:(parameters.numSampleIterations + 1)
         [configuration, deltaE] = monteCarloStep(configuration, parameters);
 
-        energies(i + 1) = previousEnergy + deltaE;
-        previousEnergy = energies(i + 1);
+        energies(i) = previousEnergy + deltaE;
+        previousEnergy = energies(i);
 
-        magnetizations(i + 1) = sum(sum(configuration, 1), 2);
-    end
+        magnetizations(i) = sum(sum(configuration, 1), 2);
+    end    
 end
 
 function [configuration, deltaE] = monteCarloStep(configuration, parameters)
@@ -61,7 +54,7 @@ function [configuration, deltaE] = monteCarloStep(configuration, parameters)
         end
         
         if row < numberOfConfigurationRows
-            bottom = configuration(bottom_idx, col);
+            bottom = configuration(row + 1, col);
         else 
             bottom = [];
         end
