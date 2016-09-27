@@ -12,6 +12,7 @@ function [configuration] = relaxSystem(initialConfiguration, parameters)
     configuration = initialConfiguration;
 
     for i = 1:parameters.numRelaxIterations
+        fprintf('1D: i = %1d\n', i);
         configuration = monteCarloStep(configuration, parameters);
     end
 end
@@ -27,6 +28,8 @@ function [energies, magnetizations, configuration] = sampleSystem(configuration,
     magnetizations(1) = sum(sum(configuration, 1), 2);
     
     for i = 1:parameters.numSampleIterations
+        fprintf('1D: i = %1d\n', i);
+        
         [configuration, deltaE] = monteCarloStep(configuration, parameters); 
         
         energies(i + 1) = previousEnergy + deltaE;
@@ -36,9 +39,9 @@ function [energies, magnetizations, configuration] = sampleSystem(configuration,
     end
 end
 
-function [nextConfig, deltaE] = monteCarloStep(configuration, parameters)    
+function [configuration, deltaE] = monteCarloStep(configuration, parameters)    
     % Flip a spin
-    flippedSpinIdx = rand(numel(configuration));
+    flippedSpinIdx = randi(numel(configuration));
     
     % Compute Delta E
     padded_configuration = padarray(configuration, [1,1]);
@@ -53,9 +56,8 @@ function [nextConfig, deltaE] = monteCarloStep(configuration, parameters)
     xi = exp(- (1 / parameters.temperature) * deltaE);
     theta = rand();
     if xi > theta
-        nextConfig = (configuration(flippedSpinIdx) * -1);
+        configuration(flippedSpinIdx) = configuration(flippedSpinIdx) * -1;
     else
-        nextConfig = configuration;
         deltaE = 0;
     end
 end
