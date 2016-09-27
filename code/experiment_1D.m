@@ -41,6 +41,7 @@ for numParticles = numParticlesList
                 'specificHeat', C);
             idx = idx + 1;
         end
+        save(sprintf('../results/1D%d_%d.mat', numParticles, numSampleIterations), 'experiments')
     end
 end
 
