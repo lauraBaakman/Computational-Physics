@@ -9,12 +9,11 @@ relaxedConfiguration = relaxSystem(initialConfiguration, parameters);
 end
 
 function [configuration] = relaxSystem(initialConfiguration, parameters)
-configuration = initialConfiguration;
+    configuration = initialConfiguration;
 
-for i = 1:parameters.numRelaxIterations
-    fprintf('1D: i = %1d\n', i);
-    configuration = monteCarloStep(configuration, parameters);
-end
+    for i = 1:parameters.numRelaxIterations
+        configuration = monteCarloStep(configuration, parameters);
+    end
 end
 
 function [energies, magnetizations, configuration] = sampleSystem(configuration, parameters)
@@ -28,8 +27,6 @@ function [energies, magnetizations, configuration] = sampleSystem(configuration,
     magnetizations(1) = sum(sum(configuration, 1), 2);
 
     for i = 1:parameters.numSampleIterations
-        fprintf('1D: i = %1d\n', i);
-
         [configuration, deltaE] = monteCarloStep(configuration, parameters);
 
         energies(i + 1) = previousEnergy + deltaE;
@@ -76,17 +73,8 @@ function [configuration, deltaE] = monteCarloStep(configuration, parameters)
         flippedSpinIdx = randi(numel(configuration));
         
         % Compute Delta E
-        % padded_configuration = padarray(configuration, [1,1]);
-        % [x_idx, y_idx] = ind2sub(size(configuration), flippedSpinIdx);
         neighbours = findNeighbours();
-        
         deltaE = -2 * (configuration(flippedSpinIdx) * -1) * sum(neighbours);
-        
-        % deltaE = -2 * (configuration(flippedSpinIdx) * -1) * (...
-        %     padded_configuration(x_idx + 2, y_idx + 1) + ...
-        %     padded_configuration(x_idx + 1, y_idx + 2) + ...
-        %     padded_configuration(x_idx,     y_idx + 1) + ...
-        %     padded_configuration(x_idx + 1, y_idx));
         
         % Select a new configuration
         xi = exp(- (1 / parameters.temperature) * deltaE);
