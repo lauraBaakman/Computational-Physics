@@ -24,7 +24,7 @@ function [energies, magnetizations, configuration] = sampleSystem(configuration,
 
     % Store properties of the initial configuration
     energies(1) = previousEnergy;
-    magnetizations(1) = properties.magnetization(configuration);
+    magnetizations(1) = sum(sum(configuration, 1), 2);
     
     for i = 1:parameters.numSampleIterations
         [configuration, deltaE] = monteCarloStep(configuration, parameters); 
@@ -32,37 +32,30 @@ function [energies, magnetizations, configuration] = sampleSystem(configuration,
         energies(i + 1) = previousEnergy + deltaE;
         previousEnergy = energies(i + 1);
         
-        magnetizations(i + 1) = properties.magnetization(configuration);
+        magnetizations(i + 1) = sum(sum(configuration, 1), 2);
     end
 end
 
-function [nextConfig, deltaE] = monteCarloStep(curConfig, parameters)
-    [potConfig, flippedSpinIdx] = flipRandomSpin(curConfig);
-    [nextConfig, deltaE] = selectNextConfig(curConfig, potConfig,...
-        flippedSpinIdx, parameters);
-end
-
-function [potentialConfig, flippedSpinIdx] = flipRandomSpin(currentConfig)
-    potentialConfig = currentConfig;
-    flippedSpinIdx = randi(numel(potentialConfig));
-    potentialConfig(flippedSpinIdx) = potentialConfig(flippedSpinIdx) * -1;
-end
-
-function [nextConfig, deltaE] = selectNextConfig(currentConfig, potentialConfig, flippedSpinIdx, parameters)
-function [deltaE] = computeDeltaE(potentialConfig, flippedSpinIdx, parameters)
-    neighbors = parameters.neighborFunction(flippedSpinIdx, potentialConfig);
-    deltaE = -2 * potentialConfig(flippedSpinIdx) * sum(neighbors);
-end
-
-    deltaE = computeDeltaE(potentialConfig, flippedSpinIdx, parameters);
+function [nextConfig, deltaE] = monteCarloStep(configuration, parameters)    
+    % Flip a spin
+    flippedSpinIdx = rand(numel(configuration));
+    
+    % Compute Delta E
+    padded_configuration = padarray(configuration, [1,1]);
+    [x_idx, y_idx] = ind2sub(size(configuration), flippedSpinIdx);    
+    deltaE = -2 * (configuration(flippedSpinIdx) * -1) * (...
+        padded_configuration(x_idx + 2, y_idx + 1) + ...
+        padded_configuration(x_idx + 1, y_idx + 2) + ...
+        padded_configuration(x_idx,     y_idx + 1) + ...
+        padded_configuration(x_idx + 1, y_idx));
+    
+    % Select a new configuration
     xi = exp(- (1 / parameters.temperature) * deltaE);
     theta = rand();
     if xi > theta
-        nextConfig = potentialConfig;
+        nextConfig = (configuration(flippedSpinIdx) * -1);
     else
-        nextConfig = currentConfig;
+        nextConfig = configuration;
         deltaE = 0;
     end
 end
-
-
