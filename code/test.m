@@ -1,28 +1,31 @@
-clc; close all; clear all; 
+clc; close all; clear variables; 
 rng('default');
 
 computeNumRelaxIterations = @(n) 1/10 .* n;
 
-
-
 %% Init 
-temperature = 2;
-% numParticles = 5;
-% numSampleIterations = 3;
+temperatures = 0.2:0.2:0.4;
+numParticles = 100;
+numIterations = 10000;
 
-numParticles = 10;
-numSampleIterations = 10000;
-
+numSampleIterations = numIterations * numParticles;
 numRelaxIterations = computeNumRelaxIterations(numSampleIterations);
-actualNumSampleIterations = numSampleIterations * numParticles;
 
-parameters = struct(...
-    'temperature', temperature,...
-    'numParticles', numParticles,...
-    'numSampleIterations', actualNumSampleIterations,...
-    'numRelaxIterations', numRelaxIterations);
+configuration = ones([1, numParticles]);
 
-initial_configuration = ones([numParticles, numParticles]);
-configurations = MMCIsing(initial_configuration, parameters);
+for temperature = temperatures
+    parameters = struct(...
+        'temperature', temperature,...
+        'numParticles', numParticles,...
+        'numSampleIterations', numSampleIterations,...
+        'numRelaxIterations', numRelaxIterations);
 
+    [configuration, energies , magnetizations] = MMCIsing(configuration, parameters);
+end
+
+U = mean(energies);
+actual = U / numParticles;
+expected = theory.averageEnergyPerSpin1D(temperature);
+
+fprintf('U per spin should be: %1.3f, it is %1.3f, accuracy %1.3f\n', expected, actual, computeAccuracy(actual, expected));
 beep; beep;
