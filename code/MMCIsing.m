@@ -35,31 +35,23 @@ function [configuration, deltaE] = monteCarloStep(configuration, parameters)
         [numberOfConfigurationRows, numberOfConfigurationColumns] = size(configuration);
         [row, col] = ind2sub(size(configuration), flippedSpinIdx);
         
+        neighbors = zeros(4, 1);
+        
         if col > 1
-            left = configuration(row, col - 1);
-        else
-            left = [];
+            neighbors(1) = configuration(row, col - 1);
         end;
         
         if col < numberOfConfigurationColumns
-            right = configuration(row, col + 1);
-        else
-            right = [];
+            neighbors(2) = configuration(row, col + 1);
         end;
         
         if row > 1
-            top = configuration(row - 1, col);
-        else
-            top = [];
+            neighbors(3) = configuration(row - 1, col);
         end
         
         if row < numberOfConfigurationRows
-            bottom = configuration(row + 1, col);
-        else 
-            bottom = [];
+            neighbors(4) = configuration(row + 1, col);
         end
-
-        neighbors = [left, right, top, bottom];
     end
 
         % Flip a spin
