@@ -5,7 +5,7 @@ computeNumRelaxIterations = @(n) 1/10 .* n;
 
 %% Init 
 temperatures = 0.2:0.2:0.4;
-numParticles = 100;
+numParticles = 1000;
 numIterations = 10000;
 
 numSampleIterations = numIterations * numParticles;
