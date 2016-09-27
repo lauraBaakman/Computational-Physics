@@ -40,14 +40,9 @@ function [energies, magnetizations, configuration] = sampleSystem(configuration,
 end
 
 function [configuration, deltaE] = monteCarloStep(configuration, parameters)
-    persistent numberOfConfigurationColumns
-    persistent numberOfConfigurationRows
-
-    if isempty(numberOfConfigurationColumns)
-        [numberOfConfigurationRows, numberOfConfigurationColumns] = size(configuration);
-    end
 
     function [ neighbors ] = findNeighbours()
+        [numberOfConfigurationRows, numberOfConfigurationColumns] = size(configuration);
         [row, col] = ind2sub(size(configuration), flippedSpinIdx);
         
         if col > 1
