@@ -49,6 +49,11 @@ function [potentialConfig, flippedSpinIdx] = flipRandomSpin(currentConfig)
 end
 
 function [nextConfig, deltaE] = selectNextConfig(currentConfig, potentialConfig, flippedSpinIdx, parameters)
+function [deltaE] = computeDeltaE(potentialConfig, flippedSpinIdx, parameters)
+    neighbors = parameters.neighborFunction(flippedSpinIdx, potentialConfig);
+    deltaE = -2 * potentialConfig(flippedSpinIdx) * sum(neighbors);
+end
+
     deltaE = computeDeltaE(potentialConfig, flippedSpinIdx, parameters);
     xi = exp(- (1 / parameters.temperature) * deltaE);
     theta = rand();
@@ -60,7 +65,4 @@ function [nextConfig, deltaE] = selectNextConfig(currentConfig, potentialConfig,
     end
 end
 
-function [deltaE] = computeDeltaE(potentialConfig, flippedSpinIdx, parameters)
-    neighbors = parameters.neighborFunction(flippedSpinIdx, potentialConfig);
-    deltaE = -2 * potentialConfig(flippedSpinIdx) * sum(neighbors);
-end
+
