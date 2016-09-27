@@ -6,33 +6,30 @@ computeNumRelaxIterations = @(n) 1/10 .* n;
 %% Init 
 temperatures = 0.2:0.2:4;
 numParticlesList = [10, 100, 1000];
-numSampleIterationsList = [1000, 10000];
+numIterationsList = [1000, 10000];
 
 idx = 1;
 
 %% Run Simulations
 for numParticles = numParticlesList
-    for numSampleIterations =  numSampleIterationsList
+    for numIterations =  numIterationsList
         
-        actualNumSampleIterations = numSampleIterations * numParticles;
-        numRelaxIterations = computeNumRelaxIterations(actualNumSampleIterations);
+        numSampleIterations = numIterations * numParticles;
+        numRelaxIterations = computeNumRelaxIterations(numSampleIterations);
         
         initialConfiguration = ones([1, numParticles]);
         
         for temperature = temperatures
             
-            fprintf('1D: T = %1.1f N = %4d N_it = %8d\n', temperature, numParticles, actualNumSampleIterations);
+            fprintf('1D: T = %1.1f N = %4d N_it = %8d\n', temperature, numParticles, numSampleIterations);
             
             parameters = struct(...
                 'temperature', temperature,...
                 'numParticles', numParticles,...
-                'numSampleIterations', actualNumSampleIterations,...
-                'numRelaxIterations', numRelaxIterations,...
-                'neighborFunction', @neighbors.OneD2Connected);
+                'numSampleIterations', numSampleIterations,...
+                'numRelaxIterations', numRelaxIterations);
             
             [initialConfiguration, energies, ~] = MMCIsing(initialConfiguration, parameters);
-            
-            parameters = rmfield(parameters, 'neighborFunction');
             
             experiments(idx).parameters = parameters;
             
