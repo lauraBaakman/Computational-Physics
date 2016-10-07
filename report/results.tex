@@ -14,6 +14,7 @@ This section presents the results of the experiments with the one- and two- dime
 	For all values of $\numberOfSpins$ we find that the accuracy improves we find that the accuracy improves as the number of samples increases. 
 
 	\begin{table}
+		\makeatletter	
 		\centering
 		\caption{Average accuracies of the one-dimensional simulation.}
 		\begin{tabular}{
@@ -26,11 +27,11 @@ This section presents the results of the experiments with the one- and two- dime
 			\cmidrule(r){2-4}
 			\numberOfSamples & 10 & 100 & 1000 \\
 			 \midrule 
-			 1000 & -0.848369 	& -1.115464 & -0.095644\\
-			 1000 & 0.873160 	& 0.813785 	& 0.726252\\
+			 \@@input./tables/accuracies_1D.tex
 			\bottomrule
 		\end{tabular}
 		\label{tab:results:1D:averageAccuracies}			
+		\makeatother
 	\end{table}
 
 \subsection{Two-Dimensional Model}
