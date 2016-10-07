@@ -29,14 +29,11 @@ for dimensionality = dimensionalityList
                 'temperature', temperature,...
                 'numParticles', numParticles,...
                 'numSampleIterations', actualNumSampleIterations,...
-                'numRelaxIterations', numRelaxIterations,...
-                'neighborFunction', @neighbors.TwoD4Connected);
+                'numRelaxIterations', numRelaxIterations);
             
             % The initial configuration for the next temperature is the
             % final configuration of the previous temperature
             [energies , magnetizations, initialConfiguration] = MMCIsing(initialConfiguration, parameters);
-            
-            parameters = rmfield(parameters, 'neighborFunction');
             
             experiments(idx).parameters = parameters;
             
@@ -51,6 +48,7 @@ for dimensionality = dimensionalityList
             idx = idx + 1;
             
         end
+        save(sprintf('../results/2D_%d_%d.mat', numParticles, numSampleIterations), 'experiments');
     end
 end
 
@@ -58,7 +56,7 @@ end
 save('../results/2D.mat', 'experiments')
 
 %% Create plots
-output.plot(experiments, 'averageEnergy');
-output.plot(experiments, 'specificHeat');
-output.plot(experiments, 'averageMagnetization',...
-    'theoretical', @theory.averageMagnetizationPerSpin);
+% output.plot(experiments, 'averageEnergy');
+% output.plot(experiments, 'specificHeat');
+% output.plot(experiments, 'averageMagnetization',...
+%     'theoretical', @theory.averageMagnetizationPerSpin);
