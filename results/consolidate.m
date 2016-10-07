@@ -15,7 +15,7 @@ function [] = consolidate( regular_expression, output_file )
 end
 
 function [] = writeToFile(experiments, output_file)
-    if exist(output_file)
+    if exist(output_file, 'file')
        warning('The file %s is overwritten.', output_file);
     end
     save(output_file, 'experiments');
