@@ -20,8 +20,6 @@ accuracies = nan(length(numIterationsList), length(numParticlesList) + 1);
 
 outputFile = '../report/tables/accuracies_1D.tex';
 
-
-%%
 fileID = fopen(outputFile,'w+');
 fprintf(fileID, '%%!TEX root = ../report.tex\n\n');
 fprintf(fileID, '%7d \t& %8.5f\t& %8.5f\t& %16.5f\t\\\\\n', accuracies');
