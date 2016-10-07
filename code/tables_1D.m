@@ -12,7 +12,7 @@ accuracies = nan(length(numIterationsList), length(numParticlesList) + 1);
         numIterations = numIterationsList(numIterations_idx);
         
         numSampleIterations = numIterations * numParticles;
-        accuracy = output.generateLaTeXTable(experiments, numSampleIterations, numParticles);          
+        accuracy = output.generateLaTeXTable(experiments, numSampleIterations, numParticles, numIterations);          
         accuracies(numIterations_idx, numParticles_idx + 1)  = accuracy;
         accuracies(numIterations_idx, 1) = numIterations;
       end
