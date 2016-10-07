@@ -1,30 +1,24 @@
-function [] = consolidate( regular_expression )
+function [] = consolidate( regular_expression, output_file )
 %CONSILIDATE Consolidate the files of a dataset into one file.
 
     files = findFiles(regular_expression);
-    experiments2.parameters = [];
-    experiments2.statistics = [];
     
-    exp_idx = 1;
-    for idx = 1:numel(files)
+    new_data = load(files{1});
+    experiments2 = new_data.experiments;
+    for idx = 2:numel(files)
        new_data = load(files{idx}); 
-       statistics = [new_data.experiments.statistics];
-       parameters = [new_data.experiments.parameters];
-       for new_data_idx = 1:numel(statistics)
-           experiments2(exp_idx).statistics = statistics(new_data_idx);
-           experiments2(exp_idx).parameters = parameters(new_data_idx);
-       end
+       experiments2 = [experiments2 new_data.experiments];
     end
-   
-    sprintf('hi!')
-        
-% Create empty experiments struct
-% For each of the 2D files
-    % Read the contents
-    % Add to experiments
-% Check if 2D.mat already exists
-    % IF it existst, write to 2D_date_time.mat and give a warning
-    % ELSE Write to 2D.mat
+       
+    writeToFile(experiments2, output_file);
+    
+end
+
+function [] = writeToFile(experiments, output_file)
+    if exist(output_file)
+       warning('The file %s is overwritten.', output_file);
+    end
+    save(output_file, 'experiments');
 end
 
 function [files] = findFiles(regular_expression)
