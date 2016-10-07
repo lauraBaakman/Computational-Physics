@@ -33,7 +33,7 @@ for dimensionality = dimensionalityList
             
             % The initial configuration for the next temperature is the
             % final configuration of the previous temperature
-            [configuration, energies , magnetizations] = MMCIsing(initialConfiguration, parameters);
+            [initialConfiguration, energies , magnetizations] = MMCIsing(initialConfiguration, parameters);
             
             experiments(idx).parameters = parameters;
             
