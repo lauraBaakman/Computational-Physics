@@ -16,14 +16,18 @@ This section presents the results of the experiments with the one- and two- dime
 	\begin{table}
 		\centering
 		\caption{Average accuracies of the one-dimensional simulation.}
-		\begin{tabular}{cccc}
+		\begin{tabular}{
+			S[table-number-alignment = center]
+			S[table-format = 1.3, round-mode=places, round-precision=3, table-number-alignment = center]
+			S[table-format = 1.3, round-mode=places, round-precision=3, table-number-alignment = center]
+			S[table-format = 1.3, round-mode=places, round-precision=3, table-number-alignment = center]}
 			\toprule
 			~ & \multicolumn{3}{c}{Number of Spins (\numberOfSpins)}\\ 
 			\cmidrule(r){2-4}
 			\numberOfSamples & 10 & 100 & 1000 \\
 			 \midrule 
-			 1000 & \num{-0.848369} & \num{-1.115464} & \num{-0.095644}\\
-			 1000 & \num{0.873160} & \num{0.813785} & \num{0.726252}\\
+			 1000 & -0.848369 	& -1.115464 & -0.095644\\
+			 1000 & 0.873160 	& 0.813785 	& 0.726252\\
 			\bottomrule
 		\end{tabular}
 		\label{tab:results:1D:averageAccuracies}			
